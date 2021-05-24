@@ -40,6 +40,27 @@ public class BoardController {
 		model.addAttribute("page", page);
 		return "getBoardList.jsp";
 	}
+           @RequestMapping("getBoard.do")
+	public String getBoard(Model model,Board board) {
+		board = DAO.findById(board.getBoardNo()).get();
+		board.setBoardHits(board.getBoardHits()+1); // 조회수 1증가
+		DAO.save(board); // 데이터베이스에 저장
+		model.addAttribute("board",board);
+	  return "getReplyList.do";
+	}
+	@RequestMapping("editBoard.do") // 글수정
+	  public String editBoard(@RequestParam("boardNo")Integer no,Model model) {
+		Board board = DAO.findById(no).get();
+		model.addAttribute("board",board);
+	      return "updateBoard.jsp";
+	  }
+
+	@RequestMapping("Board.do") // 조회수 안오르는 보드
+	public String board(Model model,Board board) {
+		board = DAO.findById(board.getBoardNo()).get();
+		model.addAttribute("board",board);
+	  return "getReplyList.do";
+	}
 	
 	
 	
