@@ -1,8 +1,13 @@
 zzz
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 나도 연습____집에가고싶드앙
 춥다 에어컨 온도좀 올립시다요
 =======
 gkgkgk
 >>>>>>> origin/inseok
+=======
+
+asdasdsa
+>>>>>>> origin/new1
