@@ -33,14 +33,10 @@
 				&nbsp;&nbsp;&nbsp;
 				<button type="button" class="btn btn-outline-info" onclick="location.href='logout.do' ">Log-out</button>
 				</p>
-				
-			
-			
 			<div class="row">
 				<table border="1" cellpadding="0" cellspacing="0" width="700"
 					class="table table-hover fw-bold">
 					<thead class="table-dark">
-						
 						<tr>
 							<th width="100" style="text-align: center;">번호</th>
 							<th width="700" style="text-align: center;">제목</th>
