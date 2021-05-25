@@ -61,7 +61,11 @@ public class BoardController {
 		model.addAttribute("board",board);
 	  return "getReplyList.do";
 	}
-	
+	@RequestMapping("deleteBoard.do")
+	  public String deleteBoard(Board board) {
+		DAO.deleteById(board.getBoardNo());
+	      return "getBoardList.do";
+	  }
 	
 	
 
