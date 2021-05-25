@@ -104,7 +104,7 @@ function like(){
 		<form class="Rating" id="mark" action="MarkRatingLike.do" method="POST">		
 		<input type="text" id="boardNo" name="boardNo" style="display: none" value="${board.boardNo}" />
 		<input type="text" id="userCode" name="userCode" style="display: none" value="${user.userCode}" />
-		<button type="submit" style="font-size:12px">좋어요 <i class="fa fa-thumbs-o-up"></i></button>
+		<button type="submit" style="font-size:12px">좋아요 <i class="fa fa-thumbs-o-up"></i></button>
 		</form>&nbsp;&nbsp;
 		
 		<form class="Rating" action="MarkRatingHate.do"  method="POST">
@@ -118,7 +118,7 @@ function like(){
 <div class="container">	
 	<form action="insertReply.do" method="post">
 		<input type="text" name="userCode" style="display: none"  value="${user.userCode}"/>
-		<input type="text" name="id" style="display: none"  value="${user.id}"/>
+		<input type="text" name="id" style="display: none"  value="${user.id}"/><!--  -->
 		<input type="text"  name="boardNo" style="display: none"  value="${board.boardNo}"/>
 		<input type="text" class="form-control" name="userReply" placeholder="댓글을 입력해주세요"/>
 				<p align="right"><button type="submit" type="button" class="btn btn-default"> 댓글 등록</button></p>

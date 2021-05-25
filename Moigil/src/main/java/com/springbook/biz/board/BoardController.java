@@ -28,7 +28,7 @@ public class BoardController {
 		DAO.save(board);
 		return "getBoardList.do";
 	}
-	//글 리스트 불러오기 페이단위로 부른다.
+	//글 리스트 불러오기 페이지단위로 부른다.
 	@RequestMapping("getBoardList.do")
 	public String getBoardlist(Model model,@RequestParam(name="PageNo",defaultValue = "0")Integer pNo){
 		Pageable pageable = PageRequest.of(pNo, 10,Sort.Direction.ASC,"boardNo");
@@ -43,7 +43,7 @@ public class BoardController {
 		board.setBoardHits(board.getBoardHits()+1); // 조회수 1증가
 		DAO.save(board); // 데이터베이스에 저장
 		model.addAttribute("board",board);
-	  return "getReplyList.do";
+	  return "getBoard.jsp";
 	}
     // 글수정
 	@RequestMapping("editBoard.do") 

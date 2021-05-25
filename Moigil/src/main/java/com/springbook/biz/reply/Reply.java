@@ -31,9 +31,8 @@ public class Reply {
             )
 	@Column(name = "USER_REPLY_NO", unique = true)
 	private Integer userReplyNo; //댓글번호
-	@Column(name = "BOARD_NO")
+	@Column(name = "BOARD_NO", unique = true)
 	private Integer boardNo; // 글번호
-	//private String id; // 유저 아이디 사용 안하는듯
 	@Column(name = "USER_CODE")
 	private Integer userCode; // 유저코드 
 	@Column(name = "BOARD_AREA")
@@ -44,7 +43,8 @@ public class Reply {
 	private String replyDate;  //댓글등록날짜
 	@Column(name = "NICK_NAME")
 	private String nickName; //닉네임
-	
+	@Column(name = "ID", unique = true)
+	private String id; // 유저 아이디
 	
 	
 	@PrePersist // 방법 2 방법1 널값 default 적용 (insert 되기전 실행됨)
