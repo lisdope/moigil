@@ -86,20 +86,12 @@
 			<!-- 로그인 시작 -->
 			<section class="login">
 				<h1>로그인</h1>
-				<form action="login.do" method="post" id="loginForm" name="loginForm">
+				
 					<fieldset>
-						<legend>회원 로그인 폼</legend>
-						<p>
-							<label for="userId">아이디</label> <input type="text" id="id" name="id" required placeholder="Guest">
-						</p>
-						<p>
-							<label for="userPw">비밀번호</label> <input type="password" id="pw" name="pw" required placeholder="4자이상 8자이하">
-						</p>
-						<p>
-							<button type="submit">로그인</button>
-						</p>
+						<legend>로그인 </legend>
+						<d>환영합니다.</d>
 					</fieldset>
-				</form>
+				
 				<div class="memberLink">
 					<a href="createUser.jsp" class="join">회원가입</a>
 					<a href="#" class="find">아이디/비밀번호 찾기</a>
