@@ -35,8 +35,8 @@
 			<!-- //웹카페 로고 종료 -->
 			<!-- 웹카페 안내 링크 시작 -->
 			<ul class="infoLink">
-				<li><a href="#">마이페이지</a></li>
-				<li><a href="#">회원정보 수정</a></li>
+				<li><a href="mypage.jsp">마이페이지</a></li>
+				<li><a href="updateUser.jsp">회원정보 수정</a></li>
 				<li><a href="createUser.jsp">회원가입</a></li>
 			</ul>
 			<!-- //웹카페 안내 링크 종료 -->
@@ -89,7 +89,7 @@
 				
 					<fieldset>
 						<legend>로그인 </legend>
-						<d>환영합니다.</d>
+						<d> 환영합니다.</d>
 					</fieldset>
 				
 				<div class="memberLink">

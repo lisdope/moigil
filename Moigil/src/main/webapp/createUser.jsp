@@ -49,6 +49,28 @@ function checkValue(){
 		return false;
 	}	
 }
+
+
+
+function upload(){
+	$("#ajaxform").ajaxSubmit({
+        type: "POST",
+        dataType: 'text',
+        url: $("#ajaxform").attr("action"),
+        data: $("#ajaxform").serialize(),
+        success: function (data) {
+        	data2 = data.replace(/"/gi, "");
+        	var imageUrl = "/Upload/" + data2;
+        	$("#pic").attr("src", imageUrl);
+        	$("#userImage").val(data2);
+        },
+        error:function(request,status,error){
+            alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);}
+    });
+}
+
+
+
 </script>
 <title>회원가입</title>
 </head>
@@ -74,7 +96,9 @@ function checkValue(){
 			<tr><td>우편번호 </td><td><input type="text"  style="width:100px;" id="zipNo"  name="postNum" readonly/>
 			<input type="button" onClick="goPopup();" value="주소검색"/></td></tr>
 			<tr><td>도로명주소</td><td><input type="text"  style="width:600px;" id="roadFullAddr"  name="address" readonly/></td></tr>
-			<tr><td>이미지</td><td><input type="text"  style="width:200px;" name="userImage" /></td></tr>
+			<!-- <tr><td>이미지</td><td><input type="text"  style="width:200px;" name="userImage" /></td></tr>-->
+			<tr><td>이미지</td><td><form id="ajaxform" method="post" action="upload.do" enctype="multipart/form-data">
+			<input type="file"  style="width:200px;" name="Image" onchange="upload();" /></td></tr></form>
 			<tr><td><input type="submit" value="가입하기 " /></td></tr>
 		</table>
 </form>
