@@ -18,7 +18,7 @@ public class UserController {
 	
 	@RequestMapping(value="/", method = RequestMethod.GET)
 	public String index() {
-	return "index.jsp";
+	return "index2.jsp";
 	}
 	
 	@PostMapping("/login.do") // 로그인
@@ -34,24 +34,24 @@ public class UserController {
 	@PostMapping("createUser.do") // 계정생성
 	  public String create(User user) {
 		DAO.save(user);
-	      return "index.jsp";
+	      return "index2.jsp";
 	  }
 	
 	@RequestMapping("logout.do") // 로그아웃
 	  public String logout(HttpSession session) {
 		session.invalidate();
-	      return "index.jsp";
+	      return "index2.jsp";
 	  }
 	@PostMapping("updateUser.do") // 정보수정
 	  public String updateUser(User user, HttpSession session) {
 		DAO.save(user); // save 메서드는 없으면 insert 해주고 바뀐부분은 update해줌
 		session.setAttribute("user", user);
-		return "index.jsp";
+		return "index2.jsp";
 	  }
 	@RequestMapping("deleteUser.do") // 계정삭제
 	  public String deleteUser(User user) {
 		DAO.deleteById(user.getUserCode());
-	      return "index.jsp";
+	      return "index2.jsp";
 	  }
 	
 	@RequestMapping(value="/idChk.do") // 중복체크

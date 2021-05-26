@@ -29,14 +29,18 @@
 			<h3 class="index">${user.name}님! 환영합니다.</h3>
 			
 			<p align="left">
-				<button type="button" class="btn btn-outline-warning" onclick="location.href='index.jsp' ">뒤로</button>
+				<button type="button" class="btn btn-outline-warning" onclick="location.href='index2.jsp' ">뒤로</button>
 				&nbsp;&nbsp;&nbsp;
 				<button type="button" class="btn btn-outline-info" onclick="location.href='logout.do' ">Log-out</button>
 				</p>
+				
+			
+			
 			<div class="row">
 				<table border="1" cellpadding="0" cellspacing="0" width="700"
 					class="table table-hover fw-bold">
-					<thead class="table-dark">
+					<thead class="table" bgcolor="#dfefff">
+						
 						<tr>
 							<th width="100" style="text-align: center;">번호</th>
 							<th width="700" style="text-align: center;">제목</th>
@@ -45,7 +49,7 @@
 						</tr>
 					</thead>
 
-					<tbody class="table-dark">
+					<tbody class="table">
 						<c:forEach items="${page.content}" var="board">
 							<tr>
 								<td style="text-align: center;">${board.boardNo}</td>

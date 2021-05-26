@@ -29,19 +29,12 @@ public class Reply {
             strategy=GenerationType.SEQUENCE, //사용할 전략을 시퀀스로  선택
             generator="Reply_SEQ_GENERATOR" //식별자 생성기를 설정해놓은  설정        
             )
-	@Column(name = "USER_REPLY_NO")
 	private Integer userReplyNo; //댓글번호
-	@Column(name = "BOARD_NO")
 	private Integer boardNo; // 글번호
-	@Column(name = "ID")
 	private String id; // 유저 아이디
-	@Column(name = "USER_CODE")
 	private Integer userCode; // 유저코드 
-	@Column(name = "BOARD_AREA")
-	private String boardArea; //지역코드
-	@Column(name = "USER_REPLY")
+	private String areaCode; //지역코드
 	private String userReply;   // 댓글내용
-	@Column(name = "REPLY_DATE")
 	private String replyDate;  //댓글등록날짜
 	
 	

@@ -50,8 +50,7 @@ function like(){
 	    	console.log(result)
 	    } // 통신이 성공했을때 보여줄 내용, ()에는 데이터를 보낸 곳의 리턴값이 들어온다.
 	});
-	}
-
+}
 </script>
 
 <body>
@@ -104,7 +103,7 @@ function like(){
 		<form class="Rating" id="mark" action="MarkRatingLike.do" method="POST">		
 		<input type="text" id="boardNo" name="boardNo" style="display: none" value="${board.boardNo}" />
 		<input type="text" id="userCode" name="userCode" style="display: none" value="${user.userCode}" />
-		<button type="submit" style="font-size:12px">좋아요 <i class="fa fa-thumbs-o-up"></i></button>
+		<button type="submit" style="font-size:12px">좋어요 <i class="fa fa-thumbs-o-up"></i></button>
 		</form>&nbsp;&nbsp;
 		
 		<form class="Rating" action="MarkRatingHate.do"  method="POST">
@@ -118,7 +117,7 @@ function like(){
 <div class="container">	
 	<form action="insertReply.do" method="post">
 		<input type="text" name="userCode" style="display: none"  value="${user.userCode}"/>
-		<input type="text" name="id" style="display: none"  value="${user.id}"/><!--  -->
+		<input type="text" name="id" style="display: none"  value="${user.id}"/>
 		<input type="text"  name="boardNo" style="display: none"  value="${board.boardNo}"/>
 		<input type="text" class="form-control" name="userReply" placeholder="댓글을 입력해주세요"/>
 				<p align="right"><button type="submit" type="button" class="btn btn-default"> 댓글 등록</button></p>
@@ -126,18 +125,15 @@ function like(){
 		</div>
 	<div class="container">	
 		<form action="getReplyList.do" method="post">
-				
 		<p align="right">
-		<button class="btn btn-warning" onclick="location.href='getReplyList.do'">댓글보기</button></p>
 			<table class="table table-bordered">
-				<tr>
+					<tr>
 						<th colspan="2" bgcolor="#dfefff" width="100">댓글</th>
 						<th bgcolor="#dfefff" width="200">수정/삭제</th>
 					</tr>
 				<c:forEach items="${ReplyList}" var="reply">
 					<input type="text" name="userCode" style="display: none"  value="${reply.userCode}"/>
-					<input type="text" name="boardNo" style="display: none"  value="${reply.boardNo}"/>
-					<input type="text" name="boardNo" style="display: none"  value="${board.boardNo}"/>
+					<input type="text"  name="boardNo" style="display: none"  value="${reply.boardNo}"/>
 					<input type="text" name="userReplyNo" style="display: none"  value="${reply.userReplyNo}"/>
 					<input type="text" name="replyDate" style="display: none"  value="${reply.replyDate}"/>
 					<tr>
@@ -147,12 +143,11 @@ function like(){
 					<td align="center">
 					<c:if test="${reply.userCode == user.userCode}">
 						<button class="size" type="button" onclick="location.href='editReply.do?userReplyNo=${reply.userReplyNo}'">수정</button><br>
-						<button class="size" type="button" onclick="location.href='deleteReply.do?userReplyNo=${reply.userReplyNo}'">삭제</button>
+						<button class="size" type="button" onclick="location.href='deleteReply.do?userReplyNo=${reply.userReplyNo}&boardNo=${reply.boardNo}'">삭제</button>
  						</c:if>
 					</td>
 					</tr>
 					</c:forEach>
-				
 			</table>
 			</form>
 			</div>

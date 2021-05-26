@@ -43,8 +43,14 @@ public class BoardController {
 		board.setBoardHits(board.getBoardHits()+1); // 조회수 1증가
 		DAO.save(board); // 데이터베이스에 저장
 		model.addAttribute("board",board);
-	  return "getBoard.jsp";
+	  return "getReplyList.do";
 	}
+    // 글 삭제
+    @RequestMapping("deleteBoard.do")
+    public String deleteBoard(Board board) {
+    	DAO.deleteById(board.getBoardNo());
+    	return "getBoardList.do";
+    }
     // 글수정
 	@RequestMapping("editBoard.do") 
 	  public String editBoard(@RequestParam("boardNo")Integer no,Model model) {
@@ -52,22 +58,32 @@ public class BoardController {
 		model.addAttribute("board",board);
 	      return "updateBoard.jsp";
 	  }
+	
+	@RequestMapping("BoardRatingLike.do")
+	public String boardRatingLike(Model model,Board board) {
+		board = DAO.findById(board.getBoardNo()).get();
+		board.setBoardRatingLike(board.getBoardRatingLike()+1); // 좋아요 1증가
+		DAO.save(board); // 데이터베이스에 저장
+		model.addAttribute("board",board);
+	  return "Board.do";
+	}
+	@RequestMapping("boardRatingHate.do")
+	public String boardRatingHate(Model model,Board board) {
+		board = DAO.findById(board.getBoardNo()).get();
+		board.setBoardRatingLike(board.getBoardRatingLike()-1); // 좋아요 1감소
+		DAO.save(board); // 데이터베이스에 저장
+		model.addAttribute("board",board);
+	  return "Board.do";
+	}
+	
+
 	// 조회수 안오르는 보드
 	@RequestMapping("Board.do") 
 	public String board(Model model,Board board) {
 		board = DAO.findById(board.getBoardNo()).get();
 		model.addAttribute("board",board);
-	  return "getBoard.jsp";// 종착지에서 뷰를 보여줘야하는데, 또 이상한 호출을 해가지고 무한루프가 형성됨
+		return "getReplyList.do";// 종착지에서 뷰를 보여줘야하는데, 또 이상한 호출을 해가지고 무한루프가 형성됨
 	}
-	// 글 삭제
-	@RequestMapping("deleteBoard.do")
-	  public String deleteBoard(Board board) {
-		DAO.deleteById(board.getBoardNo());
-	      return "getBoardList.do";
-	  }
-	
-	
-
 	 
 	
 	

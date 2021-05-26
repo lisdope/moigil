@@ -14,22 +14,22 @@ public class ReplyController {
 	private ReplyRepository DAO;
 	
 	@RequestMapping("getReplyList.do")
-	public String getReplyList(Model model,ArrayList<Reply> reply) {
-		reply = DAO.ReplylistDesc();
+	public String getReplyList(@RequestParam("boardNo")Integer no,Model model) {
+		ArrayList<Reply>reply = DAO.ReplylistDesc(no);
 		model.addAttribute("ReplyList",reply);
-		return "Board.do";
+		return "getBoard.jsp";
 	}
 	
 	@RequestMapping("insertReply.do")
 	public String insertBoard(Reply reply) {
 		DAO.save(reply);
-	  return "getReplyList.do";
+	  return "Board.do";
 	}
 	
 	@RequestMapping("deleteReply.do")
 	public String deleteReply(Reply reply){
 		DAO.deleteById(reply.getUserReplyNo());
-		return "getReplyList.do";
+		return "Board.do";
 	}
 	
 	@RequestMapping("editReply.do")

@@ -30,14 +30,14 @@
 		<header id="header">
 			<!-- 웹카페 로고 시작 -->
 			<h1 class="logo">
-				<a href="index.html" >모이길</a>
+				<a href="index.html" id="moigil" >모이길</a>
 			</h1>
 			<!-- //웹카페 로고 종료 -->
 			<!-- 웹카페 안내 링크 시작 -->
 			<ul class="infoLink">
 				<li><a href="#">마이페이지</a></li>
 				<li><a href="#">회원정보 수정</a></li>
-				<li><a href="createUser.jsp">회원가입</a></li>
+				<li><a href="logout.do">로그아웃</a></li>
 			</ul>
 			<!-- //웹카페 안내 링크 종료 -->
 			<!-- 메인 메뉴 시작 -->
@@ -86,15 +86,29 @@
 			<!-- 로그인 시작 -->
 			<section class="login">
 				<h1>로그인</h1>
-				
-					<fieldset>
-						<legend>로그인 </legend>
-						<d>환영합니다.</d>
-					</fieldset>
-				
+				<c:if test="${empty sessionScope.user.id}">
+					<form action="login.do" method="post">
+						<fieldset>
+							<legend>회원 로그인 폼</legend>
+							<p>
+								<label for="userId">아이디</label> <input type="text" name="id" required placeholder="아이디">
+							</p>
+							<p>
+								<label for="userPw">비밀번호</label> <input type="password" name="pw" required placeholder="4자이상 8자이하">
+							</p>
+							<p>
+								<button type="submit">로그인</button>
+							</p>
+						</fieldset>
+					</form>
+				</c:if>
+				<c:if test="${!empty sessionScope.user.id}">
+					<h1>[${user.id}]님 환영합니다!</h1>
+				</c:if>
 				<div class="memberLink">
 					<a href="createUser.jsp" class="join">회원가입</a>
-					<a href="#" class="find">아이디/비밀번호 찾기</a>
+					<a href="getPw.jsp" class="find">아이디/비밀번호 찾기</a>
+					
 				</div>
 			</section>
 			<!-- //로그인 종료 -->

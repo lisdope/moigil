@@ -2,7 +2,7 @@
 
 /* 로그인 */
 .login{
-	background-image: radial-gradient(circle at top right, #ffc848, #ff8208);
+	background-image: radial-gradient(circle at top right, #89ceff, #0d6efd);
 	border-radius:5px;
 	padding:10px;
 	box-shadow: 1px 1px 5px rgba(0,0,0,0.2);
@@ -35,17 +35,17 @@
 }
 .login button{
 	position:absolute;
-	top:10px;
-	right:10px;
-	width:50px;
-	height:50px;
+	top:6px;
+	right:18px;
+	width:45px;
+	height:45px;
 	color:#fff;
-	font-size:11px;
+	font-size:10px;
 	font-weight:bold;
-	border:1px solid #ff4e00;	
-	border-radius:3px;
-	background-color: #fb5d1f;
-	background-image: linear-gradient(to bottom, #fe5f18 0%,#fa4306 100%); 
+	border:1px solid #0d6efd;	
+	border-radius:11px;
+	background-color: #0d6efd;
+	
 }
 #userId{
 	margin-bottom:6px;

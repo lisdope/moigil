@@ -10,6 +10,11 @@ html,body,div,header,nav,section,aside,article,footer,figure,figcaption,ul,ol,li
 ul{
 	list-style:none;
 }
+#moigil{
+	font-weight: bold;
+	color: #ffffff;
+}
+
 fieldset{
 	border:0;
 }
@@ -190,8 +195,8 @@ body{
 /* 메인 메뉴 */
 .mainMenu{
 	border-top:2px solid #000;
-	border-radius:0 0 5px 5px;
-	background-image: linear-gradient(to bottom, #ffc848 0%,#ff8208 40%, #ff8208 60%,#ffc848 100%);
+	border-radius:0 0 0px 0px;
+	background-image: linear-gradient(to bottom, #3788ff 0%,#0067ff 40%, #0067ff 60%,#0067ff 100%);
 	padding-left:225px;
 	height:45px;
 }
