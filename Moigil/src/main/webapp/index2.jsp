@@ -35,8 +35,8 @@
 			<!-- //웹카페 로고 종료 -->
 			<!-- 웹카페 안내 링크 시작 -->
 			<ul class="infoLink">
-				<li><a href="#">마이페이지</a></li>
-				<li><a href="#">회원정보 수정</a></li>
+				<li><a href="mypage.jsp">마이페이지</a></li>
+				<li><a href="updateUser.jsp">회원정보 수정</a></li>
 				<li><a href="logout.do">로그아웃</a></li>
 			</ul>
 			<!-- //웹카페 안내 링크 종료 -->
@@ -86,6 +86,7 @@
 			<!-- 로그인 시작 -->
 			<section class="login">
 				<h1>로그인</h1>
+
 				<c:if test="${empty sessionScope.user.id}">
 					<form action="login.do" method="post">
 						<fieldset>
@@ -105,6 +106,12 @@
 				<c:if test="${!empty sessionScope.user.id}">
 					<h1>[${user.id}]님 환영합니다!</h1>
 				</c:if>
+				
+					<fieldset>
+						<legend>로그인 </legend>
+						<d> 환영합니다.</d>
+					</fieldset>
+				
 				<div class="memberLink">
 					<a href="createUser.jsp" class="join">회원가입</a>
 					<a href="getPw.jsp" class="find">아이디/비밀번호 찾기</a>
