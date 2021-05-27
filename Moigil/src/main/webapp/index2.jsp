@@ -107,11 +107,6 @@
 					<h1>[${user.id}]님 환영합니다!</h1>
 				</c:if>
 				
-					<fieldset>
-						<legend>로그인 </legend>
-						<d> 환영합니다.</d>
-					</fieldset>
-				
 				<div class="memberLink">
 					<a href="createUser.jsp" class="join">회원가입</a>
 					<a href="getPw.jsp" class="find">아이디/비밀번호 찾기</a>
