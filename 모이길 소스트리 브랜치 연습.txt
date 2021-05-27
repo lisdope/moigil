@@ -1,1 +1,24 @@
 zzz
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+나도 연습____집에가고싶드앙
+춥다 에어컨 온도좀 올립시다요
+<<<<<<< HEAD
+<<<<<<< HEAD
+jjjjj
+
+송민준
+=======
+
+test
+>>>>>>> 3674d7b5aa44470a0b9c663826cb6aa6ef398e12
+=======
+=======
+gkgkgk
+>>>>>>> origin/inseok
+=======
+
+asdasdsa
+>>>>>>> origin/new1
+>>>>>>> 3ed3f845f2fe2d6c4f4d5abcdf5128629b23c15e
