@@ -36,6 +36,16 @@ public class BoardController {
 		model.addAttribute("page", page);
 		return "getBoardList.jsp";
 	}
+	
+	//글 리스트 불러오기 페이지단위로 부른다.
+		@RequestMapping("getBoardListArea.do")
+		public String getBoardlistArea(Model model,@RequestParam(name="PageNo",defaultValue = "0")Integer pNo){
+			Pageable pageable = PageRequest.of(pNo, 10,Sort.Direction.ASC,"boardNo");
+			Page<Board> page = DAO.findAll(pageable);
+			model.addAttribute("page", page);
+			return "getBoardListArea.jsp";
+		}
+	
 	// 글 보기
     @RequestMapping("getBoard.do")
 	public String getBoard(Model model,Board board) {

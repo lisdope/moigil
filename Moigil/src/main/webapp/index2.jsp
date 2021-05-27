@@ -48,23 +48,21 @@
 					</li>
 					<li><a href="#">함께가요(모임)</a>
 						<ul class="aboutCss">
-							<li><a href="#">지역별</a></li>
+							<li><a href="getBoardList.do">자유게시판</a></li>
+							<li><a href="getBoardListArea.do">지역별</a></li>
 							<li><a href="#">연령별</a></li>
 							<li><a href="#">반려동물과 함께</a></li>
+							<li><a href="#">당일모임</a></li>
 						</ul></li>
 					<li><a href="#">갤러리</a>
 						<ul class="webStandard">
 							<li><a href="#">최신순</a></li>
 							<li><a href="#">지역별</a></li>
 						</ul></li>
-					<li><a href="getBoardList.do">자유게시판</a>
-						<ul class="webAccessibility">
-							<li><a href="#">지역별</a></li>
-							<li><a href="#">연령별</a></li>
-							<li><a href="#">반려동물과 함께</a></li>
-							<li><a href="#">웹 접근성 품질마크</a></li>
-						</ul></li>
 					<li><a href="#">공동구매</a>
+						<ul class="commonbuy">
+							<li><a href="#">엄준식</a></li>
+						</ul>
 					</li>
 					
 				</ul>
