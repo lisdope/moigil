@@ -1,18 +1,19 @@
 package com.springbook.biz.board;
 
 
+
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 
 public interface BoardRepository extends JpaRepository<Board, Integer> {
    
-//	Page<Board> findAll(Pageable pageable);
-//	
-//	@Query(
-//			value ="SELECT p FROM Board p WHERE p.boardTitle LIKE %:boardTitle% OR p.boardContents LIKE %:boardContents%",
-//			countQuery = "SELECT COUNT(p.userCode) FROM Board p WHERE p.boardTitle LIKE %:boardTitle% OR p.boardContents LIKE %:boardContents%"
-//			)
-//	Page<Board> findAllSerach(String title, String content, Pageable pageable);
+
+	// @Query("SELECT r FROM Reply r WHERE r.boardNo =:boardNo order by r.userReplyNo desc")
+	   //ArrayList<Reply> ReplylistDesc(@Param("boardNo")Integer boardNo);
 	
-	
+	//Page<User> findAllByAccount(Pageable pageable, String account);
+	Page<Board> findAllByAreaCode(Pageable pageable, String string);
 }

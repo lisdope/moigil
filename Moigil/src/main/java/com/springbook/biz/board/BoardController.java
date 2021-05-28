@@ -22,12 +22,20 @@ public class BoardController {
 	@Autowired
 	private BoardRepository DAO;
 	
-	//글 쓰기
+	//자유게시판 글 쓰기 
 	@PostMapping("insertBoard.do")
-	public String insertBoard(Board board) {
+	public String insertBoard(Board board,@RequestParam(name="areaCode",defaultValue = "0")String aNo) {
 		DAO.save(board);
-		return "getBoardList.do";
+		if(aNo.equals("자유")) {
+			return "getBoardList.do";
+			
+		}
+		else
+			return "getBoardListArea.do";
+		
 	}
+	
+
 	//글 리스트 불러오기 페이지단위로 부른다.
 	@RequestMapping("getBoardList.do")
 	public String getBoardlist(Model model,@RequestParam(name="PageNo",defaultValue = "0")Integer pNo){
@@ -39,9 +47,9 @@ public class BoardController {
 	
 	//글 리스트 불러오기 페이지단위로 부른다.
 		@RequestMapping("getBoardListArea.do")
-		public String getBoardlistArea(Model model,@RequestParam(name="PageNo",defaultValue = "0")Integer pNo){
+		public String getBoardlistArea(Model model,@RequestParam(name="PageNo",defaultValue = "0")Integer pNo ,@RequestParam(name="areaCode",defaultValue = "0")String aNo){
 			Pageable pageable = PageRequest.of(pNo, 10,Sort.Direction.ASC,"boardNo");
-			Page<Board> page = DAO.findAll(pageable);
+			Page<Board> page = DAO.findAllByAreaCode(pageable, aNo);
 			model.addAttribute("page", page);
 			return "getBoardListArea.jsp";
 		}

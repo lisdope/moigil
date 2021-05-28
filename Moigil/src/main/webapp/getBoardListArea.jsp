@@ -13,12 +13,6 @@
 <script src="js/webcafe.js"></script>
 </head>
 <body>
-	<!-- 건너뛰기 링크 시작 -->
-	<a id="skipNav" href="#contentsArea">본문 바로가기</a>
-	<!-- //건너뛰기 링크 종료 -->
-	<!-- #wrapper 시작 -->
-	<a id="skipNav" href="#contentsArea">본문 바로가기</a>
-	<!-- //건너뛰기 링크 종료 -->
 	<!-- #wrapper 시작 -->
 	<div id="wrapper">
 		<!-- #header 시작 -->
@@ -44,7 +38,7 @@
 					<li><a href="#">함께가요(모임)</a>
 						<ul class="aboutCss">
 							<li><a href="getBoardList.do">자유게시판</a></li>
-							<li><a href="getBoardListArea.do">지역별</a></li>
+							<li><a href="getBoardListArea.do?areaCode=서울">지역별</a></li>
 							<li><a href="#">연령별</a></li>
 							<li><a href="#">반려동물과 함께</a></li>
 							<li><a href="#">당일모임</a></li>
@@ -78,6 +72,7 @@
       		<!-- 묻고 답하기 시작 -->
       		<section id="contents" class="qnaBoard">
         		<!-- 현재위치 시작 -->
+        		<p><a href="getBoardListArea.do?areaCode=서울 ">서울&nbsp&nbsp&nbsp</a><a href="getBoardListArea.do?areaCode=경기도">경기</a></p>
         		<p class="location">모이길 &gt; 함께가요(모임) &gt; <strong>지역별 게시판</strong></p> 
         		<!-- //현재위치 종료 -->
         		<h1>지역 게시판</h1>
@@ -107,7 +102,7 @@
 		            <c:forEach items="${page.content}" var="board">
 							<tr>
 								<td style="text-align: center;">${board.boardNo}</td>
-								<td><!-- ${board.areaCode} --> (임시) 서울</td>
+								<td> ${board.areaCode} </td>
 								<td align="left" style="text-align: center;"><a
 									href="getBoard.do?boardNo=${board.boardNo}">
 										${board.boardTitle}</a></td>

@@ -45,7 +45,7 @@
 					<li><a href="#">함께가요(모임)</a>
 						<ul class="aboutCss">
 							<li><a href="getBoardList.do">자유게시판</a></li>
-							<li><a href="getBoardListArea.do">지역별</a></li>
+							<li><a href="getBoardListArea.do?areaCode=서울">지역별</a></li>
 							<li><a href="#">연령별</a></li>
 							<li><a href="#">반려동물과 함께</a></li>
 							<li><a href="#">당일모임</a></li>

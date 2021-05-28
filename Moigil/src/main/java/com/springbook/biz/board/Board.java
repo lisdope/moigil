@@ -31,7 +31,7 @@ public class Board {
             generator="BOARD_SEQ_GENERATOR" //식별자 생성기를 설정해놓은  설정        
             )
 	private Integer boardNo;
-	private Integer areaCode;
+	private String areaCode;
 	private Integer userCode;
 	private String grade;
 	private String boardTitle;

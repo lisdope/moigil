@@ -19,6 +19,17 @@
 					<td align="left"><input type="text" name="boardTitle" /></td>
 				</tr>
 				<tr>
+					<td bgcolor="orange">지역</td>
+					<td align="left">
+					<select name="areaCode">
+					<optgroup>
+						<option value="자유">자유</option>
+						<option value="서울">서울</option>
+						<option value="경기도">경기도</option>
+					</optgroup>
+					</select></td>
+				</tr>
+				<tr>
 					<td bgcolor="orange">내용</td>
 					<td align="left"><textarea name="boardContents" cols="40" rows="10"></textarea></td>
 				</tr>
