@@ -28,17 +28,29 @@ public class BoardController {
 		DAO.save(board);
 		if(aNo.equals("자유")) {
 			return "getBoardList.do";
-			
 		}
-		else
-			return "getBoardListArea.do";
+		return "getBoardListArea.do";
 		
 	}
 	
 
 	//글 리스트 불러오기 페이지단위로 부른다.
 	@RequestMapping("getBoardList.do")
-	public String getBoardlist(Model model,@RequestParam(name="PageNo",defaultValue = "0")Integer pNo){
+	public String getBoardlist(Model model,@RequestParam(name="PageNo",defaultValue = "0")Integer pNo, 
+								@RequestParam(name="searchCondition",defaultValue = "0")String searchCondition,
+								@RequestParam(name="searchKeyword",defaultValue = "0")String searchKeyword){
+		
+		if (searchCondition.equals("TITLE") && searchKeyword != null) {
+			Pageable pageable = PageRequest.of(pNo, 10,Sort.Direction.ASC,"boardNo");
+			Page<Board> page = DAO.findByBoardtitle(searchKeyword, pageable);
+			model.addAttribute("page", page);
+			return "getBoardList.jsp";
+		}else if (searchCondition.equals("CONTENT") && searchKeyword != null) {
+			Pageable pageable = PageRequest.of(pNo, 10,Sort.Direction.ASC,"boardNo");
+			Page<Board> page = DAO.findByBoardtitle(searchKeyword, pageable);
+			model.addAttribute("page", page);
+			return "getBoardList.jsp";
+		}
 		Pageable pageable = PageRequest.of(pNo, 10,Sort.Direction.ASC,"boardNo");
 		Page<Board> page = DAO.findAll(pageable);
 		model.addAttribute("page", page);
