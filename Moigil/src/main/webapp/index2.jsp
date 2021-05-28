@@ -30,7 +30,7 @@
 		<header id="header">
 			<!-- 웹카페 로고 시작 -->
 			<h1 class="logo">
-				<a href="index.html" id="moigil" >모이길</a>
+				<a href="index2.jsp" id="moigil">모이길</a>
 			</h1>
 			<!-- //웹카페 로고 종료 -->
 			<!-- 웹카페 안내 링크 시작 -->

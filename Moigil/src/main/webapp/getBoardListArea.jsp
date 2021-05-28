@@ -25,7 +25,7 @@
 		<header id="header">
 			<!-- 웹카페 로고 시작 -->
 			<h1 class="logo">
-				<a href="index.html" id="moigil" >모이길</a>
+				<a href="index2.jsp"  id="moigil">모이길</a>
 			</h1>
 			<!-- //웹카페 로고 종료 -->
 			<!-- 웹카페 안내 링크 시작 -->
@@ -44,7 +44,7 @@
 					<li><a href="#">함께가요(모임)</a>
 						<ul class="aboutCss">
 							<li><a href="getBoardList.do">자유게시판</a></li>
-							<li><a href="getBoardListArea2.do">지역별</a></li>
+							<li><a href="getBoardListArea.do">지역별</a></li>
 							<li><a href="#">연령별</a></li>
 							<li><a href="#">반려동물과 함께</a></li>
 							<li><a href="#">당일모임</a></li>
@@ -116,6 +116,26 @@
 							</tr>
 						</c:forEach>
 		          </tbody>
+		          
+		          <tfoot>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td align="center"><a href="insertBoard.jsp">새글 등록</a></td>
+							<!-- 검색 시작 -->
+							<td>
+								<form action="getBoardList.do" method="post">
+									<select name="searchCondition">
+										<option value="TITLE">제목
+										<option value="CONTENT">내용
+									</select> <input name="searchKeyword" type="text" /> <input
+										type="submit" value="검색" />
+								</form>
+							</td>
+							<!-- 검색 종료 -->
+						</tr>
+					</tfoot>
 		        </table>
 		        <div>
 				<nav aria-label="Page navigation example" >
