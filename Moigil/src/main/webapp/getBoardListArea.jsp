@@ -20,12 +20,12 @@
 
 
 
-<title>글 목록</title>
+<title>모이길 산책</title>
 </head>
 <body>
 	<center>
 		<div class="container">
-			<h1 class="index">글 목록</h1>
+			<h1 class="index">지역별 게시판</h1>
 			<h3 class="index">${user.name}님! 환영합니다.</h3>
 			
 			<p align="left">
