@@ -63,9 +63,9 @@
 #contents > h1{
 	font-size:18px;
 	font-family:nanumEX;
-	color: #ff3c00;
+	color: #3cbb1c;
 	text-shadow:1px 1px 0px rgba(0,0,0,0.2);
-	border-bottom: 2px solid #ff6738;
+	border-bottom: 2px solid #3cbb1c;
 	padding-top: 15px;
 	padding-bottom: 15px;
 	margin-bottom:20px;
@@ -277,7 +277,7 @@
 }
 .boardTable th {
 	background-color: #fc9b28;
-	background-image: linear-gradient(to bottom, #ffc848 0%,#ff8208 50%,#ffc848 100%);
+	background-image: linear-gradient(to bottom, #3788ff 0%,#0067ff 40%,#0067ff 60%, #0067ff 100%);
 	color: #fff;
 }
 .boardTable th:first-child {
