@@ -14,6 +14,8 @@ public interface BoardRepository extends JpaRepository<Board, Integer> {
 	@Query("SELECT b FROM Board b WHERE b.boardTitle like %?1%")
 	public Page<Board> findByBoardtitle(String searchKeyword, Pageable pageable);
 
+	@Query("SELECT b FROM Board b WHERE b.boardContents like %?1%")
+	public Page<Board> findByBoardcontent(String searchKeyword, Pageable pageable);
 
 	// @Query("SELECT r FROM Reply r WHERE r.boardNo =:boardNo order by r.userReplyNo desc")
 	   //ArrayList<Reply> ReplylistDesc(@Param("boardNo")Integer boardNo);

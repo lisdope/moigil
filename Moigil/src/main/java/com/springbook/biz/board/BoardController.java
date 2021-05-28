@@ -47,7 +47,7 @@ public class BoardController {
 			return "getBoardList.jsp";
 		}else if (searchCondition.equals("CONTENT") && searchKeyword != null) {
 			Pageable pageable = PageRequest.of(pNo, 10,Sort.Direction.ASC,"boardNo");
-			Page<Board> page = DAO.findByBoardtitle(searchKeyword, pageable);
+			Page<Board> page = DAO.findByBoardcontent(searchKeyword, pageable);
 			model.addAttribute("page", page);
 			return "getBoardList.jsp";
 		}
