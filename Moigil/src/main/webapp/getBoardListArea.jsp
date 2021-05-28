@@ -133,17 +133,17 @@
 			<!-- //묻고 답하기 시작 -->
 			<!-- //#contents 종료 --> 
 			<!-- 트위터 시작 -->
+			<!--
+			<h1>twitter</h1>
 			<aside id="twitter" title="HTML5 관련 글">
-				<h1>twitter</h1>
-				<!--
 				<article class="twitterArticle">
 					<img src="images/seulbinim.jpg" class="twitterUserProfile" alt="">
 					<a href="http://twitter.com/seulbinim" class="twitterUserName" title="seulbinim의 트위터로 연결됩니다.">seulbinim</a>
 					<p class="twitterContent">슬비네에서 웹표준 핵심 가이드북 출시 기념으로 <mark>HTML5</mark> 교육을 무료로 진행한다고 합니다. <mark>HTML5</mark>에 관심이 있는 분들은 슬비네로 문의하시기 바랍니다. </p>
 					<time datetime="2013-10-04" class="twitterDate">2013년 10월 04일</time>
 				</article> 
-				 -->
 			</aside>
+				 -->
 			<!-- //트위터 종료 -->       
 		</div>
 		<!-- //#contentsArea 종료 -->
