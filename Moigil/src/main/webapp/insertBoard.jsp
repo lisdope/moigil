@@ -23,9 +23,9 @@
 					<td align="left">
 					<select name="areaCode">
 					<optgroup>
-						<option value="자유">자유</option>
-						<option value="서울">서울</option>
-						<option value="경기도">경기도</option>
+						<option value="free">자유</option>
+						<option value="seoul">서울</option>
+						<option value="gyeonggi">경기도</option>
 					</optgroup>
 					</select></td>
 				</tr>
@@ -40,7 +40,7 @@
 			</table>
 		</form>
 		<hr>
-		<a href="getBoardList.do">글 목록 가기</a>
+		<a href="getBoardList.do">자유게시판 가기</a>
 	</center>
 </body>
 </html>

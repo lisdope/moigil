@@ -38,7 +38,7 @@
 					<li><a href="#">함께가요(모임)</a>
 						<ul class="aboutCss">
 							<li><a href="getBoardList.do">자유게시판</a></li>
-							<li><a href="getBoardListArea.do?areaCode=서울">지역별</a></li>
+							<li><a href="getBoardListArea.do?areaCode=seoul">지역별</a></li>
 							<li><a href="#">연령별</a></li>
 							<li><a href="#">반려동물과 함께</a></li>
 							<li><a href="#">당일모임</a></li>
@@ -59,6 +59,8 @@
 			<!-- //메인 메뉴 종료 -->
 		</header>
 		<!-- //#header 종료 -->
+		
+		
 		<!-- #visual 시작 -->
 		<div id="visual">
 			<p>
@@ -66,13 +68,17 @@
 			</p>
 		</div>
 		<!-- //#visual 종료 -->
+		
+		
 		<!-- #contentsArea 시작 -->
 		<div id="contentsArea"> 
       		<!-- #contents 시작 -->
-      		<!-- 묻고 답하기 시작 -->
       		<section id="contents" class="qnaBoard">
         		<!-- 현재위치 시작 -->
-        		<p><a href="getBoardListArea.do?areaCode=서울 ">서울&nbsp&nbsp&nbsp</a><a href="getBoardListArea.do?areaCode=경기도">경기</a></p>
+        		<p>
+        			<a href="getBoardListArea.do?areaCode=seoul" >서울&nbsp&nbsp&nbsp</a>
+        			<a href="getBoardListArea.do?areaCode=gyeonggi">경기</a>
+        		</p>
         		<p class="location">모이길 &gt; 함께가요(모임) &gt; <strong>지역별 게시판</strong></p> 
         		<!-- //현재위치 종료 -->
         		<h1>지역 게시판</h1>
@@ -120,12 +126,12 @@
 							<td align="center"><a href="insertBoard.jsp">새글 등록</a></td>
 							<!-- 검색 시작 -->
 							<td>
-								<form action="getBoardList.do" method="post">
+								<form action="getBoardListArea.do" method="post">
 									<select name="searchCondition">
 										<option value="TITLE">제목
 										<option value="CONTENT">내용
-									</select> <input name="searchKeyword" type="text" /> <input
-										type="submit" value="검색" />
+									</select> <input name="searchKeyword" type="text" /> 
+									<input type="submit" value="검색" />
 								</form>
 							</td>
 							<!-- 검색 종료 -->
@@ -136,10 +142,10 @@
 				<nav aria-label="Page navigation example" >
 					<ul class="pagination">
 						<c:if test="${page.number > 0}">
-							<a href="getBoardList.do?PageNo=${page.number-1}">[이전]</a>
+							<a href="getBoardListArea.do?PageNo=${page.number-1}">[이전]</a>
 						</c:if>
 						<c:if test="${page.hasNext()}">
-							<a href="getBoardList.do?PageNo=${page.number+1}">[다음]</a>
+							<a href="getBoardListArea.do?PageNo=${page.number+1}">[다음]</a>
 						</c:if>
 					</ul>
 				</nav>
