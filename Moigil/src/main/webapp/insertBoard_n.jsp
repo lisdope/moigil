@@ -12,7 +12,6 @@
 		<hr>
 		<form action="insertBoard.do" method="post">
 		<input type="text" name="userCode" style="display: none" value="${user.userCode}"/>
-		<input type="text" name="grade" style="display: none" value="${user.grade}"/>
 		<input type="text" name=boardRatingHate style="display: none" value="0" />
 		<input type="text" name="boardRatingLike" style="display: none" value="0" />
 			<table border="1" cellpadding="0" cellspacing="0">

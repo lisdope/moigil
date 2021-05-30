@@ -21,22 +21,29 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.AUTO) // 레코드 추가할때마다 자동으로 1 씩 증가함
 	@Id
 	private Integer userCode;         
+	private String name;             
 	private String id;               
 	private String pw;               
-	private String email;           
-	private String userImage;        
-	private String name;             
 	private String birth;            
-	private String postNum;          
-	private String phoneCd;         
+	private String postNum;                  
 	private String phoneNum;         
+	private String email;           
 	private String address;          
-	private String entDate;          
-	private String grade;		
+	private String entDate;          		
+	private String userImage;
 	
 	@PrePersist 
 	public void prePersist() {
 		this.entDate = this.entDate == null ? new SimpleDateFormat("yyyy-MM-dd").format(new Date()) : this.entDate;
 	}
+
+	@Override
+	public String toString() {
+		return "User [userCode=" + userCode + ", name=" + name + ", id=" + id + ", pw=" + pw + ", birth=" + birth
+				+ ", postNum=" + postNum + ", phoneNum=" + phoneNum + ", email=" + email + ", address=" + address
+				+ ", entDate=" + entDate + ", userImage=" + userImage + "]";
+	}
+	
+	
 	
 }

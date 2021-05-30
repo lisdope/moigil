@@ -113,7 +113,7 @@
     </nav>
 	<header>
       <div class="thumb-wrapper stagger-item">
-		<img id="pic" style="margin-left: 15px;" height="180px" width="150px" src="/Upload/${user.userImage}"><br/>
+		<img id="pic" style="margin-left: 15px;" height="180px" width="150px" src="/userImg/${user.userImage}"><br/>
         <div class="badge">${user.id}</div>
       </div>
 

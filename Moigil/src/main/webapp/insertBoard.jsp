@@ -12,7 +12,6 @@
 		<hr>
 		<form action="insertBoard.do" method="post">
 		<input type="text" name="userCode" style="display: none" value="${user.userCode}"/>
-		<input type="text" name="grade" style="display: none" value="${user.grade}"/>
 			<table border="1" cellpadding="0" cellspacing="0">
 				<tr>
 					<td bgcolor="orange" width="70">Á¦¸ñ</td>
