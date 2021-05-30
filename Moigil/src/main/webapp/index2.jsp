@@ -100,16 +100,16 @@
 							</p>
 						</fieldset>
 					</form>
+				<div class="memberLink">
+					<a href="createUser.jsp" class="join">회원가입</a>
+					<a href="getId.jsp" class="find">아이디 찾기</a>
+					<a href="getPw.jsp" class="find">비밀번호 찾기</a>
+				</div>
 				</c:if>
 				<c:if test="${!empty sessionScope.user.id}">
 					<h1>[${user.id}]님 환영합니다!</h1>
 				</c:if>
 				
-				<div class="memberLink">
-					<a href="createUser.jsp" class="join">회원가입</a>
-					<a href="getId.jsp" class="find">아이디/비밀번호 찾기</a>
-					
-				</div>
 			</section>
 			<!-- //로그인 종료 -->
 		</div>

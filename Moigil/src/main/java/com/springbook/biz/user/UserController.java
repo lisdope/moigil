@@ -34,7 +34,7 @@ public class UserController {
 	}
 	
 	
-	@PostMapping("login.do") // 로그??
+	@PostMapping("login.do") // 로그인
 	  public String login(User user, HttpSession session) {
 	      User login = DAO.findUser(user.getId(), user.getPw());
 	      session.setAttribute("user", login);
@@ -44,19 +44,19 @@ public class UserController {
 	      return "index2.jsp";
 	  }
 	
-	@PostMapping("createUser.do") // 계정?�성
+	@PostMapping("createUser.do") // 계정생성
 	  public String create(User user) {
 		DAO.save(user);
 	      return "index2.jsp";
 	  }
 	
-	@RequestMapping("logout.do") // 로그?�웃
+	@RequestMapping("logout.do") // 로그아웃
 	  public String logout(HttpSession session) {
 		session.invalidate();
 	      return "index2.jsp";
 	  }
 
-	@PostMapping("updateUser.do") // ?�보?�정
+	@PostMapping("updateUser.do") // 회원정보수정
 	  public String updateUser(User user, HttpSession session) {
 		DAO.save(user); // save 메서?�는 ?�으�? insert ?�주�? 바뀐�?분�? update?�줌
 		session.setAttribute("user", user);
@@ -90,27 +90,28 @@ public class UserController {
 		return "idChk.jsp";
 	}
 
-	@RequestMapping("/getId.do")
-	   public String getId(User user, HttpSession req){
+	@RequestMapping("/getId.do") // 아이디 찾기
+	   public String getId(HttpServletRequest req){
 	      try{
-	      User getId = DAO.getId(user.getName(),user.getEmail());
-	      req.setAttribute("id", getId.getId());
-	            return "foundId.jsp";
+	    	 String name = req.getParameter("name");
+		     String email = req.getParameter("email");   
+	    	 User user = DAO.getId(name, email);
+	    	 req.setAttribute("userId", user.getId());
+	          	return "foundId.jsp";
 	      }catch (NullPointerException e) {
 	         return "getId.jsp";
 	      }
 	   }
 	   
 	   
-	   @RequestMapping("/getPw.do")
+	   @RequestMapping("/getPw.do") // 비밀번호 찾기
 	   public String getPw(HttpServletRequest req){
 	      try{
-	         
 	         String id = req.getParameter("id");
 	         String email = req.getParameter("email");
 	         User getPw = DAO.getPw(id, email);
 	         req.setAttribute("userPw", getPw.getPw());
-	         return "foundPw.jsp";
+	         	return "foundPw.jsp";
 	      }catch (NullPointerException e) {
 	         return "getPw.jsp";
 	      }

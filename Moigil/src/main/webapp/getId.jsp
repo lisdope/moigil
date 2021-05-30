@@ -4,7 +4,6 @@
 <html>
 <head>
 <title>아이디 찾기</title>
-</head>
 <link rel="shortcut icon" href="images/common/webcafe.ico">
 <link rel="apple-touch-icon" href="images/common/webcafe.png">
 <link rel="stylesheet" href="css/common.css">
