@@ -3,11 +3,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<script language="javascript">
-// opener관련 오류가 발생하는 경우 아래 주석을 해지하고, 사용자의 도메인정보를 입력합니다. ("팝업API 호출 소스"도 동일하게 적용시켜야 합니다.)
-//document.domain = "abc.go.kr";
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="/js/jquery.form.js"></script>
+<script type="text/javascript">
 function goPopup(){
 	// 주소검색을 수행할 팝업 페이지를 호출합니다.
 	// 호출된 페이지(jusopopup.jsp)에서 실제 주소검색URL(https://www.juso.go.kr/addrlink/addrLinkUrl.do)를 호출하게 됩니다.
@@ -49,11 +48,36 @@ function checkValue(){
 		return false;
 	}	
 }
+
+
+function upload(){
+	$("#ajaxform").ajaxSubmit({
+        type: "POST",
+        dataType: 'text',
+        url: $("#ajaxform").attr("action"),
+        data: $("#ajaxform").serialize(),
+        success: function (data) {
+        	data2 = data.replace("", /#/gi); 
+        	var imageUrl = "/Upload/" + data2;
+        	$("#pic").attr("src", imageUrl);
+        	$("#userImage").val(data2);
+        },
+        error:function(request,status,error){
+            alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);}
+    });
+}
+	
 </script>
 <title>회원가입</title>
 </head>
 <body>
-<form action="createUser.do" name="userInfo" id="form" method="post" onsubmit="return checkValue()">
+	<form id="ajaxform" method="post" action="upload.do" enctype="multipart/form-data">
+	<table>
+	<tr><td>프로필</td><td><input type="file"  style="width:200px;" name="Image" onchange="upload();" /></td></tr>
+	<img id="pic" style="margin-left: 15px;" height="180px" width="150px" src=""><br/>
+	</table>
+	</form>
+<form action="createUser.do" name="userInfo" method="post" onsubmit="return checkValue()">
 		<table>
 			<tr><td>아이디</td><td><input type="text"  style="width:100px;" name="id"  id="id" onkeydown="inputIdChk()"/>
 			<input type="button" onClick="idchk();" value="중복체크"/></td></tr>
@@ -74,9 +98,9 @@ function checkValue(){
 			<tr><td>우편번호 </td><td><input type="text"  style="width:100px;" id="zipNo"  name="postNum" readonly/>
 			<input type="button" onClick="goPopup();" value="주소검색"/></td></tr>
 			<tr><td>도로명주소</td><td><input type="text"  style="width:600px;" id="roadFullAddr"  name="address" readonly/></td></tr>
-			<tr><td>이미지</td><td><input type="text"  style="width:200px;" name="userImage" /></td></tr>
+			<input type="hidden" id="userImage" name="userImage" value="userImg">
 			<tr><td><input type="submit" value="가입하기 " /></td></tr>
-		</table>
-</form>
+			</table>
+			</form>
 </body>
 </html>
