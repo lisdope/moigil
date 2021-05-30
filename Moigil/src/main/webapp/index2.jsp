@@ -107,7 +107,7 @@
 				
 				<div class="memberLink">
 					<a href="createUser.jsp" class="join">회원가입</a>
-					<a href="getPw.jsp" class="find">아이디/비밀번호 찾기</a>
+					<a href="getId.jsp" class="find">아이디/비밀번호 찾기</a>
 					
 				</div>
 			</section>

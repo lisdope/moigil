@@ -21,11 +21,13 @@ public interface UserRepository extends CrudRepository<User, Integer>{
       @Query("SELECT COUNT(*) FROM User u WHERE u.id = :id") // 아이디 체크
       Integer idChk(@Param("id")String id);
       
-      @Query("SELECT u.id FROM User u WHERE u.name = :name") // 아이디 찾기
-      String getId(String name);
+      @Query("SELECT u FROM User u WHERE u.name = :name and u.email = :email") // 아이디 찾기
+      User getId(String name,String email);
       
-      @Query("SELECT u.pw FROM User u WHERE u.id = :id") // 비번 찾기
-      String getPw(String id);
+      @Query("SELECT u FROM User u WHERE u.id = :id and u.email = :email") // 비번 찾기
+      User getPw(String id, String email);
+
+//      public boolean logincheck(String id, String pw);
       
 
       
