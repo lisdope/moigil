@@ -71,8 +71,8 @@ function like(){
 					<tr>	
 						<th bgcolor="#dfefff">아이디</th>
 						<td colspan="1" align="left">${user.id }</td>
-						<th bgcolor="#dfefff">등급</th>
-						<td colspan="1" align="left">${board.grade }</td>
+						<th bgcolor="#dfefff">지역</th>
+						<td colspan="1" align="left">${board.areaCode }</td>
 						<th bgcolor="#dfefff">조회수</th>
 						<td colspan="1" align="left">${board.boardHits }</td>
 						<th bgcolor="#dfefff">등록일</th>

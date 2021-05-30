@@ -185,7 +185,7 @@
 		</form>
 					<div class="btnJoinArea">
 						<button type="submit" class="btnOk">회원가입</button>
-						<button type="button" class="btnCancel">취소</button>
+						<button type="button" class="btnCancel" onclick="history.back(-1);">취소</button>
 					</div>
 			</fieldset>
 
