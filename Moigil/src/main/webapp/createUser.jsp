@@ -156,6 +156,13 @@
 					<label for="address">도로명주소</label><input type="text"  style="width:600px;" id="roadFullAddr"  name="address" readonly/>
 				</p>
 					
+				<p>
+				<label for="grade">등급</label><select name="grade" id="grade">
+						<option value="USER">USER</option>
+						<option value="ADMIN">ADMIN</option>					
+					</select>
+				</p>	
+					
 				<!-- 프로필 이미지가 미리보기로 보여지는 곳 -->	
 				<div class="form-group">
 					<p>
@@ -168,7 +175,7 @@
 					</div>
 				</div>
 				<input type="hidden" id="flag" name="flag" value="false"><br>
-
+				
 
 		</form>
 
