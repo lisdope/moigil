@@ -10,6 +10,7 @@
 	<center>
 		<h3>비밀번호는 ${userPw} 입니다. </h3>
 		<a href="index2.jsp">홈으로</a>
+
 	</center>
 </body>
 </html>

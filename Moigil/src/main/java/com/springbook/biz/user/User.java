@@ -31,6 +31,7 @@ public class User {
 	private String address;          
 	private String entDate;          		
 	private String userImage;
+	private String grade;
 	
 	@PrePersist 
 	public void prePersist() {

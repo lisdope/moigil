@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="utf-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -156,6 +156,13 @@
 					<label for="address">도로명주소</label><input type="text"  style="width:600px;" id="roadFullAddr"  name="address" readonly/>
 				</p>
 					
+				<p>
+				<label for="grade">등급</label><select name="grade" id="grade">
+						<option value="USER">USER</option>
+						<option value="ADMIN">ADMIN</option>					
+					</select>
+				</p>	
+					
 				<!-- 프로필 이미지가 미리보기로 보여지는 곳 -->	
 				<div class="form-group">
 					<p>
@@ -168,7 +175,7 @@
 					</div>
 				</div>
 				<input type="hidden" id="flag" name="flag" value="false"><br>
-
+				
 
 		</form>
 
@@ -185,7 +192,7 @@
 		</form>
 					<div class="btnJoinArea">
 						<button type="submit" class="btnOk">회원가입</button>
-						<button type="button" class="btnCancel">취소</button>
+						<button type="button" class="btnCancel" onclick="history.back(-1);">취소</button>
 					</div>
 			</fieldset>
 

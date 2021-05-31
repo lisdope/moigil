@@ -1,4 +1,4 @@
-<%@page contentType="text/html; charset=EUC-KR"%>
+<%@page contentType="text/html; charset=UTF-8"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
@@ -12,7 +12,7 @@ body{
 </style>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>±Û »ó¼¼</title>
+<title>ê¸€ ìƒì„¸</title>
 </head>
 <body>
 <div class="container">
@@ -24,24 +24,24 @@ body{
 			<input type="hidden" name="grade" value="${board.grade}">
 			<input type="hidden" name="boardDate" value="${board.boardDate}">
 			<input type="hidden" name="boardHits" value="${board.boardHits}">
-			<input type="hidden" name="boardRatingLike" value="${board.boardRatingLike}">
-				<p align="left"><b> °Ô½Ã±Û ¹øÈ£ :</b> ${board.boardNo} </p>
+			<input type="hidden" name="boardRatingLike" value="${board.boardRatingLike}">  
+				<p align="left"><b> ê²Œì‹œê¸€ ë²ˆí˜¸ :</b> ${board.boardNo} </p>
 				<br>
 			<div class="form-group">
-					<label for="exampleInputName2">Á¦¸ñ </label>
+					<label for="exampleInputName2">ì œëª© </label>
 					<input type="text" name="boardTitle" value="${board.boardTitle}" class="form-control" style="width: 500px">
 			</div>
 			<br>
 			<br>
 			<div class="form-group">
-					<label for="exampleInputName2">³»¿ë</label>
+					<label for="exampleInputName2">ë‚´ìš©</label>
 					<textarea class="form-control" name="boardContents" rows="5" cols="30" 
 						style="width: 500px; height: 300px">${board.boardContents}</textarea>
 			</div>
 			<br>
 			<br>
-			<input class="btn btn-default" type="submit" value="¼öÁ¤">
-			<input class="btn btn-default" type="button" onclick="history.back(-1);" value="Ãë¼Ò">
+			<input class="btn btn-default" type="submit" value="ìˆ˜ì •">
+			<input class="btn btn-default" type="button" onclick="history.back(-1);" value="ì·¨ì†Œ">
 		</form>
 	</center>
 	</div>
