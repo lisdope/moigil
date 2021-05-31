@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -18,57 +19,76 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 
 @Controller
-
 public class UserController {
 	@Autowired
 	private UserRepository DAO;
 	
 	@RequestMapping(value="/", method = RequestMethod.GET)
 	public String index() {
-	return "index2.jsp";
+	return "index.jsp";
 	}
 	
+	/*
+	 * @RequestMapping(value="ajaxLoginCheck.do",method=RequestMethod.GET)
+	 * 
+	 * @ResponseBody public HashMap<String, String>
+	 * ajaxLogincheck(HttpServletRequest request , @RequestParam(value="id",
+	 * required=false) String id , @RequestParam(value="pw", required=false) String
+	 * pw){ HashMap<String, String> loginYnMap = new HashMap<String, String>();
+	 * 
+	 * boolean check = false; check = DAO.logincheck(id, pw);
+	 * 
+	 * if(check){ loginYnMap.put("loginYn", "success"); }else{
+	 * loginYnMap.put("loginYn", "fail"); }
+	 * 
+	 * return loginYnMap; }
+	 */
 	
 	@PostMapping("login.do") // 로그??
 	  public String login(User user, HttpSession session) {
 	      User login = DAO.findUser(user.getId(), user.getPw());
 	      session.setAttribute("user", login);
 	      if(login != null) {
-	          return "index2.jsp";
+	          return "index.jsp";
 	      }
-	      return "index2.jsp";
+	      return "index.jsp";
 	  }
 	
-	@PostMapping("createUser.do") // 계정?�성
+	@PostMapping("createUser.do") // 계정생성
 	  public String create(User user) {
 		DAO.save(user);
-	      return "index2.jsp";
+	      return "index.jsp";
 	  }
 	
-	@RequestMapping("logout.do") // 로그?�웃
+	@RequestMapping("logout.do") // 로그아웃
 	  public String logout(HttpSession session) {
 		session.invalidate();
-	      return "index2.jsp";
+	      return "index.jsp";
 	  }
 
-	@PostMapping("updateUser.do") // ?�보?�정
+	@PostMapping("updateUser.do") // 
 	  public String updateUser(User user, HttpSession session) {
-		DAO.save(user); // save 메서?�는 ?�으�? insert ?�주�? 바뀐�?분�? update?�줌
-		session.setAttribute("user", user);
-		return "index2.jsp";
+		System.out.println("성공됨");
+		DAO.save(user); // save 
+		session.setAttribute("userPage", user);
+		return "index.jsp";
 	  }
-//	@PostMapping("updateUser.do") // ?�보?�정
-//	  public String updateUser(User user, HttpSession session) {
-//		DAO.save(user); // save 메서?�는 ?�으�? insert ?�주�? 바뀐�?분�? update?�줌
-//		session.setAttribute("user", user);
-//		return "index2.jsp";
-//	  }
+
+	@GetMapping("updateUser.do") // 회원수정
+	  public String updateUserPage(HttpSession session) {
+		System.out.println("성공");
+		User auth = (User)session.getAttribute("user");
+		User userPage = DAO.findUser(auth.getId());
+		userPage.setPw("");
+		session.setAttribute("userPage", userPage);
+		return "updateUser.jsp";
+	  }
 	
 	
 	@RequestMapping("deleteUser.do") // 계정??��
 	  public String deleteUser(User user) {
 		DAO.deleteById(user.getUserCode());
-	      return "index2.jsp";
+	      return "index.jsp";
 	  }
 	
 	@RequestMapping(value="/idChk.do") // 중복체크
@@ -87,6 +107,7 @@ public class UserController {
 
 	@RequestMapping("/getId.do")
 	   public String getId(User user, HttpSession req){
+		System.out.println("id찾기 실행됨");
 	      try{
 	      User getId = DAO.getId(user.getName(),user.getEmail());
 	      req.setAttribute("id", getId.getId());
@@ -96,24 +117,38 @@ public class UserController {
 	      }
 	   }
 	   
-	   
 	   @RequestMapping("/getPw.do")
-	   public String getPw(HttpServletRequest req){
+	   public String getPw(User user, HttpSession req){
+		   System.out.println("비밀번호 1실행됨");
 	      try{
-	         
-	         String id = req.getParameter("id");
-	         String email = req.getParameter("email");
-	         User getPw = DAO.getPw(id, email);
-	         req.setAttribute("userPw", getPw.getPw());
+	    	 System.out.println("비밀번호 2실행됨");
+	    	 User getPw = DAO.getId(user.getId(),user.getEmail());
+	        req.setAttribute("userPw", getPw.getPw());
 	         return "foundPw.jsp";
 	      }catch (NullPointerException e) {
-	         return "getPw.jsp";
+	         return "getId.jsp";
 	      }
 	   }
 
+	   
+//	   @RequestMapping("/getPw.do")
+//	   public String getPw(HttpServletRequest req){
+//		   System.out.println("비밀번호 1실행됨");
+//	      try{
+//	    	 System.out.println("비밀번호 2실행됨");
+//	         String id = req.getParameter("id");
+//	         String email = req.getParameter("email");
+//	         User getPw = DAO.getPw(id, email);
+//	         req.setAttribute("userPw", getPw.getPw());
+//	         return "foundPw.jsp";
+//	      }catch (NullPointerException e) {
+//	         return "getPw.jsp";
+//	      }
+//	   }
+
 	
 	 
-	@RequestMapping(value="upload.do", method=RequestMethod.POST) 
+	@RequestMapping(value="upload.do", method=RequestMethod.POST)
 	@ResponseBody
 	public String saveFile(HttpServletRequest request) throws IOException {
 		String imageFolder = request.getParameter("imageFolder");
@@ -126,14 +161,14 @@ public class UserController {
 		File ufile = new File(realFolder + file.getOriginalFilename());
 		file.transferTo((ufile));
 
-		return filename; 
+		return filename;
 	}
 	
 	@RequestMapping(value = "update_mypage.do", method = RequestMethod.POST)
 	public String update_mypage(User user, HttpSession session, RedirectAttributes rttr) throws Exception{
 		DAO.save(user);
 		session.setAttribute("user",user);
-		rttr.addFlashAttribute("msg", "?�원?�보 ?�정 ?�료");
+		rttr.addFlashAttribute("msg", "회원정보저장완료");
 		return "redirect:/myPage.jsp";
 	}
 	
