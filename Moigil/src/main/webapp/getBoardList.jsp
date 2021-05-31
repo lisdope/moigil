@@ -120,7 +120,9 @@
 						<tr>
 							<td></td>
 							<td></td>
+							<c:if test="${!empty sessionScope.user.id}">
 							<td align="center"><a href="insertBoard.jsp">새글 등록</a></td>
+							</c:if>
 							<!-- 검색 시작 -->
 							<td>
 								<form action="getBoardList.do" method="post">

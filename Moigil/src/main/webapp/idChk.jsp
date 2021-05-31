@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
-<title>IDÁßº¹Ã¼Å©</title>
+<meta charset="UTF-8">
+<title>IDì¤‘ë³µì²´í¬</title>
 </head>
 <script>
 function load(){
@@ -20,9 +20,9 @@ function load(){
 }
 
 function sendCheckValue(){
-	// Áßº¹Ã¼Å© °á°úÀÎ idCheck °ªÀ» Àü´ŞÇÑ´Ù.
+	// ì¤‘ë³µì²´í¬ ê²°ê³¼ì¸ idCheck ê°’ì„ ì „ë‹¬í•œë‹¤.
 	opener.document.userInfo.idDuplication.value ="idCheck";
-	// È¸¿ø°¡ÀÔ È­¸éÀÇ IDÀÔ·Â¶õ¿¡ °ªÀ» Àü´Ş
+	// íšŒì›ê°€ì… í™”ë©´ì˜ IDì…ë ¥ë€ì— ê°’ì„ ì „ë‹¬
 	opener.document.userInfo.id.value = document.getElementById("userId").value;
 	
 	if (opener != null) {
@@ -35,7 +35,7 @@ function sendCheckValue(){
 <input type="text" name="id" id="userId" readonly>
 <br>
 <h3>${msg}</h3>
-<input id="cancelBtn" type="button" value="»ç¿ëÇÏ±â" onclick="sendCheckValue()">
-<input id="useBtn" type="button" value="Ãë¼Ò" onclick="window.close()">
+<input id="cancelBtn" type="button" value="ì‚¬ìš©í•˜ê¸°" onclick="sendCheckValue()">
+<input id="useBtn" type="button" value="ì·¨ì†Œ" onclick="window.close()">
 </body>
 </html>

@@ -1,15 +1,15 @@
-<%@page contentType="text/html; charset=EUC-KR"%>
+<%@page contentType="text/html; charset=UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>ºñ¹Ð¹øÈ£ Ã£±â ¿Ï·á</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>ë¹„ë°€ë²ˆí˜¸ ì°¾ê¸° ì™„ë£Œ</title>
 </head>
 <body>
 	<center>
-		<h3>ºñ¹Ð¹øÈ£´Â ${userPw} ÀÔ´Ï´Ù. </h3>
-		<a href="index2.jsp">È¨À¸·Î</a>
+		<h3>ë¹„ë°€ë²ˆí˜¸ëŠ” ${userPw} ìž…ë‹ˆë‹¤. </h3>
+		<a href="index2.jsp">í™ˆìœ¼ë¡œ</a>
 
 	</center>
 </body>

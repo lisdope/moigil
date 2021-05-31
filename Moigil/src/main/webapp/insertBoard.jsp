@@ -39,11 +39,7 @@
 			</table>
 		</form>
 		<hr>
-<<<<<<< HEAD
-		<a href="getBoardList.do">�����Խ��� ����</a>
-=======
 		<a href="getBoardList.do">글 목록 가기</a>
->>>>>>> kingdong5
 	</center>
 </body>
 </html>

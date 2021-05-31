@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,7 +16,7 @@
     <script src="main.js"></script>
 
     <style>
-      /* Çì´õ */
+      /* í—¤ë” */
       header {
         text-align: center;
         margin-top: 75px;
@@ -68,7 +68,7 @@
         margin-top: 18px;
       }
 
-      /* ¸®½ºÆ® */
+      /* ë¦¬ìŠ¤íŠ¸ */
       .list {
         margin-top: 48px;
       }
@@ -105,10 +105,10 @@
 <body>
     <nav class="gnb">
       <a href="index2.jsp" class="cover mouse-effect">
-        <img src="images/icon/cover.svg" />È¨
+        <img src="images/icon/cover.svg" />í™ˆ
       </a>
       <a href="getBoardList.jsp" class="issue mouse-effect">
-        <img src="images/icon/issue.svg" />°Ô½ÃÆÇ
+        <img src="images/icon/issue.svg" />ê²Œì‹œíŒ
       </a>
     </nav>
 	<header>
@@ -120,7 +120,7 @@
       <div class="text-area">
         <h2 class="greeting stagger-item">MYpage</h2>
         <div class="desc stagger-item">
-          	È¯¿µÇÕ´Ï´Ù !!!!!
+          	í™˜ì˜í•©ë‹ˆë‹¤ !!!!!
         </div>
       </div>
 
@@ -141,7 +141,7 @@
       <li class="item mouse-effect stagger-item">
         <div class="left">
           <img src="images/icon/account.svg" />
-          <a class="index" href="updateUser.jsp">Á¤º¸¼öÁ¤</a>
+          <a class="index" href="updateUser.jsp">ì •ë³´ìˆ˜ì •</a>
         </div>
         <div class="right"><img src="images/icon/right_arrow.svg" /></div>
       </li>
@@ -149,7 +149,7 @@
       <li class="item mouse-effect stagger-item">
         <div class="left">
           <img src="images/icon/business.svg" />
-          <div class="name">±¸¸Å»çÇ×</div>
+          <div class="name">êµ¬ë§¤ì‚¬í•­</div>
         </div>
         <div class="right"><img src="images/icon/right_arrow.svg" /></div>
       </li>

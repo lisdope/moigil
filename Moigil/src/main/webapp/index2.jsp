@@ -1,10 +1,10 @@
-<%@page contentType="text/html; charset=EUC-KR"%>
+<%@page contentType="text/html; charset=UTF-8"%>
 <%@taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/commons.css">
 <link
@@ -21,116 +21,116 @@
 <script src="js/webcafe.js"></script>
 </head>
 <body>
-	<!-- °Ç³Ê¶Ù±â ¸µÅ© ½ÃÀÛ -->
-	<a id="skipNav" href="#contentsArea">º»¹® ¹Ù·Î°¡±â</a>
-	<!-- //°Ç³Ê¶Ù±â ¸µÅ© Á¾·á -->
-	<!-- #wrapper ½ÃÀÛ -->
+	<!-- ê±´ë„ˆë›°ê¸° ë§í¬ ì‹œìž‘ -->
+	<a id="skipNav" href="#contentsArea">ë³¸ë¬¸ ë°”ë¡œê°€ê¸°</a>
+	<!-- //ê±´ë„ˆë›°ê¸° ë§í¬ ì¢…ë£Œ -->
+	<!-- #wrapper ì‹œìž‘ -->
 	<div id="wrapper">
-		<!-- #header ½ÃÀÛ -->
+		<!-- #header ì‹œìž‘ -->
 		<header id="header">
-			<!-- À¥Ä«Æä ·Î°í ½ÃÀÛ -->
+			<!-- ì›¹ì¹´íŽ˜ ë¡œê³  ì‹œìž‘ -->
 			<h1 class="logo">
-				<a href="index2.jsp" id="moigil">¸ðÀÌ±æ</a>
+				<a href="index2.jsp" id="moigil">ëª¨ì´ê¸¸</a>
 			</h1>
-			<!-- //À¥Ä«Æä ·Î°í Á¾·á -->
-			<!-- À¥Ä«Æä ¾È³» ¸µÅ© ½ÃÀÛ -->
+			<!-- //ì›¹ì¹´íŽ˜ ë¡œê³  ì¢…ë£Œ -->
+			<!-- ì›¹ì¹´íŽ˜ ì•ˆë‚´ ë§í¬ ì‹œìž‘ -->
 			<ul class="infoLink">
-				<li><a href="mypage.jsp">¸¶ÀÌÆäÀÌÁö</a></li>
-				<li><a href="updateUser.jsp">È¸¿øÁ¤º¸ ¼öÁ¤</a></li>
-				<li><a href="logout.do">·Î±×¾Æ¿ô</a></li>
+				<li><a href="mypage.jsp">ë§ˆì´íŽ˜ì´ì§€</a></li>
+				<li><a href="updateUser.jsp">íšŒì›ì •ë³´ ìˆ˜ì •</a></li>
+				<li><a href="logout.do">ë¡œê·¸ì•„ì›ƒ</a></li>
 			</ul>
-			<!-- //À¥Ä«Æä ¾È³» ¸µÅ© Á¾·á -->
-			<!-- ¸ÞÀÎ ¸Þ´º ½ÃÀÛ -->
+			<!-- //ì›¹ì¹´íŽ˜ ì•ˆë‚´ ë§í¬ ì¢…ë£Œ -->
+			<!-- ë©”ì¸ ë©”ë‰´ ì‹œìž‘ -->
 			<nav>
-				<h1 class="hidden">¸ÞÀÎ ¸Þ´º</h1>
+				<h1 class="hidden">ë©”ì¸ ë©”ë‰´</h1>
 				<ul class="mainMenu">
-					<li><a href="#">°øÁö»çÇ×</a>
+					<li><a href="#">ê³µì§€ì‚¬í•­</a>
 					</li>
-					<li><a href="#">ÇÔ²²°¡¿ä(¸ðÀÓ)</a>
+					<li><a href="#">í•¨ê»˜ê°€ìš”(ëª¨ìž„)</a>
 						<ul class="aboutCss">
-							<li><a href="getBoardList.do">ÀÚÀ¯°Ô½ÃÆÇ</a></li>
-							<li><a href="getBoardListArea.do?areaCode=¼­¿ï">Áö¿ªº°</a></li>
-							<li><a href="#">¿¬·Éº°</a></li>
-							<li><a href="#">¹Ý·Áµ¿¹°°ú ÇÔ²²</a></li>
-							<li><a href="#">´çÀÏ¸ðÀÓ</a></li>
+							<li><a href="getBoardList.do">ìžìœ ê²Œì‹œíŒ</a></li>
+							<li><a href="getBoardListArea.do?areaCode=ì„œìš¸">ì§€ì—­ë³„</a></li>
+							<li><a href="#">ì—°ë ¹ë³„</a></li>
+							<li><a href="#">ë°˜ë ¤ë™ë¬¼ê³¼ í•¨ê»˜</a></li>
+							<li><a href="#">ë‹¹ì¼ëª¨ìž„</a></li>
 						</ul></li>
-					<li><a href="#">°¶·¯¸®</a>
+					<li><a href="#">ê°¤ëŸ¬ë¦¬</a>
 						<ul class="webStandard">
-							<li><a href="#">ÃÖ½Å¼ø</a></li>
-							<li><a href="#">Áö¿ªº°</a></li>
+							<li><a href="#">ìµœì‹ ìˆœ</a></li>
+							<li><a href="#">ì§€ì—­ë³„</a></li>
 						</ul></li>
-					<li><a href="#">°øµ¿±¸¸Å</a>
+					<li><a href="#">ê³µë™êµ¬ë§¤</a>
 						<ul class="commonbuy">
-							<li><a href="#">¾öÁØ½Ä</a></li>
+							<li><a href="#">ì—„ì¤€ì‹</a></li>
 						</ul>
 					</li>
 					
 				</ul>
 			</nav>
-			<!-- //¸ÞÀÎ ¸Þ´º Á¾·á -->
+			<!-- //ë©”ì¸ ë©”ë‰´ ì¢…ë£Œ -->
 		</header>
-		<!-- //#header Á¾·á -->
-		<!-- #visual ½ÃÀÛ -->
+		<!-- //#header ì¢…ë£Œ -->
+		<!-- #visual ì‹œìž‘ -->
 		<div id="visual">
 			<p>
 				Web Standard &amp; Accessibility				
 			</p>
 		</div>
-		<!-- //#visual Á¾·á -->
-		<!-- #contentsArea ½ÃÀÛ -->
+		<!-- //#visual ì¢…ë£Œ -->
+		<!-- #contentsArea ì‹œìž‘ -->
 		<div id="contentsArea"> 
-		<!-- ·Î±×ÀÎ ¹× ¹è³Ê, ¿ë¾î¼³¸í °ü·Ã ÄÜÅÙÃ÷ ÄÃ·³ ½ÃÀÛ -->
+		<!-- ë¡œê·¸ì¸ ë° ë°°ë„ˆ, ìš©ì–´ì„¤ëª… ê´€ë ¨ ì½˜í…ì¸  ì»¬ëŸ¼ ì‹œìž‘ -->
 		<div id="usefulArea">
-			<!-- ·Î±×ÀÎ ½ÃÀÛ -->
+			<!-- ë¡œê·¸ì¸ ì‹œìž‘ -->
 			<section class="login">
-				<h1>·Î±×ÀÎ</h1>
+				<h1>ë¡œê·¸ì¸</h1>
 
 				<c:if test="${empty sessionScope.user.id}">
 					<form action="login.do" method="post">
 						<fieldset>
-							<legend>È¸¿ø ·Î±×ÀÎ Æû</legend>
+							<legend>íšŒì› ë¡œê·¸ì¸ í¼</legend>
 							<p>
-								<label for="userId">¾ÆÀÌµð</label> <input type="text" name="id" required placeholder="¾ÆÀÌµð">
+								<label for="userId">ì•„ì´ë””</label> <input type="text" name="id" required placeholder="ì•„ì´ë””">
 							</p>
 							<p>
-								<label for="userPw">ºñ¹Ð¹øÈ£</label> <input type="password" name="pw" required placeholder="4ÀÚÀÌ»ó 8ÀÚÀÌÇÏ">
+								<label for="userPw">ë¹„ë°€ë²ˆí˜¸</label> <input type="password" name="pw" required placeholder="4ìžì´ìƒ 8ìžì´í•˜">
 							</p>
 							<p>
-								<button type="submit">·Î±×ÀÎ</button>
+								<button type="submit">ë¡œê·¸ì¸</button>
 							</p>
 						</fieldset>
 					</form>
 				<div class="memberLink">
-					<a href="createUser.jsp" class="join">È¸¿ø°¡ÀÔ</a>
-					<a href="getId.jsp" class="find">¾ÆÀÌµð Ã£±â</a>
-					<a href="getPw.jsp" class="find">ºñ¹Ð¹øÈ£ Ã£±â</a>
+					<a href="createUser.jsp" class="join">íšŒì›ê°€ìž…</a>
+					<a href="getId.jsp" class="find">ì•„ì´ë”” ì°¾ê¸°</a>
+					<a href="getPw.jsp" class="find">ë¹„ë°€ë²ˆí˜¸ ì°¾ê¸°</a>
 				</div>
 				</c:if>
 				<c:if test="${!empty sessionScope.user.id}">
-					<h1>[${user.id}]´Ô È¯¿µÇÕ´Ï´Ù!</h1>
+					<h1>[${user.id}]ë‹˜ í™˜ì˜í•©ë‹ˆë‹¤!</h1>
 				</c:if>
 				
 			</section>
-			<!-- //·Î±×ÀÎ Á¾·á -->
+			<!-- //ë¡œê·¸ì¸ ì¢…ë£Œ -->
 		</div>
-		<!-- //·Î±×ÀÎ ¹× ¹è³Ê, ¿ë¾î¼³¸í °ü·Ã ÄÜÅÙÃ÷ ÄÃ·³ Á¾·á -->
-		<!-- #slogan ½ÃÀÛ -->
+		<!-- //ë¡œê·¸ì¸ ë° ë°°ë„ˆ, ìš©ì–´ì„¤ëª… ê´€ë ¨ ì½˜í…ì¸  ì»¬ëŸ¼ ì¢…ë£Œ -->
+		<!-- #slogan ì‹œìž‘ -->
 		<section id="slogan">
-			½½·Î°Ç ¿µ¿ª
+			ìŠ¬ë¡œê±´ ì˜ì—­
 		</section>
-		<!-- //#slogan Á¾·á -->
-		<!-- #footer ½ÃÀÛ -->
+		<!-- //#slogan ì¢…ë£Œ -->
+		<!-- #footer ì‹œìž‘ -->
 		<footer id="footer" role="contentinfo">
-			<!-- #footerInner ½ÃÀÛ -->
+			<!-- #footerInner ì‹œìž‘ -->
 			<div id="footerInner">
-				ÇªÅÍ ¿µ¿ª
+				í‘¸í„° ì˜ì—­
 			</div>
-			<!-- //#footerInner Á¾·á -->
+			<!-- //#footerInner ì¢…ë£Œ -->
 		</footer>
-		<!-- //#footer Á¾·á -->
+		<!-- //#footer ì¢…ë£Œ -->
 		
 		
 	</div>
-	<!-- //#wrapper Á¾·á -->
+	<!-- //#wrapper ì¢…ë£Œ -->
 </body>
 </html>
