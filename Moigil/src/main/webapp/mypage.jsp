@@ -104,7 +104,7 @@
     </style>
 <body>
     <nav class="gnb">
-      <a href="index.jsp" class="cover mouse-effect">
+      <a href="index2.jsp" class="cover mouse-effect">
         <img src="images/icon/cover.svg" />Ȩ
       </a>
       <a href="getBoardList.jsp" class="issue mouse-effect">

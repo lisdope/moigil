@@ -28,6 +28,7 @@
 				
 				<p>
 					<td colspan="2" align="center"><input type="submit" value="아이디 찾기 " /></td>
+					<a href="index2.jsp">홈으로</a>
 				</p>
 
 				</form>

@@ -9,8 +9,8 @@
 <body>
 	<center>
 		<h3>비밀번호는 ${userPw} 입니다. </h3>
-		<a href="login.jsp">로그인</a>
-		<a href="index.jsp">홈으로</a>
+		
+		<a href="index2.jsp">홈으로</a>
 		<a href="createUser.jsp">회원가입</a>
 	</center>
 </body>
