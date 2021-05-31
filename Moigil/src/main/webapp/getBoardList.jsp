@@ -30,15 +30,16 @@
         		<!-- 현재위치 시작 -->
         		<p class="location">모이길 &gt; 함께가요(모임) &gt; <strong>자유 게시판</strong></p> 
         		<!-- //현재위치 종료 -->
-        		<h1>자유 게시판</h1>
+        		<h1>전체 게시판</h1>
         		<!-- 
 		        	<p class="allPost">전체 <strong>102</strong>개 게시물</p>
         		 -->
 		        <table class="boardTable">
-		          <caption>자유 게시판 게시물</caption>
+		          <caption>전체 게시판 게시물</caption>
 		          <thead>
 		            <tr>
 		              <th scope="col" class="bbsNumber">No</th>
+		              <th scope="col" class="bbsArea">지역</th>
 		              <th scope="col" class="bbsTitle">제목</th>
 		              <th scope="col" class="bbsDate">등록일</th>
 		              <th scope="col" class="bbsHit">조회수</th>
@@ -49,6 +50,7 @@
 		            <c:forEach items="${page.content}" var="board">
 							<tr>
 								<td style="text-align: center;">${board.boardNo}</td>
+								<td> ${board.areaCode} </td>
 								<td align="left" style="text-align: center;"><a
 									href="getBoard.do?boardNo=${board.boardNo}">
 										${board.boardTitle}</a></td>
@@ -60,6 +62,7 @@
 		          
 		          <tfoot>
 						<tr>
+							<td></td>
 							<td></td>
 							<td></td>
 							<c:if test="${!empty sessionScope.user.id}">

@@ -451,3 +451,35 @@
 	padding:8px;	
 }
 
+#infoArea > h1{
+	font-size:18px;
+	font-family:nanumEX;
+	color: #3cbb1c;
+	text-shadow:1px 1px 0px rgba(0,0,0,0.2);
+	border-bottom: 2px solid #3cbb1c;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	margin-bottom:20px;
+}
+.location {
+	position: absolute;
+	top: 255px;
+	right: 140px;
+}
+.location strong {
+	color: #51a41e;
+}
+.html5Intro > h2{
+	font-size:16px;
+	color:#1698a7;
+	margin:20px 0;
+}
+.html5Intro > h2:before{
+	font-family:webcafeIcon;
+	content:"b";
+	font-size:20px;
+	color:#9cd3da;
+	position:relative;
+	top:5px;
+}
+
