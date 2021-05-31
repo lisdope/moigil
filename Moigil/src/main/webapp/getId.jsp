@@ -26,7 +26,7 @@
         		<p class="location">Home &gt; <strong>회원아이디&비밀번호 찾기</strong></p> 
         		<!-- //현재위치 종료 -->
         		<a href="index.jsp">홈으로</a>
-        		<h1>회원수정</h1>
+        		<h1>회원아이디&비밀번호 찾기</h1>
 				
         		<p class="formSign"><strong class="require">필수</strong> 는 반드시 입력하여야 하는 항목입니다.</p>
 	
@@ -60,17 +60,7 @@
 		</section>
 	</div>
 		<!-- //#contentsArea 종료 -->
-		<!-- #slogan 시작 -->
-		<section id="slogan">
-			<h1 title="웹카페에서 웹표준을">Web Cafe 슬로건</h1>
-			<p>
-				산택 하는 당신에게 가장 좋은 선택 모이길
-			</p>
-			<!-- 슬로건 푸터 시작 -->
-			<footer class="hidden">출처 : World Wide Consortium -	http://www.w3.org/WAI/</footer>
-			<!-- //슬로건 푸터 종료 -->
-		</section>
-		<!-- //#slogan 종료 -->
+	
 		
 		<!-- #footer 시작 -->
 			<jsp:include page="WEB-INF/footer.jsp" />

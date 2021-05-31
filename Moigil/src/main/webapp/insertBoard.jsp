@@ -4,42 +4,65 @@
 <html>
 <head>
 <title>새글등록</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+	crossorigin="anonymous">
+<link rel="shortcut icon" href="images/common/webcafe.ico">
+<link rel="apple-touch-icon" href="images/common/webcafe.png">
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/sub.css">
+<script src="js/jquery.js"></script>
+<script src="js/webcafe.js"></script>
 </head>
 <body>
-	<center>
-		<h1>글 등록</h1>
-		<a href="logout.do">Log-out</a>
-		<hr>
+<div id="wrapper">
+		<!-- #header 시작 -->
+			<jsp:include page="WEB-INF/header.jsp" />
+		<!-- //#header 종료 -->
+		
+		<div id="contentsArea"> 
+		<section id="contents" class="qnaBoard">
+		
 		<form action="insertBoard.do" method="post">
 		<input type="text" name="userCode" style="display: none" value="${user.userCode}"/>
-			<table border="1" cellpadding="0" cellspacing="0">
+			<table class="table table-hover" border="0" cellpadding="0" cellspacing="0">
 				<tr>
-					<td bgcolor="orange" width="70">제목</td>
-					<td align="left"><input type="text" name="boardTitle" /></td>
+					<td class="table-primary" width="70">제목</td>
+					<td align="left"><input class="form-control" type="text" size="120" name="boardTitle" /></td>
 				</tr>
 				<tr>
 					<td bgcolor="orange">지역</td>
-					<td align="left">
-					<select name="areaCode">
-					<optgroup>
+					<td class="table-primary" align="left">
+					<select class="form-select" style="width: 100px" name="areaCode">
 						<option value="자유">자유</option>
 						<option value="서울">서울</option>
 						<option value="경기도">경기도</option>
-					</optgroup>
 					</select></td>
 				</tr>
 				<tr>
-					<td bgcolor="orange">내용</td>
-					<td align="left"><textarea name="boardContents" cols="40" rows="10"></textarea></td>
+					<td class="table-primary" bgcolor="orange">내용</td>
+					<td align="left"><textarea class="form-control" name="boardContents" cols="120" rows="10"></textarea></td>
 				</tr>
 				<tr>
-					<td colspan="2" align="center"><input type="submit"
-						value=" 새글 등록 " /></td>
+				<td></td>
+					<td class="table-primary" colspan="2" align="center">
+					<button type="submit" class ="btn btn-primary">새글등록</button>
+					<input class="btn btn-primary" type="button" onclick="history.back(-1);" value="뒤로">	
+					</td>
 				</tr>
 			</table>
 		</form>
 		<hr>
-		<a href="getBoardList.do">글 목록 가기</a>
-	</center>
+		
+	
+	</section>
+	</div>
+		<!-- #footer 시작 -->
+			<jsp:include page="WEB-INF/footer.jsp" />
+		<!-- //#footer 종료 -->
+	</div>
+	<!-- //#wrapper 종료 -->
 </body>
 </html>
