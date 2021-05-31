@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -8,7 +8,7 @@
 <link rel="apple-touch-icon" href="images/common/webcafe.png">
 <link rel="stylesheet" href="css/common.css">
 <link rel="stylesheet" href="css/sub.css">
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script src="/js/jquery.form.js"></script>
 <script type="text/javascript">
@@ -87,20 +87,19 @@
 <title>회원가입</title>
 </head>
 <body>
+<div id="wrapper">
+<jsp:include page="WEB-INF/header.jsp" />
 
-	<div id="contentsArea">
-		<!-- #contents 시작 -->
-		<!-- 회원가입 시작 -->
-		<section id="contents" class="memberJoin"> <!-- 현재위치 시작 -->
-		<p class="location">
-			Home &gt; <strong>회원가입</strong>
-		</p>
+<div id="contentsArea"> 
+      		<!-- #contents 시작 -->
+      		<!-- 회원가입 시작 -->
+      	<section id="contents" class="memberJoin">
+        		<!-- 현재위치 시작 -->
+        		<p class="location">Home &gt; <strong>회원가입</strong></p> 
+        		<!-- //현재위치 종료 -->
+        		<h1>회원가입</h1>
+        		<p class="formSign"><strong class="require">필수</strong> 는 반드시 입력하여야 하는 항목입니다.</p>
 		</section>
-		<!-- //현재위치 종료 -->
-		<h1>회원가입</h1>
-		<p class="formSign">
-			<strong class="require">필수</strong> 는 반드시 입력하여야 하는 항목입니다.
-		</p>
 
 		<form action="createUser.do" name="userInfo" id="joinForm"
 			method="post" onsubmit="return checkValue()">
@@ -153,7 +152,6 @@
 				</div>
 				<input type="hidden" id="flag" name="flag" value="false"><br>
 
-			</fieldset>
 		</form>
 
 		<form id="ajaxform" method="post" action="upload.do"
@@ -171,9 +169,13 @@
 						<button type="button" class="btnCancel">취소</button>
 					</div>
 			
+			</fieldset>
 
 
 		</section>
 		</div>
+		<jsp:include page="WEB-INF/footer.jsp" />
+		</div>
+		
 </body>
 </html>

@@ -16,7 +16,7 @@
 			<!-- //웹카페 로고 종료 -->
 			<!-- 웹카페 안내 링크 시작 -->
 			<ul class="infoLink">
-				<li><a href="mypage.jsp">마이페이지</a></li>
+				<li><a href="myPage.jsp">마이페이지</a></li>
 				<li><a href="updateUser.jsp">회원정보 수정</a></li>
 				<li><a href="logout.do">로그아웃</a></li>
 			</ul>
