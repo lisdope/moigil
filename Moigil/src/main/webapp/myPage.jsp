@@ -3,14 +3,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="shortcut icon" href="images/common/webcafe.ico">
-<link rel="apple-touch-icon" href="images/common/webcafe.png">
-<link rel="stylesheet" href="css/common.css">
-<link rel="stylesheet" href="css/sub.css">
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<script src="/js/jquery.form.js"></script>
-<script type="text/javascript">
 <meta charset="EUC-KR">
 <title>mypage</title>
 </head>
@@ -32,18 +24,6 @@
 <body>
 <div id="wrapper">
 <jsp:include page="WEB-INF/header.jsp" />
-<<<<<<< HEAD
-
-<div id="contentsArea"> 
-      		<!-- #contents 시작 -->
-      		<!-- 회원가입 시작 -->
-      	<section id="contents" class="memberJoin">
-        		<!-- 현재위치 시작 -->
-        		<p class="location">Home &gt; <strong>myPage</strong></p> 
-        		<!-- //현재위치 종료 -->
-        		<h1>myPage</h1>
-        		
-=======
 <div id="contentsArea"> 
     <nav class="gnb">
       <a href="index.jsp" class="cover mouse-effect">
@@ -53,7 +33,6 @@
         <img src="images/icon/issue.svg" />게시판
       </a>
     </nav>
->>>>>>> kingdong5
 	<header>
       <div class="thumb-wrapper stagger-item">
 		<img id="pic" style="margin-left: 15px;" height="180px" width="150px" src="/userImg/${user.userImage}"><br/>
@@ -61,9 +40,9 @@
       </div>
 
       <div class="text-area">
-        <h2 class="greeting stagger-item">myPage</h2>
+        <h2 class="greeting stagger-item">MYpage</h2>
         <div class="desc stagger-item">
-          	${user.id}님 환영합니다 !!
+          	환영합니다 !!!!!
         </div>
       </div>
 
