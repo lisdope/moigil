@@ -54,7 +54,7 @@
 		<!-- #visual 시작 -->
 		<div id="visual">
 			<p>
-				Web Standard &amp; Accessibility				
+				모이길 &amp; 산책 서비스			
 			</p>
 		</div>
 		

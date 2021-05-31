@@ -22,13 +22,6 @@
 			<jsp:include page="WEB-INF/header.jsp" />
 		<!-- //#header 종료 -->
 		
-		<!-- #visual 시작 -->
-		<div id="visual">
-			<p>
-				모이길 &amp; 전체 게시판				
-			</p>
-		</div>
-		<!-- //#visual 종료 -->
 		<!-- #contentsArea 시작 -->
 		<div id="contentsArea"> 
       		<!-- #contents 시작 -->

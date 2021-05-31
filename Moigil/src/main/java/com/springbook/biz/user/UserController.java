@@ -28,21 +28,6 @@ public class UserController {
 	return "index.jsp";
 	}
 	
-	/*
-	 * @RequestMapping(value="ajaxLoginCheck.do",method=RequestMethod.GET)
-	 * 
-	 * @ResponseBody public HashMap<String, String>
-	 * ajaxLogincheck(HttpServletRequest request , @RequestParam(value="id",
-	 * required=false) String id , @RequestParam(value="pw", required=false) String
-	 * pw){ HashMap<String, String> loginYnMap = new HashMap<String, String>();
-	 * 
-	 * boolean check = false; check = DAO.logincheck(id, pw);
-	 * 
-	 * if(check){ loginYnMap.put("loginYn", "success"); }else{
-	 * loginYnMap.put("loginYn", "fail"); }
-	 * 
-	 * return loginYnMap; }
-	 */
 	
 	@PostMapping("login.do") // 로그??
 	  public String login(User user, HttpSession session) {
@@ -113,40 +98,24 @@ public class UserController {
 	      req.setAttribute("id", getId.getId());
 	            return "foundId.jsp";
 	      }catch (NullPointerException e) {
-	         return "getId.jsp";
+	         return "noUser.jsp";
 	      }
 	   }
 	   
 	   @RequestMapping("/getPw.do")
-	   public String getPw(User user, HttpSession req){
-		   System.out.println("비밀번호 1실행됨");
-	      try{
-	    	 System.out.println("비밀번호 2실행됨");
-	    	 User getPw = DAO.getId(user.getId(),user.getEmail());
-	        req.setAttribute("userPw", getPw.getPw());
-	         return "foundPw.jsp";
-	      }catch (NullPointerException e) {
-	         return "getId.jsp";
+	      public String getPw(User user, HttpSession req){
+	         try{
+	           User getPw = DAO.getPw(user.getId(),user.getEmail());
+	           System.out.println(getPw);
+	           req.setAttribute("userPw", getPw.getPw());
+	           
+	            return "foundPw.jsp";
+	         }catch (NullPointerException e) {
+	            return "noUser.jsp";
+	         }
 	      }
-	   }
 
-	   
-//	   @RequestMapping("/getPw.do")
-//	   public String getPw(HttpServletRequest req){
-//		   System.out.println("비밀번호 1실행됨");
-//	      try{
-//	    	 System.out.println("비밀번호 2실행됨");
-//	         String id = req.getParameter("id");
-//	         String email = req.getParameter("email");
-//	         User getPw = DAO.getPw(id, email);
-//	         req.setAttribute("userPw", getPw.getPw());
-//	         return "foundPw.jsp";
-//	      }catch (NullPointerException e) {
-//	         return "getPw.jsp";
-//	      }
-//	   }
 
-	
 	 
 	@RequestMapping(value="upload.do", method=RequestMethod.POST)
 	@ResponseBody
