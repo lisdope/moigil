@@ -7,7 +7,17 @@
 </head>
 <body>
 	
-
+<!-- #slogan 시작 -->
+		<section id="slogan">
+			<h1 title="웹카페에서 웹표준을">Web Cafe 슬로건</h1>
+			<p>
+				산책 하는 당신에게 가장 좋은 선택 모이길
+			</p>
+			<!-- 슬로건 푸터 시작 -->
+			<footer class="hidden">출처 : World Wide Consortium -	http://www.w3.org/WAI/</footer>
+			<!-- //슬로건 푸터 종료 -->
+		</section>
+		<!-- //#slogan 종료 -->
 <footer id="footer">
 			<!-- #footerInner 시작 -->
 			<div id="footerInner">

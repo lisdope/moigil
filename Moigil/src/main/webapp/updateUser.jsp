@@ -124,6 +124,12 @@ function upload(){
 		</section>
 
 	</div>
+	
+		<!-- #footer 시작 -->
+			<jsp:include page="WEB-INF/footer.jsp" />
+		<!-- //#footer 종료 -->
+		
 	</div>
+	<!-- //#wrapper 종료 -->
 </body>
 </html>

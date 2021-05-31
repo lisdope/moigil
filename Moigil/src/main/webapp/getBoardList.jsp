@@ -62,7 +62,9 @@
 						<tr>
 							<td></td>
 							<td></td>
+							<c:if test="${!empty sessionScope.user.id}">
 							<td align="center"><a href="insertBoard.jsp">새글 등록</a></td>
+							</c:if>
 							<!-- 검색 시작 -->
 							<td>
 								<form action="getBoardList.do" method="post">
@@ -93,17 +95,7 @@
 		   
 		</div>
 		<!-- //#contentsArea 종료 -->
-		<!-- #slogan 시작 -->
-		<section id="slogan">
-			<h1 title="웹카페에서 웹표준을">Web Cafe 슬로건</h1>
-			<p>
-				산택 하는 당신에게 가장 좋은 선택 모이길
-			</p>
-			<!-- 슬로건 푸터 시작 -->
-			<footer class="hidden">출처 : World Wide Consortium -	http://www.w3.org/WAI/</footer>
-			<!-- //슬로건 푸터 종료 -->
-		</section>
-		<!-- //#slogan 종료 -->
+
 		
 		<!-- #footer 시작 -->
 			<jsp:include page="WEB-INF/footer.jsp" />
