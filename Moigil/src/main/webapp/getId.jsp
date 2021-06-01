@@ -1,36 +1,72 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html>
 <head>
-<title>ì•„ì´ë”” ì°¾ê¸°</title>
+<title>¾ÆÀÌµð Ã£±â</title>
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 <link rel="shortcut icon" href="images/common/webcafe.ico">
 <link rel="apple-touch-icon" href="images/common/webcafe.png">
 <link rel="stylesheet" href="css/common.css">
 <link rel="stylesheet" href="css/sub.css">
+<script src="js/jquery.js"></script>
+<script src="js/webcafe.js"></script>
+
 </head>
 <body>
-
-
-			<form action="getId.do" method="post">
-
-				<legend>ì•„ì´ë”” ì°¾ê¸°</legend>
-					<p>
-						<label for="name">ì„±ëª…<strong class="require">í•„ìˆ˜</strong></label> <input
-							type="text" id="name" name="name" required placeholder="í™ê¸¸ë™">
-					</p>
-					
-					<p>
-						<label for="email">ì´ë©”ì¼<strong class="require">í•„ìˆ˜</strong></label> <input
-							type="text" id="email" name="email" required placeholder="jang@gamil.com">
-					</p>
-				
-				<p>
-					<td colspan="2" align="center"><input type="submit" value="ì•„ì´ë”” ì°¾ê¸° " /></td>
-					<a href="index2.jsp">í™ˆìœ¼ë¡œ</a>
-				</p>
-
-				</form>
 	
+<div id="wrapper">
+	<jsp:include page="WEB-INF/header.jsp" />
+
+<div id="contentsArea"> 
+      		<!-- #contents ½ÃÀÛ -->
+      		<!-- È¸¿ø°¡ÀÔ ½ÃÀÛ -->
+      	<section id="contents" class="memberJoin">
+        		<!-- ÇöÀçÀ§Ä¡ ½ÃÀÛ -->
+        		<p class="location">Home &gt; <strong>È¸¿ø¾ÆÀÌµð&ºñ¹Ð¹øÈ£ Ã£±â</strong></p> 
+        		<!-- //ÇöÀçÀ§Ä¡ Á¾·á -->
+        		<a href="index.jsp">È¨À¸·Î</a>
+        		<h1>È¸¿ø¾ÆÀÌµð&ºñ¹Ð¹øÈ£ Ã£±â</h1>
+				
+        		<p class="formSign"><strong class="require">ÇÊ¼ö</strong> ´Â ¹Ýµå½Ã ÀÔ·ÂÇÏ¿©¾ß ÇÏ´Â Ç×¸ñÀÔ´Ï´Ù.</p>
+	
+	<form action="getId.do" id="joinForm" method="post" >
+		<fieldset>
+			<legend>È¸¿ø¾ÆÀÌµð&ºñ¹Ð¹øÈ£ Ã£±â Á¤º¸ ÀÔ·Â Æû</legend>
+			<p>
+			<label for="name">¼º¸í<strong class="require">ÇÊ¼ö</strong></label> 
+			<input type="text" id="name" name="name" required placeholder="È«±æµ¿">
+			<p>
+			<label for="email">ÀÌ¸ÞÀÏ<strong class="require">ÇÊ¼ö</strong></label> 
+			<input type="text" id="email" name="email" required placeholder="jang@gamil.com">				
+			<p>
+			<div class="btnJoinArea"> <button type="submit" class="btnOk">¾ÆÀÌµðÃ£±â</button></div>
+			</fieldset>
+		</form>
+		<form action="getPw.do" id="joinForm" method="post">
+			<legend>ºñ¹Ð¹øÈ£ Ã£±â</legend>
+			<p>
+			<label for="id">¾ÆÀÌµð<strong class="require">ÇÊ¼ö</strong></label>
+			<input type="text" id="id" name="id" required placeholder="È«±æµ¿">
+			<p>
+			<label for="email">ÀÌ¸ÞÀÏ<strong class="require">ÇÊ¼ö</strong></label> 
+			<input type="text" id="email" name="email" required placeholder="jang@gamil.com">
+			<p>
+			
+				 <div class="btnJoinArea"> <button type="submit" class="btnOk">ºñ¹Ð¹øÈ£Ã£±â</button></div>
+				
+		</form>
+		
+		</section>
+	</div>
+		<!-- //#contentsArea Á¾·á -->
+	
+		
+		<!-- #footer ½ÃÀÛ -->
+			<jsp:include page="WEB-INF/footer.jsp" />
+		<!-- //#footer Á¾·á -->
+		
+	</div>
+	<!-- //#wrapper Á¾·á -->
 </body>
 </html>

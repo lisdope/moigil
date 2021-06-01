@@ -136,8 +136,9 @@ body{
 }
 #infoArea{
 	float:left;
-	width:380px;
+	width:600px;
 	margin-right:30px;
+	height: 500px;
 }
 #linkArea{
 	float:left;

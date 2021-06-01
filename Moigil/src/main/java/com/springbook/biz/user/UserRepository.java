@@ -26,9 +26,10 @@ public interface UserRepository extends CrudRepository<User, Integer>{
       
       @Query("SELECT u FROM User u WHERE u.id = :id and u.email = :email") // 비번 찾기
       User getPw(String id, String email);
-
-//      public boolean logincheck(String id, String pw);
       
+      
+      @Query("SELECT u FROM User u WHERE u.id = :id ") // 로그인
+      User findUser(@Param("id")String id);
 
       
       

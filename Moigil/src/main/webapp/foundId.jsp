@@ -1,16 +1,23 @@
-<%@page contentType="text/html; charset=UTF-8"%>
+<%@page contentType="text/html; charset=EUC-KR"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>ì•„ì´ë”” ì°¾ê¸°</title>
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<link rel="shortcut icon" href="images/common/webcafe.ico">
+<link rel="apple-touch-icon" href="images/common/webcafe.png">
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/sub.css">
+<title>¾ÆÀÌµð Ã£±â</title>
 </head>
 <body>
-	<center>
-		<h3>ì•„ì´ë””ëŠ” ${userId} ìž…ë‹ˆë‹¤. </h3>
-		<a href="index2.jsp">í™ˆìœ¼ë¡œ</a>
 
+<jsp:include page="WEB-INF/header.jsp" />
+	<center>
+		<h3>¾ÆÀÌµð´Â ${id} ÀÔ´Ï´Ù. </h3>
+		<a href="login.jsp">·Î±×ÀÎ</a>
+		<a href="index.jsp">È¨À¸·Î</a>
+		<a href="createUser.jsp">È¸¿ø°¡ÀÔ</a>
 	</center>
 </body>
 </html>
