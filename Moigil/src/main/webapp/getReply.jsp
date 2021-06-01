@@ -30,8 +30,7 @@ crossorigin="anonymous">
 				<tr>
 				<tr>
 					<td bgcolor="orange">³»¿ë</td>
-					<td align="left"><textarea name="userReply" cols="40" rows="10">
-						${reply.userReply }</textarea></td>
+					<td align="left"><textarea name="userReply" cols="40" rows="10">${reply.userReply }</textarea></td>
 				</tr>
 				<tr bgcolor="#dfefff">
 					<td colspan="2" align="center"><input type="submit"
