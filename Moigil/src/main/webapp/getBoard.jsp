@@ -5,19 +5,28 @@
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
  <!-- Bootstrap -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+	crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/commons.css">
+<link rel="shortcut icon" href="images/common/webcafe.ico">
+<link rel="apple-touch-icon" href="images/common/webcafe.png">
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/sub.css">
+<script src="js/jQuery.js"></script>
+<script src="js/webcafe.js"></script>
 <title>글 상세</title>
 <style type="text/css">
  .Rating{
  	display: inline;}
- th,td{border:1px solid; width: 50px; font-size:12px; font-color:blue;padding:5px 5px; }
- h1{font-family: 'Noto Sans KR', sans-serif;}
+ .boardview > td{border:1px solid; width: 50px; font-size:12px; font-color:blue;padding:5px 5px; }
+ .boardview > th{border:1px solid; width: 50px; font-size:12px; font-color:blue;padding:5px 5px; }
  p.logout{font-family: 'Noto Sans KR', sans-serif;}
  
 .size{
@@ -26,8 +35,6 @@
 }
 .reply{
 border : 0px solid;}
-
-
 </style>
 </head>
 
@@ -54,105 +61,140 @@ function like(){
 </script>
 
 <body>
-	<center>
+	
+	<!-- #wrapper 시작 -->
+	<div id="wrapper">
+	
+		<!-- #header 시작 -->
+		<jsp:include page="WEB-INF/header.jsp" />
+		<!-- //#header 종료 -->
+		<!-- #visual 시작 -->
+		<!-- //#visual 종료 -->
+		
+		<!-- #contentsArea 시작 -->
+		<div id="contentsArea"> 
+		
+		<!--   콘텐츠 컬럼 시작 -->
+		
+		<section id="contents" class="qnaBoard">
+        		<!-- 현재위치 시작 -->
+        		<p class="location">모이길 &gt; 함께가요(모임) &gt; <strong>자유 게시판</strong></p> 
+        		<!-- //현재위치 종료 -->
+        		<h1>전체 게시판</h1>
+		
+		<center>
 		<div class="container">
-		<h1>게시판</h1>
-		<p class="logout" align="right">
-		<a href="logout.do">Log-out</a></p>
+			<section id="boardview">
 				<table class="table table-bordered" border="1">
 				<tbody>
 					<tr>
-					
-						<th bgcolor="#dfefff">번호</th>
-						<td colspan="1" align="left">${board.boardNo }</td>
-						<th bgcolor="#dfefff">제목</th>
-						<td colspan="5" align="left">${board.boardTitle }</td>
+						<th class="table-primary">제목</th>
+						<td colspan="11" align="left">${board.boardTitle }</td>
+						
 					</tr>
-					<tr>	
-						<th bgcolor="#dfefff">아이디</th>
-						<td colspan="1" align="left">${user.id }</td>
-						<th bgcolor="#dfefff">지역</th>
-						<td colspan="1" align="left">${board.areaCode }</td>
-						<th bgcolor="#dfefff">조회수</th>
-						<td colspan="1" align="left">${board.boardHits }</td>
-						<th bgcolor="#dfefff">등록일</th>
-						<td colspan="1" align="left">${board.boardDate }</td>
-						<th bgcolor="#dfefff">좋아요</th>
+					<tr>
+						<th class="table-primary">번호</th>
+						<td  align="left">${board.boardNo }</td>
+						<th class="table-primary">아이디</th>
+						<td  align="left">${user.id }</td>
+						<th class="table-primary">지역</th>
+						<td align="left">${board.areaCode }</td>
+						<th class="table-primary">조회수</th>
+						<td  align="left">${board.boardHits }</td>
+						<th class="table-primary">등록일</th>
+						<td  align="left">${board.boardDate }</td>
+						<th class="table-primary">좋아요</th>
 						<td align="left">${board.boardRatingLike }</td>
 						</tr>
 					</tbody>
 					<tfoot>
 					<tr>
-						<th bgcolor="#dfefff">내용</th>
-						<td colspan="9" align="left">${board.boardContents}</td>
+						<th class="table-primary">내용</th>
+						<td colspan="11" align="left"><textarea rows="20" cols="130" readonly="readonly">${board.boardContents}</textarea>
+						</td>
 					</tr>
 					</tfoot>
 				</table>
+				</section>
 		</div>
 		<c:if test="${(sessionScope.user.grade eq 'ADMIN') || (sessionScope.user.userCode eq board.userCode)}">
-		<a class="btn btn-primary" href="editBoard.do?boardNo=${board.boardNo}">글수정</a>&nbsp;&nbsp;&nbsp; 
+		 <a href="editBoard.do?boardNo=${board.boardNo}"><button class="btn btn-primary">글수정</button></a>&nbsp;&nbsp;&nbsp; 
 		</c:if>					
 		<c:if test="${(sessionScope.user.grade eq 'ADMIN') || (sessionScope.user.userCode eq board.userCode)}">
 		<a href="deleteBoard.do?boardNo=${board.boardNo }"><button type="button" class="btn btn-primary">글삭제</button></a>&nbsp;&nbsp;&nbsp; 
 		</c:if>
-		<c:if test="${!empty sessionScope.user.id}">			
-		<a href="insertBoard.jsp"><button type="button" class="btn btn-primary">글등록</button></a>&nbsp;&nbsp;&nbsp; 
-		</c:if>
-		<a href="getBoardList.do"><button type="button" class="btn btn-primary">글목록</button></a>&nbsp;&nbsp;&nbsp; 
+		<c:if test="${!empty sessionScope.user.id}">
+		<a href="insertBoard.jsp"><button type="button" class="btn btn-primary">글등록</button></a>&nbsp;&nbsp;&nbsp;
+		</c:if> 
+		<button type="button" class="btn btn-primary" onclick="history.back(-1);">글목록</button>&nbsp;&nbsp;&nbsp; 
 		<br><br>
 		
 		<form class="Rating" id="mark" action="MarkRatingLike.do" method="POST">		
 		<input type="text" id="boardNo" name="boardNo" style="display: none" value="${board.boardNo}" />
 		<input type="text" id="userCode" name="userCode" style="display: none" value="${user.userCode}" />
-		<button type="submit" style="font-size:12px">좋어요 <i class="fa fa-thumbs-o-up"></i></button>
+		<button type="submit" class="btn btn-success btn-sm" style="font-size:12px">좋아요 <i class="fa fa-thumbs-o-up"></i></button>
 		</form>&nbsp;&nbsp;
 		
 		<form class="Rating" action="MarkRatingHate.do"  method="POST">
 		<input type="text" name="boardNo"  style="display: none" value="${board.boardNo}" />
 		<input type="text" name="userCode"  style="display: none" value="${user.userCode}" />
-		<button type="submit" style="font-size:12px">싫어요 <i class="fa fa-thumbs-o-down"></i></button>
+		<button type="submit" class="btn btn-danger btn-sm" style="font-size:12px">싫어요 <i class="fa fa-thumbs-o-down"></i></button>
 		</form>
 	</center>
 		<hr>
 	<br>
 <div class="container">	
-	<c:if test="${!empty sessionScope.user.id}">
+<c:if test="${!empty sessionScope.user.id}">
 	<form action="insertReply.do" method="post">
 		<input type="text" name="userCode" style="display: none"  value="${user.userCode}"/>
 		<input type="text" name="id" style="display: none"  value="${user.id}"/>
 		<input type="text"  name="boardNo" style="display: none"  value="${board.boardNo}"/>
 		<input type="text" class="form-control" name="userReply" placeholder="댓글을 입력해주세요"/>
-				<p align="right"><button type="submit" type="button" class="btn btn-default"> 댓글 등록</button></p>
-	</form>
-	</c:if>
-</div>
+				<p align="right"><button type="submit" style="margin: 7px;" type="button" class="btn btn-primary btn-sm"> 댓글 등록</button></p>
+		</form>
+</c:if>
+		</div>
 	<div class="container">	
 		<form action="getReplyList.do" method="post">
 		<p align="right">
 			<table class="table table-bordered">
-					<tr>
-						<th colspan="2" bgcolor="#dfefff" width="100">댓글</th>
-						<th bgcolor="#dfefff" width="200">수정/삭제</th>
-					</tr>
+					
 				<c:forEach items="${ReplyList}" var="reply">
 					<input type="text" name="userCode" style="display: none"  value="${reply.userCode}"/>
 					<input type="text"  name="boardNo" style="display: none"  value="${reply.boardNo}"/>
 					<input type="text" name="userReplyNo" style="display: none"  value="${reply.userReplyNo}"/>
 					<input type="text" name="replyDate" style="display: none"  value="${reply.replyDate}"/>
+					
 					<tr>
-					<td colspan="2">
-					<p><b>아이디 : ${reply.id}</b><br>
-					내용 : ${reply.userReply}</p>
-					<td align="center">
+					<td style="width: 745px;">
+					<p>${reply.id} : ${reply.userReply}</p></td>
+					<td>
 					<c:if test="${reply.userCode == user.userCode}">
-						<button class="size" type="button" onclick="location.href='editReply.do?userReplyNo=${reply.userReplyNo}'">수정</button><br>
-						<button class="size" type="button" onclick="location.href='deleteReply.do?userReplyNo=${reply.userReplyNo}&boardNo=${reply.boardNo}'">삭제</button>
- 						</c:if>
-					</td>
-					</tr>
-					</c:forEach>
+						<button class="btn btn-outline-primary btn-sm" type="button" onclick="location.href='editReply.do?userReplyNo=${reply.userReplyNo}'">수정</button>
+						<button class="btn btn-outline-dark btn-sm" type="button" onclick="location.href='deleteReply.do?userReplyNo=${reply.userReplyNo}&boardNo=${reply.boardNo}'">삭제</button>
+ 					</c:if>
+					</td></tr>
+					
+				</c:forEach>
 			</table>
-			</form>
-			</div>
+		</form>
+	</div>
+	</section>
+		<!-- 콘텐츠 컬럼 종료 -->
+		
+		
+		
+		</div>
+		<!-- #footer 시작 -->
+			<jsp:include page="WEB-INF/footer.jsp" />
+		<!-- //#footer 종료 -->
+		
+	</div>
+	<!-- //#wrapper 종료 -->
+	
+	
 </body>
 </html>
+
+
+

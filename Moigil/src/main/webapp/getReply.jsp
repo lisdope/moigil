@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,17 +25,16 @@ crossorigin="anonymous">
 			<input name="userReplyNo" type="hidden" value="${reply.userReplyNo}" />
 			<table class="table table-bordered" border="1" cellpadding="0" cellspacing="0">
 				<tr bgcolor="#dfefff">
-					<td>ëŒ“ê¸€ ë²ˆí˜¸</td>
+					<td>´ñ±Û ¹øÈ£</td>
 					<td align="left">${reply.userReplyNo}</td>
 				<tr>
 				<tr>
-					<td bgcolor="orange">ë‚´ìš©</td>
-					<td align="left"><textarea name="userReply" cols="40" rows="10">
-						${reply.userReply }</textarea></td>
+					<td bgcolor="orange">³»¿ë</td>
+					<td align="left"><textarea name="userReply" cols="40" rows="10">${reply.userReply }</textarea></td>
 				</tr>
 				<tr bgcolor="#dfefff">
 					<td colspan="2" align="center"><input type="submit"
-						value="ê¸€ ìˆ˜ì •" /></td>
+						value="±Û ¼öÁ¤" /></td>
 				</tr>
 				
 			</table>

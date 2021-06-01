@@ -36,6 +36,11 @@ body{
 					<input type="text" name="boardTitle" value="${board.boardTitle}" class="form-control" style="width: 500px">
 			</div>
 			<br>
+			<select class="form-select" style="width: 100px" name="areaCode">
+						<option value="전체">전체</option>
+						<option value="서울">서울</option>
+						<option value="경기도">경기도</option>
+					</select>
 			<br>
 			<div class="form-group">
 					<label for="exampleInputName2">내용</label>
