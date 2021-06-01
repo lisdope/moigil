@@ -31,9 +31,7 @@
         		<p class="location">모이길 &gt; 함께가요(모임) &gt; <strong>자유 게시판</strong></p> 
         		<!-- //현재위치 종료 -->
         		<h1>전체 게시판</h1>
-        		<!-- 
-		        	<p class="allPost">전체 <strong>102</strong>개 게시물</p>
-        		 -->
+        		
 		        <table class="boardTable">
 		          <caption>전체 게시판 게시물</caption>
 		          <thead>

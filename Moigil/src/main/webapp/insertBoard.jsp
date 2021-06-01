@@ -36,7 +36,7 @@
 					<td bgcolor="orange">지역</td>
 					<td class="table-primary" align="left">
 					<select class="form-select" style="width: 100px" name="areaCode">
-						<option value="자유">자유</option>
+						<option value="전체">전체</option>
 						<option value="서울">서울</option>
 						<option value="경기도">경기도</option>
 					</select></td>

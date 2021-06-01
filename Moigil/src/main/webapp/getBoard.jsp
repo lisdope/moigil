@@ -1,23 +1,32 @@
-<%@page contentType="text/html; charset=EUC-KR"%>
+<%@page contentType="text/html; charset=UTF-8"%>
 <%@taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
  <!-- Bootstrap -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
-<title>±Û »ó¼¼</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+	crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/commons.css">
+<link rel="shortcut icon" href="images/common/webcafe.ico">
+<link rel="apple-touch-icon" href="images/common/webcafe.png">
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/sub.css">
+<script src="js/jQuery.js"></script>
+<script src="js/webcafe.js"></script>
+<title>ê¸€ ìƒì„¸</title>
 <style type="text/css">
  .Rating{
  	display: inline;}
- th,td{border:1px solid; width: 50px; font-size:12px; font-color:blue;padding:5px 5px; }
- h1{font-family: 'Noto Sans KR', sans-serif;}
+ .boardview > td{border:1px solid; width: 50px; font-size:12px; font-color:blue;padding:5px 5px; }
+ .boardview > th{border:1px solid; width: 50px; font-size:12px; font-color:blue;padding:5px 5px; }
  p.logout{font-family: 'Noto Sans KR', sans-serif;}
  
 .size{
@@ -26,8 +35,6 @@
 }
 .reply{
 border : 0px solid;}
-
-
 </style>
 </head>
 
@@ -40,116 +47,154 @@ function like(){
 
 	param["boardNo"] = paramBoardNo;
 	$.ajax({
-	    async : true, // true¸é ºñµ¿±â¹æ½ÄÀ» »ç¿ëÇÏ°Ú´Ù´Â ÀÇ¹Ì. 
-	    type : 'POST', // post¹æ½ÄÀ¸·Î º¸³¾ °Çµ¥,
-	    data: param, // memberId¶ó´Â µ¥ÀÌÅÍ¸¦ º¸³¾ °ÍÀÌ´Ù.
-	    url: "/MarkRatingLike.do", // ÄÁÆ®·Ñ·¯ÀÇ /idCheck¸¦ Å» °ÍÀÌ´Ù.
-	    dataType: "json",  // jsonÇü½ÄÀÇ µ¥ÀÌÅÍ¸¦ º¸³¾ °ÍÀÌ´Ù.
-	    contentType: "application/json", // jsonÇüÅÂ·Î º¸³¾¶§´Â application/json¸¦ ºÙ¿©Áà¾ßÇÑ´Ù.
+	    async : true, // trueë©´ ë¹„ë™ê¸°ë°©ì‹ì„ ì‚¬ìš©í•˜ê² ë‹¤ëŠ” ì˜ë¯¸. 
+	    type : 'POST', // postë°©ì‹ìœ¼ë¡œ ë³´ë‚¼ ê±´ë°,
+	    data: param, // memberIdë¼ëŠ” ë°ì´í„°ë¥¼ ë³´ë‚¼ ê²ƒì´ë‹¤.
+	    url: "/MarkRatingLike.do", // ì»¨íŠ¸ë¡¤ëŸ¬ì˜ /idCheckë¥¼ íƒˆ ê²ƒì´ë‹¤.
+	    dataType: "json",  // jsoní˜•ì‹ì˜ ë°ì´í„°ë¥¼ ë³´ë‚¼ ê²ƒì´ë‹¤.
+	    contentType: "application/json", // jsoní˜•íƒœë¡œ ë³´ë‚¼ë•ŒëŠ” application/jsonë¥¼ ë¶™ì—¬ì¤˜ì•¼í•œë‹¤.
 	    success:function(result){
 	    	console.log(result)
-	    } // Åë½ÅÀÌ ¼º°øÇßÀ»¶§ º¸¿©ÁÙ ³»¿ë, ()¿¡´Â µ¥ÀÌÅÍ¸¦ º¸³½ °÷ÀÇ ¸®ÅÏ°ªÀÌ µé¾î¿Â´Ù.
+	    } // í†µì‹ ì´ ì„±ê³µí–ˆì„ë•Œ ë³´ì—¬ì¤„ ë‚´ìš©, ()ì—ëŠ” ë°ì´í„°ë¥¼ ë³´ë‚¸ ê³³ì˜ ë¦¬í„´ê°’ì´ ë“¤ì–´ì˜¨ë‹¤.
 	});
 }
 </script>
 
 <body>
-	<center>
+	
+	<!-- #wrapper ì‹œì‘ -->
+	<div id="wrapper">
+	
+		<!-- #header ì‹œì‘ -->
+		<jsp:include page="WEB-INF/header.jsp" />
+		<!-- //#header ì¢…ë£Œ -->
+		<!-- #visual ì‹œì‘ -->
+		<!-- //#visual ì¢…ë£Œ -->
+		
+		<!-- #contentsArea ì‹œì‘ -->
+		<div id="contentsArea"> 
+		
+		<!--   ì½˜í…ì¸  ì»¬ëŸ¼ ì‹œì‘ -->
+		
+		<section id="contents" class="qnaBoard">
+        		<!-- í˜„ì¬ìœ„ì¹˜ ì‹œì‘ -->
+        		<p class="location">ëª¨ì´ê¸¸ &gt; í•¨ê»˜ê°€ìš”(ëª¨ì„) &gt; <strong>ììœ  ê²Œì‹œíŒ</strong></p> 
+        		<!-- //í˜„ì¬ìœ„ì¹˜ ì¢…ë£Œ -->
+        		<h1>ì „ì²´ ê²Œì‹œíŒ</h1>
+		
+		<center>
 		<div class="container">
-		<h1>°Ô½ÃÆÇ</h1>
-		<p class="logout" align="right">
-		<a href="logout.do">Log-out</a></p>
+			<section id="boardview">
 				<table class="table table-bordered" border="1">
 				<tbody>
 					<tr>
-					
-						<th bgcolor="#dfefff">¹øÈ£</th>
-						<td colspan="1" align="left">${board.boardNo }</td>
-						<th bgcolor="#dfefff">Á¦¸ñ</th>
-						<td colspan="5" align="left">${board.boardTitle }</td>
+						<th class="table-primary">ì œëª©</th>
+						<td colspan="11" align="left">${board.boardTitle }</td>
+						
 					</tr>
-					<tr>	
-						<th bgcolor="#dfefff">¾ÆÀÌµğ</th>
-						<td colspan="1" align="left">${user.id }</td>
-						<th bgcolor="#dfefff">Áö¿ª</th>
-						<td colspan="1" align="left">${board.areaCode }</td>
-						<th bgcolor="#dfefff">Á¶È¸¼ö</th>
-						<td colspan="1" align="left">${board.boardHits }</td>
-						<th bgcolor="#dfefff">µî·ÏÀÏ</th>
-						<td colspan="1" align="left">${board.boardDate }</td>
-						<th bgcolor="#dfefff">ÁÁ¾Æ¿ä</th>
+					<tr>
+						<th class="table-primary">ë²ˆí˜¸</th>
+						<td  align="left">${board.boardNo }</td>
+						<th class="table-primary">ì•„ì´ë””</th>
+						<td  align="left">${user.id }</td>
+						<th class="table-primary">ì§€ì—­</th>
+						<td align="left">${board.areaCode }</td>
+						<th class="table-primary">ì¡°íšŒìˆ˜</th>
+						<td  align="left">${board.boardHits }</td>
+						<th class="table-primary">ë“±ë¡ì¼</th>
+						<td  align="left">${board.boardDate }</td>
+						<th class="table-primary">ì¢‹ì•„ìš”</th>
 						<td align="left">${board.boardRatingLike }</td>
 						</tr>
 					</tbody>
 					<tfoot>
 					<tr>
-						<th bgcolor="#dfefff">³»¿ë</th>
-						<td colspan="9" align="left">${board.boardContents}</td>
+						<th class="table-primary">ë‚´ìš©</th>
+						<td colspan="11" align="left"><textarea rows="20" cols="130" readonly="readonly">${board.boardContents}</textarea>
+						</td>
 					</tr>
 					</tfoot>
 				</table>
+				</section>
 		</div>
 		<c:if test="${(sessionScope.user.grade eq 'ADMIN') || (sessionScope.user.userCode eq board.userCode)}">
-		<a class="btn btn-primary" href="editBoard.do?boardNo=${board.boardNo}">±Û¼öÁ¤</a>&nbsp;&nbsp;&nbsp; 
+		 <a href="editBoard.do?boardNo=${board.boardNo}"><button class="btn btn-primary">ê¸€ìˆ˜ì •</button></a>&nbsp;&nbsp;&nbsp; 
 		</c:if>					
 		<c:if test="${(sessionScope.user.grade eq 'ADMIN') || (sessionScope.user.userCode eq board.userCode)}">
-		<a href="deleteBoard.do?boardNo=${board.boardNo }"><button type="button" class="btn btn-primary">±Û»èÁ¦</button></a>&nbsp;&nbsp;&nbsp; 
+		<a href="deleteBoard.do?boardNo=${board.boardNo }"><button type="button" class="btn btn-primary">ê¸€ì‚­ì œ</button></a>&nbsp;&nbsp;&nbsp; 
 		</c:if>
-		
-		<a href="insertBoard.jsp"><button type="button" class="btn btn-primary">±Ûµî·Ï</button></a>&nbsp;&nbsp;&nbsp; 
-		<a href="getBoardList.do"><button type="button" class="btn btn-primary">±Û¸ñ·Ï</button></a>&nbsp;&nbsp;&nbsp; 
+		<c:if test="${!empty sessionScope.user.id}">
+		<a href="insertBoard.jsp"><button type="button" class="btn btn-primary">ê¸€ë“±ë¡</button></a>&nbsp;&nbsp;&nbsp;
+		</c:if> 
+		<button type="button" class="btn btn-primary" onclick="history.back(-1);">ê¸€ëª©ë¡</button>&nbsp;&nbsp;&nbsp; 
 		<br><br>
 		
 		<form class="Rating" id="mark" action="MarkRatingLike.do" method="POST">		
 		<input type="text" id="boardNo" name="boardNo" style="display: none" value="${board.boardNo}" />
 		<input type="text" id="userCode" name="userCode" style="display: none" value="${user.userCode}" />
-		<button type="submit" style="font-size:12px">ÁÁ¾î¿ä <i class="fa fa-thumbs-o-up"></i></button>
+		<button type="submit" class="btn btn-success btn-sm" style="font-size:12px">ì¢‹ì•„ìš” <i class="fa fa-thumbs-o-up"></i></button>
 		</form>&nbsp;&nbsp;
 		
 		<form class="Rating" action="MarkRatingHate.do"  method="POST">
 		<input type="text" name="boardNo"  style="display: none" value="${board.boardNo}" />
 		<input type="text" name="userCode"  style="display: none" value="${user.userCode}" />
-		<button type="submit" style="font-size:12px">½È¾î¿ä <i class="fa fa-thumbs-o-down"></i></button>
+		<button type="submit" class="btn btn-danger btn-sm" style="font-size:12px">ì‹«ì–´ìš” <i class="fa fa-thumbs-o-down"></i></button>
 		</form>
 	</center>
 		<hr>
 	<br>
 <div class="container">	
+<c:if test="${!empty sessionScope.user.id}">
 	<form action="insertReply.do" method="post">
 		<input type="text" name="userCode" style="display: none"  value="${user.userCode}"/>
 		<input type="text" name="id" style="display: none"  value="${user.id}"/>
 		<input type="text"  name="boardNo" style="display: none"  value="${board.boardNo}"/>
-		<input type="text" class="form-control" name="userReply" placeholder="´ñ±ÛÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä"/>
-				<p align="right"><button type="submit" type="button" class="btn btn-default"> ´ñ±Û µî·Ï</button></p>
+		<input type="text" class="form-control" name="userReply" placeholder="ëŒ“ê¸€ì„ ì…ë ¥í•´ì£¼ì„¸ìš”"/>
+				<p align="right"><button type="submit" style="margin: 7px;" type="button" class="btn btn-primary btn-sm"> ëŒ“ê¸€ ë“±ë¡</button></p>
 		</form>
+</c:if>
 		</div>
 	<div class="container">	
 		<form action="getReplyList.do" method="post">
 		<p align="right">
 			<table class="table table-bordered">
-					<tr>
-						<th colspan="2" bgcolor="#dfefff" width="100">´ñ±Û</th>
-						<th bgcolor="#dfefff" width="200">¼öÁ¤/»èÁ¦</th>
-					</tr>
+					
 				<c:forEach items="${ReplyList}" var="reply">
 					<input type="text" name="userCode" style="display: none"  value="${reply.userCode}"/>
 					<input type="text"  name="boardNo" style="display: none"  value="${reply.boardNo}"/>
 					<input type="text" name="userReplyNo" style="display: none"  value="${reply.userReplyNo}"/>
 					<input type="text" name="replyDate" style="display: none"  value="${reply.replyDate}"/>
+					
 					<tr>
-					<td colspan="2">
-					<p><b>¾ÆÀÌµğ : ${reply.id}</b><br>
-					³»¿ë : ${reply.userReply}</p>
-					<td align="center">
+					<td style="width: 745px;">
+					<p>${reply.id} : ${reply.userReply}</p></td>
+					<td>
 					<c:if test="${reply.userCode == user.userCode}">
-						<button class="size" type="button" onclick="location.href='editReply.do?userReplyNo=${reply.userReplyNo}'">¼öÁ¤</button><br>
-						<button class="size" type="button" onclick="location.href='deleteReply.do?userReplyNo=${reply.userReplyNo}&boardNo=${reply.boardNo}'">»èÁ¦</button>
- 						</c:if>
-					</td>
-					</tr>
-					</c:forEach>
+						<button class="btn btn-outline-primary btn-sm" type="button" onclick="location.href='editReply.do?userReplyNo=${reply.userReplyNo}'">ìˆ˜ì •</button>
+						<button class="btn btn-outline-dark btn-sm" type="button" onclick="location.href='deleteReply.do?userReplyNo=${reply.userReplyNo}&boardNo=${reply.boardNo}'">ì‚­ì œ</button>
+ 					</c:if>
+					</td></tr>
+					
+				</c:forEach>
 			</table>
-			</form>
-			</div>
+		</form>
+	</div>
+	</section>
+		<!-- ì½˜í…ì¸  ì»¬ëŸ¼ ì¢…ë£Œ -->
+		
+		
+		
+		</div>
+		<!-- #footer ì‹œì‘ -->
+			<jsp:include page="WEB-INF/footer.jsp" />
+		<!-- //#footer ì¢…ë£Œ -->
+		
+	</div>
+	<!-- //#wrapper ì¢…ë£Œ -->
+	
+	
 </body>
 </html>
+
+
+

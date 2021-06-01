@@ -78,13 +78,10 @@
         	
 			<!-- //HTML5 소개 종료 -->
 			</section>
-		<!-- #slogan 시작 -->
-		<section id="slogan">
-
-			슬로건 영역
-		</section>
+		
+		
 		</div>
-		<!-- //#slogan 종료 -->
+		
 		<!-- #footer 시작 -->
 			<jsp:include page="WEB-INF/footer.jsp" />
 		<!-- //#footer 종료 -->

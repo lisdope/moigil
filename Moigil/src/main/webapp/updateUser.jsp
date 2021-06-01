@@ -88,30 +88,29 @@ function upload(){
 		<fieldset>
 			<legend>회원수정 정보 입력 폼</legend>
 			<p>
-			<label for="id">아이디<strong class="require">필수</strong></label>
-			<input type="text"  style="width:100px;" name="id"  id="id" onkeydown="inputIdChk()" value="${ userPage.id }" readonly/>
-			<input type="button" onClick="idchk();" value="중복체크"/><input type="hidden" name="idDuplication" value="uncheck" >
+			<label for="id">아이디</label>
+			<input type="text"  style="width:100px;" name="id"  id="id" onkeydown="inputIdChk()" value="${ user.id }" readonly="readonly" />
 			<p>
 			<label for="password">비밀번호<strong class="require">필수</strong></label>
 			<input type="password"  style="width:100px;" name="pw" id="pw" value="${ user.pw }"/>
 			<p>
 			<label for="name">이름<strong class="require">필수</strong></label>
-			<input type="text"  style="width:50px;" name="name" id="name" value="${ userPage.name }"/>
+			<input type="text"  style="width:50px;" name="name" id="name" value="${ user.name }"/>
 			<p>
 			<label for="birth">생일</label>
-			<input type="date" name="birth" id="birth" value="${ userPage.birth }"/>
+			<input type="date" name="birth" id="birth" value="${ user.birth }"/>
 			<p>
 			<label for="email">이메일</label>
-			<input type="text"  style="width:200px;" name="email" id="email" value="${ userPage.email }"/>
+			<input type="text"  style="width:200px;" name="email" id="email" value="${ user.email }"/>
 			<p>
 			<label for="tel">번호</label>
-			<input type="text"  style="width:100px;" name="phoneNum" value="${ userPage.phoneNum }"/>
+			<input type="text"  style="width:100px;" name="phoneNum" value="${ user.phoneNum }"/>
 			<p>
 			<label for="address" class="labelAddress">도로명주소</label>
-			우편번호 <input type="text"  style="width:100px;" id="zipNo"  name="postNum" value="${ userPage.postNum }"readonly>
+			우편번호 <input type="text"  style="width:100px;" id="zipNo"  name="postNum" value="${ user.postNum }"readonly>
 			<button onClick="goPopup()">주소검색</button>
 			<br>
-			<input type="text" style="width:400px;" id="roadFullAddr"  name="address" value="${ userPage.address }" readonly/>
+			<input type="text" style="width:400px;" id="roadFullAddr"  name="address" value="${ user.address }" readonly/>
 					
 			<input type="hidden" id="userImage" name="userImage" value="userImg">
 			
