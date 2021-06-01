@@ -1,45 +1,24 @@
-<%@page contentType="text/html; charset=utf-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.w3.org/TR/html4/loose.dtd">
+<%@page contentType="text/html; charset=UTF-8"%>
+<!DOCTYPE html>
 <html>
 <head>
-<title>정보보기</title>
-
+    <meta charset="utf-8">
+    <title>키워드로 장소검색하기</title>
+    
 </head>
-<body onload="loadview()">
-<div id="map" style="width:100%;height:350px;"></div>
+<body>
+<div id="map" style="width:700px;height:350px;"></div>
 
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=682946d5861fe4cad908d7d05104e4bc"></script>
-<script>
-var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-    mapOption = { 
-        center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
-        level: 3 // 지도의 확대 레벨
-    };
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=682946d5861fe4cad908d7d05104e4bc&libraries=services"></script>
 
-var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
-
-// 지도를 클릭한 위치에 표출할 마커입니다
-var marker = new kakao.maps.Marker({ 
-    // 지도 중심좌표에 마커를 생성합니다 
-    position: map.getCenter() 
-}); 
-// 지도에 마커를 표시합니다
-marker.setMap(map);
-
-// 지도에 클릭 이벤트를 등록합니다
-// 지도를 클릭하면 마지막 파라미터로 넘어온 함수를 호출합니다
-function loadview(){
-	var Point = document.form.startPoint.value;
-    // 클릭한 위도, 경도 정보를 가져옵니다 
-    // 마커 위치를 클릭한 위치로 옮깁니다
-    marker.setPosition(new kakao.maps.LatLng(JSON.parse(Point).Ma, JSON.parse(Point).La));
-}
-</script>
 <div>
 		<form method="post" name="form">
-		
-			<textarea name="startPoint" cols="40" rows="10" style=display:none>${Meeting.startPoint}</textarea>
+		<textarea id="mapX" name="mapX" cols="40" rows="10" style=display:none>${Meeting.mapX}</textarea>
+		<textarea id="mapY" name="mapY" cols="40" rows="10" style=display:none>${Meeting.mapY}</textarea>
+			<textarea id="startpointX" name="startpointX" cols="40" rows="10" style=display:none>${Meeting.startpointX}</textarea>
+			<textarea id="startpointY" name="startpointY" cols="40" rows="10" style=display:none>${Meeting.startpointY}</textarea>
+			<textarea id="endpointX" name="endpointX" cols="40" rows="10" style=display:none>${Meeting.endpointX}</textarea>
+			<textarea id="endpointY" name="endpointY" cols="40" rows="10" style=display:none>${Meeting.endpointY}</textarea>
 			<table border="1" cellpadding="0" cellspacing="0">
 								<tr>
 					<td>인원수
@@ -54,12 +33,94 @@ function loadview(){
 					<td bgcolor="orange">내용</td>
 					<td align="left">${Meeting.meetingContents}</textarea></td>
 				</tr>
-				<tr>
-					<td colspan="2" align="center"><input type="submit"
-						value=" 새글 등록 " /></td>
-				</tr>
 			</table>
 		</form>
 </div>
 </body>
+<script>
+// 마커를 클릭하면 장소명을 표출할 인포윈도우 입니다
+var infowindow = new kakao.maps.InfoWindow({zIndex:1});
+
+var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+mapOption = {
+    center: new kakao.maps.LatLng(document.getElementById('mapX').value, document.getElementById('mapY').value), // 지도의 중심좌표
+    level: 3 // 지도의 확대 레벨
+};  
+
+
+// 지도를 생성합니다    
+var map = new kakao.maps.Map(mapContainer, mapOption); 
+var pos =  map.getCenter();
+kakao.maps.event.addListener(map, 'center_changed', function() {
+    // 지도의  레벨을 얻어옵니다
+    var level = map.getLevel();
+    // 지도의 중심좌표를 얻어옵니다 
+    var latlng = map.getCenter(); 
+    pos = latlng;
+});
+
+
+// 장소 검색 객체를 생성합니다
+
+// 키워드로 장소를 검색합니다
+
+var startSrc = 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/red_b.png', // 출발 마커이미지의 주소입니다    
+startSize = new kakao.maps.Size(50, 45), // 출발 마커이미지의 크기입니다 
+startOption = { 
+    offset: new kakao.maps.Point(15, 43) // 출발 마커이미지에서 마커의 좌표에 일치시킬 좌표를 설정합니다 (기본값은 이미지의 가운데 아래입니다)
+};
+
+//출발 마커 이미지를 생성합니다
+var startImage = new kakao.maps.MarkerImage(startSrc, startSize, startOption);
+
+var startDragSrc = 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/red_drag.png', // 출발 마커의 드래그 이미지 주소입니다    
+startDragSize = new kakao.maps.Size(50, 64), // 출발 마커의 드래그 이미지 크기입니다 
+startDragOption = { 
+    offset: new kakao.maps.Point(15, 54) // 출발 마커의 드래그 이미지에서 마커의 좌표에 일치시킬 좌표를 설정합니다 (기본값은 이미지의 가운데 아래입니다)
+};
+
+//출발 마커의 드래그 이미지를 생성합니다
+var startDragImage = new kakao.maps.MarkerImage(startDragSrc, startDragSize, startDragOption);
+
+//출발 마커가 표시될 위치입니다 
+var startPosition = new kakao.maps.LatLng(document.getElementById('startpointX').value, document.getElementById('startpointY').value);    
+//출발 마커를 생성합니다
+var startMarker = new kakao.maps.Marker({
+map: map, // 출발 마커가 지도 위에 표시되도록 설정합니다
+position: startPosition,
+draggable: false, // 출발 마커가 드래그 가능하도록 설정합니다
+image: startImage // 출발 마커이미지를 설정합니다
+});
+
+
+var arriveSrc = 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/blue_b.png', // 도착 마커이미지 주소입니다    
+arriveSize = new kakao.maps.Size(50, 45), // 도착 마커이미지의 크기입니다 
+arriveOption = { 
+offset: new kakao.maps.Point(15, 43) // 도착 마커이미지에서 마커의 좌표에 일치시킬 좌표를 설정합니다 (기본값은 이미지의 가운데 아래입니다)
+};
+
+//도착 마커 이미지를 생성합니다
+var arriveImage = new kakao.maps.MarkerImage(arriveSrc, arriveSize, arriveOption);
+
+var arriveDragSrc = 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/blue_drag.png', // 도착 마커의 드래그 이미지 주소입니다    
+arriveDragSize = new kakao.maps.Size(50, 64), // 도착 마커의 드래그 이미지 크기입니다 
+arriveDragOption = { 
+    offset: new kakao.maps.Point(15, 54) // 도착 마커의 드래그 이미지에서 마커의 좌표에 일치시킬 좌표를 설정합니다 (기본값은 이미지의 가운데 아래입니다)
+};
+
+//도착 마커의 드래그 이미지를 생성합니다
+var arriveDragImage = new kakao.maps.MarkerImage(arriveDragSrc, arriveDragSize, arriveDragOption);
+
+//도착 마커가 표시될 위치입니다 
+var arrivePosition = new kakao.maps.LatLng(document.getElementById('endpointX').value, document.getElementById('endpointY').value);    
+
+//도착 마커를 생성합니다 
+
+var arriveMarker = new kakao.maps.Marker({  
+	map: map, // 도착 마커가 지도 위에 표시되도록 설정합니다
+	position: arrivePosition,
+	draggable: false, // 도착 마커가 드래그 가능하도록 설정합니다
+	image: arriveImage // 도착 마커이미지를 설정합니다
+	});
+</script>
 </html>
