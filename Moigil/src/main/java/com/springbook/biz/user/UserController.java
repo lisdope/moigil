@@ -30,10 +30,11 @@ public class UserController {
 	
 	
 	@PostMapping("login.do") // 로그인
-	  public String login(User user, HttpSession session) {
-	      User login = DAO.findUser(user.getId(), user.getPw());
-	      session.setAttribute("user", login);
-	      if(login != null) {
+	  public String login(User user, HttpSession session) throws NullPointerException {
+	      User loginUser = DAO.findUser(user.getId(), user.getPw());
+	      if(loginUser != null) {
+	      session.setAttribute("user", loginUser);
+	      session.setAttribute("id", loginUser.getId());
 	          return "index2.jsp";
 	      }
 	      return "index2.jsp";

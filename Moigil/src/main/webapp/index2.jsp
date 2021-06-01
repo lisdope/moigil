@@ -19,6 +19,24 @@
 <link rel="stylesheet" href="css/main.css">
 <script src="js/jQuery.js"></script>
 <script src="js/webcafe.js"></script>
+<script type="text/javascript">
+	function checkValue() {
+		var form = document.login;
+		form.action="login.do"; 
+		form.submit();
+		var id = '<%=session.getAttribute("id")%>';
+		if (id == null) {
+			alert(id + "로그인에 실패하셨습니다.");
+			return false;
+		}else if (id != null) {
+			alert(id + "로그인에 성공하셨습니다.");
+			return true;
+		}
+		
+	}
+
+
+</script>
 </head>
 <body>
 	<!-- 건너뛰기 링크 시작 -->
@@ -86,7 +104,7 @@
 				<h1>로그인</h1>
 
 				<c:if test="${empty sessionScope.user.id}">
-					<form action="login.do" method="post">
+					<form name="login" method="post" onsubmit="return checkValue()">
 						<fieldset>
 							<legend>회원 로그인 폼</legend>
 							<p>
@@ -96,7 +114,7 @@
 								<label for="userPw">비밀번호</label> <input type="password" name="pw" required placeholder="4자이상 8자이하">
 							</p>
 							<p>
-								<button type="submit">로그인</button>
+								<button type="button" onclick="checkValue()">로그인</button>
 							</p>
 						</fieldset>
 					</form>
