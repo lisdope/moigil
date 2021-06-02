@@ -3,6 +3,11 @@ package com.springbook.biz.board;
 
 
 
+import java.io.File;
+import java.io.IOException;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -12,7 +17,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 
 
@@ -115,6 +124,21 @@ public class BoardController {
 		return "getReplyList.do";// 종착지에서 뷰를 보여줘야하는데, 또 이상한 호출을 해가지고 무한루프가 형성됨
 	}
 	 
-	
+	 //자유게시판 이미지 넣기
+		@RequestMapping(value="uploadBoard.do", method=RequestMethod.POST) 
+		@ResponseBody
+		public String saveFile(HttpServletRequest request) throws IOException {
+			String imageFolder = request.getParameter("imageFolder");
+			String imgFolder ="\\" + imageFolder + "\\"; //저장할 경로
+			String realFolder = request.getRealPath("/") + imgFolder; //web-inf바로전 까지 저장할 경로
+			MultipartHttpServletRequest multipartRequest =  (MultipartHttpServletRequest)request;
+			MultipartFile file = multipartRequest.getFile("imageFile"); //단일 파일 업로드
+			String filename = file.getOriginalFilename();
+
+			File ufile = new File(realFolder + file.getOriginalFilename());
+			file.transferTo((ufile));
+
+			return filename; 
+		}
 	
 }
