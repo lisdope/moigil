@@ -1,9 +1,10 @@
 <%@page contentType="text/html; charset=UTF-8"%>
+<%@taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
-    <title>키워드로 장소검색하기</title>
+    <title>당일모임 글정보</title>
     
 </head>
 <body>
@@ -19,10 +20,13 @@
 			<textarea id="startpointY" name="startpointY" cols="40" rows="10" style=display:none>${Meeting.startpointY}</textarea>
 			<textarea id="endpointX" name="endpointX" cols="40" rows="10" style=display:none>${Meeting.endpointX}</textarea>
 			<textarea id="endpointY" name="endpointY" cols="40" rows="10" style=display:none>${Meeting.endpointY}</textarea>
-			<table border="1" cellpadding="0" cellspacing="0">
+			<table border="1">
 								<tr>
 					<td>인원수
 						<input type="text" name="count" value="${Meeting.count}">
+					</td>
+					<td>지역
+						<input type="text" name=areaCode value="${Meeting.areaCode}">
 					</td>
 				</tr>
 					<tr>
@@ -31,10 +35,16 @@
 				</tr>
 				<tr>
 					<td bgcolor="orange">내용</td>
-					<td align="left">${Meeting.meetingContents}</textarea></td>
+					<td align="left">${Meeting.meetingContents}</td>
 				</tr>
 			</table>
 		</form>
+				<c:if test="${(sessionScope.user.grade eq 'ADMIN') || (sessionScope.user.userCode eq Meeting.userCode)}">
+		 <a href="editMeeting.do?meetingNo=${Meeting.meetingNo}"><button class="btn btn-primary">글수정</button></a>&nbsp;&nbsp;&nbsp; 
+		</c:if>					
+		<c:if test="${(sessionScope.user.grade eq 'ADMIN') || (sessionScope.user.userCode eq Meeting.userCode)}">
+		<a href="deleteMeeting.do?meetingNo=${Meeting.meetingNo }"><button type="button" class="btn btn-primary">글삭제</button></a>&nbsp;&nbsp;&nbsp; 
+		</c:if>
 </div>
 </body>
 <script>
