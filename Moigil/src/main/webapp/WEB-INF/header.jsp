@@ -34,7 +34,7 @@
 							<li><a href="#">반려동물과 함께</a></li>
 							<li><a href="getMeetingList.do">당일모임</a></li>
 						</ul></li>
-					<li><a href="getBoardGallery.jsp">갤러리</a>
+					<li><a href="gallery.jsp">갤러리</a>
 						<ul class="webStandard">
 							<li><a href="#">지역별</a></li>
 						</ul></li>
