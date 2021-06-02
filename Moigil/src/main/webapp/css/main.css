@@ -462,9 +462,7 @@
 	margin-bottom:20px;
 }
 .location {
-	position: absolute;
-	top: 255px;
-	right: 525px;
+	text-align: right;
 }
 .location strong {
 	color: #51a41e;

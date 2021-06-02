@@ -25,7 +25,7 @@
 
 <body>
 	<!-- #wrapper 시작 -->
-	<div id="wrapper">
+	<div id="wrapper"><!-- 이걸해줘야 페이전 전체에 회색 배경이 생김 -->
 	
 		<!-- #header 시작 -->
 		<jsp:include page="WEB-INF/header.jsp" />
@@ -34,7 +34,7 @@
 		<!-- //#visual 종료 -->
 		
 		<!-- #contentsArea 시작 -->
-		<div id="contentsArea"> 
+		<div id="contentsArea"> <!-- 이걸 해줘야 페이지 중앙에 콘텐츠 공간이 생겨서 홈페이지 처럼됨 -->
 		
 		<!--   콘텐츠 컬럼 시작 -->
 		

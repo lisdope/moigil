@@ -19,6 +19,7 @@
 <body>
 <div id="wrapper">
 <jsp:include page="WEB-INF/header.jsp" />
+<div id="contentsArea"> 
     <div class="container">
         <div class="map_wrap">
             <div id="menu_wrap" class="bg_white">
@@ -243,6 +244,7 @@ function displayMarker(place) {
 				</tr>
 			</table>
 		</form>
+</div>
 </div>
 </div>
 <jsp:include page="WEB-INF/footer.jsp" />
