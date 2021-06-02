@@ -21,23 +21,8 @@
 <link rel="stylesheet" href="css/sub.css">
 <script src="js/jQuery.js"></script>
 <script src="js/webcafe.js"></script>
-<title>글 상세</title>
-<style type="text/css">
- .Rating{
- 	display: inline;}
- .boardview > td{border:1px solid; width: 50px; font-size:12px; font-color:blue;padding:5px 5px; }
- .boardview > th{border:1px solid; width: 50px; font-size:12px; font-color:blue;padding:5px 5px; }
- p.logout{font-family: 'Noto Sans KR', sans-serif;}
- 
-.size{
-    height:30px;
-    width:70px;
-}
-.reply{
-border : 0px solid;}
-</style>
-</head>
-
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="/js/jquery.form.js"></script>
 <script type="text/javascript">
 function fn_createRating(paramBoardNo){
 	location.href = "${context}/work/board/updateBoardRating.do?boardNo=" + paramBoardNo;
@@ -59,6 +44,23 @@ function like(){
 	});
 }
 </script>
+
+<title>글 상세</title>
+<style type="text/css">
+ .Rating{
+ 	display: inline;}
+ .boardview > td{border:1px solid; width: 50px; font-size:12px; font-color:blue;padding:5px 5px; }
+ .boardview > th{border:1px solid; width: 50px; font-size:12px; font-color:blue;padding:5px 5px; }
+ p.logout{font-family: 'Noto Sans KR', sans-serif;}
+ 
+.size{
+    height:30px;
+    width:70px;
+}
+.reply{
+border : 0px solid;}
+</style>
+</head>
 
 <body>
 	
@@ -115,6 +117,9 @@ function like(){
 					</tr>
 					</tfoot>
 				</table>
+				<div>
+			<img id="pic" style="margin-left: 15px;" height="180px" width="150px" src="/boardImg/${board.boardImage}" onerror="this.style.display='none'" alt='' /><br/>
+			</div>
 				</section>
 		</div>
 		<c:if test="${(sessionScope.user.grade eq 'ADMIN') || (sessionScope.user.userCode eq board.userCode)}">
