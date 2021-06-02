@@ -60,7 +60,7 @@ public class FilesController {
     @PostMapping("imageUpload.do")
 	public String uploadMulti(@RequestParam("files") List<MultipartFile> files) throws Exception {
 //	    String rootPath = FileSystemView.getFileSystemView().getHomeDirectory().toString(); // 실제 값 = C:\Users\inseo\Desktop\
-	    String basePath = "\\static\\images\\multi" ;
+	    String basePath = "C:\\Users\\foreverbell\\Documents\\moigil\\Moigil\\src\\main\\resources\\static\\images\\multi" ;
 	    // 파일 업로드(여러개) 처리 부분
 	    for(MultipartFile file : files) {
 //	        String originalName = file.getOriginalFilename();
