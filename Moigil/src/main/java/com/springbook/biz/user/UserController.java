@@ -59,15 +59,6 @@ public class UserController {
 		return "index.jsp";
 	  }
 
-	@GetMapping("updateUser.do") // 회원수정
-	  public String updateUserPage(HttpSession session) {
-		System.out.println("성공");
-		User auth = (User)session.getAttribute("user");
-		User userPage = DAO.findUser(auth.getId());
-		userPage.setPw("");
-		session.setAttribute("userPage", userPage);
-		return "updateUser.jsp";
-	  }
 	
 	
 	@RequestMapping("deleteUser.do") // 계정??��

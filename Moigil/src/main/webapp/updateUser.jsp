@@ -87,6 +87,7 @@ function upload(){
 	<form action="updateUser.do" name="userInfo" id="joinForm" method="post" >
 		<fieldset>
 			<legend>회원수정 정보 입력 폼</legend>
+			<input type="hidden"  style="width:50px;" name="userCode" id="userCode" value="${ user.userCode }"/>
 			<p>
 			<label for="id">아이디</label>
 			<input type="text"  style="width:100px;" name="id"  id="id" onkeydown="inputIdChk()" value="${ user.id }" readonly="readonly" />
