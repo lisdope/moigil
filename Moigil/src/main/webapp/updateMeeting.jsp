@@ -41,14 +41,60 @@
 <div id="map" style="width:700px;height:350px;"></div>
 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=682946d5861fe4cad908d7d05104e4bc&libraries=services"></script>
+
+<div>
+		<form action="insertMeeting.do" method="post" name="form" id="form">
+		<input type="text" name="meetingNo" style="display: none" value="${Meeting.meetingNo}"/>
+		<input type="text" name="userCode" style="display: none" value="${Meeting.userCode}"/>
+		<textarea id="mapX" name="mapX" cols="40" rows="10" style=display:none>${Meeting.mapX}</textarea>
+		<textarea id="mapY" name="mapY" cols="40" rows="10" style=display:none>${Meeting.mapY}</textarea>
+			<textarea id="startpointX" name="startpointX" cols="40" rows="10" style=display:none>${Meeting.startpointX}</textarea>
+			<textarea id="startpointY" name="startpointY" cols="40" rows="10" style=display:none>${Meeting.startpointY}</textarea>
+			<textarea id="endpointX" name="endpointX" cols="40" rows="10" style=display:none>${Meeting.endpointX}</textarea>
+			<textarea id="endpointY" name="endpointY" cols="40" rows="10" style=display:none>${Meeting.endpointY}</textarea>
+			<table border="1">
+					<tr>
+					<td>인원수
+						<select name="count">
+						<option value="4">4명</option>
+						<option value="5">5명</option>	
+						<option value="6">6명</option>						
+					</select>
+					</td>
+				<tr>
+					<td>지역
+						<select name="areaCode">
+						<option value="서울">서울</option>
+						<option value="경기">경기</option>	
+					</select>
+				</tr>
+					<tr>
+					<td bgcolor="orange" width="70">제목</td>
+					<td align="left"><input type="text" name="meetingTitle" value="${Meeting.meetingTitle}" /></td>
+				</tr>
+				<tr>
+					<td bgcolor="orange">내용</td>
+					<td align="left"><textarea name="meetingContents" cols="40" rows="10">${Meeting.meetingContents}</textarea></td>
+				</tr>
+				<tr>
+				<td>
+			<input type="submit" value="수정하기">
+			</td>
+			</tr>
+			</table>
+		</form>
+</div>
+</body>
 <script>
+var ps = new kakao.maps.services.Places(); 
+
 // 마커를 클릭하면 장소명을 표출할 인포윈도우 입니다
 var infowindow = new kakao.maps.InfoWindow({zIndex:1});
 
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 mapOption = {
-    center: new kakao.maps.LatLng(37.566826, 126.9786567), // 지도의 중심좌표
-    level: 2 // 지도의 확대 레벨
+    center: new kakao.maps.LatLng(document.getElementById('mapX').value, document.getElementById('mapY').value), // 지도의 중심좌표
+    level: 3 // 지도의 확대 레벨
 };  
 
 
@@ -61,13 +107,10 @@ kakao.maps.event.addListener(map, 'center_changed', function() {
     // 지도의 중심좌표를 얻어옵니다 
     var latlng = map.getCenter(); 
     pos = latlng;
-    document.getElementById('mapX').value = pos.Ma;
-    document.getElementById('mapY').value = pos.La;
 });
 
 
 // 장소 검색 객체를 생성합니다
-var ps = new kakao.maps.services.Places(); 
 
 // 키워드로 장소를 검색합니다
 
@@ -90,11 +133,11 @@ startDragOption = {
 var startDragImage = new kakao.maps.MarkerImage(startDragSrc, startDragSize, startDragOption);
 
 //출발 마커가 표시될 위치입니다 
-
+var startPosition = new kakao.maps.LatLng(document.getElementById('startpointX').value, document.getElementById('startpointY').value);    
 //출발 마커를 생성합니다
 var startMarker = new kakao.maps.Marker({
 map: map, // 출발 마커가 지도 위에 표시되도록 설정합니다
-position: pos,
+position: startPosition,
 draggable: true, // 출발 마커가 드래그 가능하도록 설정합니다
 image: startImage // 출발 마커이미지를 설정합니다
 });
@@ -133,23 +176,17 @@ arriveDragOption = {
 var arriveDragImage = new kakao.maps.MarkerImage(arriveDragSrc, arriveDragSize, arriveDragOption);
 
 //도착 마커가 표시될 위치입니다 
-//var arrivePosition = new kakao.maps.LatLng(33.450701, 126.572667);    
+var arrivePosition = new kakao.maps.LatLng(document.getElementById('endpointX').value, document.getElementById('endpointY').value);    
 
 //도착 마커를 생성합니다 
 
 var arriveMarker = new kakao.maps.Marker({  
 	map: map, // 도착 마커가 지도 위에 표시되도록 설정합니다
-	position: pos,
+	position: arrivePosition,
 	draggable: true, // 도착 마커가 드래그 가능하도록 설정합니다
 	image: arriveImage // 도착 마커이미지를 설정합니다
 	});
-
-function endpoint() {
-	arriveMarker.setPosition(pos);
-}
-function startpoint() {
-	startMarker.setPosition(pos);
-}
+	
 //도착 마커에 dragstart 이벤트를 등록합니다
 kakao.maps.event.addListener(arriveMarker, 'dragstart', function() {
 // 도착 마커의 드래그가 시작될 때 마커 이미지를 변경합니다
@@ -164,6 +201,22 @@ document.getElementById('endpointX').value = arriveMarker.getPosition().Ma;
 document.getElementById('endpointY').value = arriveMarker.getPosition().La;
 });
 
+kakao.maps.event.addListener(map, 'center_changed', function() {
+    // 지도의  레벨을 얻어옵니다
+    var level = map.getLevel();
+    // 지도의 중심좌표를 얻어옵니다 
+    var latlng = map.getCenter(); 
+    pos = latlng;
+    document.getElementById('mapX').value = pos.Ma;
+    document.getElementById('mapY').value = pos.La;
+});
+
+function endpoint() {
+	arriveMarker.setPosition(pos);
+}
+function startpoint() {
+	startMarker.setPosition(pos);
+}
 function searchPlaces() {
 
     var keyword = document.getElementById('keyword').value;
@@ -210,55 +263,5 @@ function displayMarker(place) {
     });
 }     
 </script>
-<div>
-		<form action="insertMeeting.do" method="post" name="form" id="form">
-		<input type="text" name="userCode" style="display: none" value="${user.userCode}"/>
-			<input type="hidden" id="mapX" name="mapX" value="37.566826">
-			<input type="hidden" id="mapY" name="mapY" value="126.9786567">
-			<input type="hidden" id="startpointX" name="startpointX">
-			<input type="hidden" id="startpointY" name="startpointY">
-			<input type="hidden" id="endpointX" name="endpointX">
-			<input type="hidden" id="endpointY" name="endpointY">
-			<table border="1">
-					<tr>
-					<td>인원수
-						<select name="count">
-						<option value="4">4명</option>
-						<option value="5">5명</option>	
-						<option value="6">6명</option>						
-					</select>
-					</td>
-					<td>지역
-						<select name="areaCode">
-						<option value="서울">서울</option>
-						<option value="경기">경기</option>	
-					</select>
-					</td>
-				</tr>
-					<tr>
-					<td bgcolor="orange" width="70">제목</td>
-					<td align="left"><input type="text" name="meetingTitle" /></td>
-				</tr>
-				<tr>
-					<td bgcolor="orange">내용</td>
-					<td align="left"><textarea name="meetingContents" cols="40" rows="10"></textarea></td>
-				</tr>
-				<tr>
-					<td colspan="2" align="center"><input type="submit"
-						value=" 새글 등록 " /></td>
-				</tr>
-			</table>
-		</form>
-</div>
-</div>
-</div>
-<jsp:include page="WEB-INF/footer.jsp" />
-</div>
-</body>
-<script>
-document.getElementById('startpointX').value = pos.Ma
-document.getElementById('startpointY').value = pos.La
-document.getElementById('endpointX').value = pos.Ma
-document.getElementById('endpointY').value = pos.La
-</script>
+
 </html>

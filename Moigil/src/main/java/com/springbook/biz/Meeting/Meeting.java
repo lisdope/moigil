@@ -26,6 +26,7 @@ public class Meeting {
             )
 	private Integer meetingNo;
 	private Integer userCode;
+	private String areaCode;
 	private String meetingTitle; // 제목
 	private String meetingContents; // 내용
 	private String mapX; //시작지점
