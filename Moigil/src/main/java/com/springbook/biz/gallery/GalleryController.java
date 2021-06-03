@@ -23,37 +23,39 @@ public class GalleryController {
 	@Autowired
 	GalleryRepository galleryRepository;
 	
-	@RequestMapping(value="imageUpload.do", method=RequestMethod.POST) 
+	@RequestMapping(value="imageUpload.do", method=RequestMethod.POST)
 	@ResponseBody
-	public String saveFile(HttpServletRequest request) throws IOException {
-		String imgFolder ="\\galleryImg\\"; //저장할 경로
-		String realFolder = request.getRealPath("/") + imgFolder; //web-inf바로전 까지 저장할 경로
-		MultipartHttpServletRequest multipartRequest =  (MultipartHttpServletRequest)request;
-		MultipartFile file = multipartRequest.getFile("imageFile"); //단일 파일 업로드
-		String filename = file.getOriginalFilename();
-
-		File ufile = new File(realFolder + file.getOriginalFilename());
-		file.transferTo((ufile));
-
-		return filename; 
-	}
-	
-	
-	@RequestMapping(value="galleryUpload.do", method=RequestMethod.POST)
-	@ResponseBody
-	public String uploadMulti(@RequestParam("files") List<MultipartFile> files, HttpServletRequest request) throws IOException {
-	    ServletContext rootPath = request.getSession().getServletContext();
-		String basePath = rootPath.getRealPath("/galleryImg") + "/" ;
+	public String uploadMulti(@RequestParam("imageFile") List<MultipartFile> imageFiles, HttpServletRequest request) throws IOException {
+		ServletContext rootPath = request.getSession().getServletContext();
+		String basePath = rootPath.getRealPath("/galleryImg/");
 		// 파일 업로드(여러개) 처리 부분
-		for(MultipartFile file : files) {
+		for(MultipartFile file : imageFiles) {
 //	        String originalName = file.getOriginalFilename();
-			String destinationFileName = RandomStringUtils.randomAlphanumeric(20) + ".png";
+			String destinationFileName = RandomStringUtils.randomAlphanumeric(20) + ".jpg";
 			String filePath = basePath + "/" + destinationFileName;
 			File dest = new File(filePath);
 			file.transferTo(dest);
+			return destinationFileName;
 		}
-		return "uploaded.jsp";
+		return "";
 	}
+	
+//	@RequestMapping(value="imageUpload.do", method=RequestMethod.POST) 
+//	@ResponseBody
+//	public String saveFile(HttpServletRequest request) throws IOException {
+//		String imgFolder ="\\galleryImg\\"; //저장할 경로
+//		String realFolder = request.getRealPath("/") + imgFolder; //web-inf바로전 까지 저장할 경로
+//		MultipartHttpServletRequest multipartRequest =  (MultipartHttpServletRequest)request;
+//		MultipartFile file = multipartRequest.getFile("imageFile"); //단일 파일 업로드
+//		String filename = file.getOriginalFilename();
+//
+//		File ufile = new File(realFolder + file.getOriginalFilename());
+//		file.transferTo((ufile));
+//
+//		return filename; 
+//	}
+	
+	
 
 //	@RequestMapping(value="imageUpload.do", method=RequestMethod.POST)
 //	@ResponseBody
