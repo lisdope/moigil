@@ -28,7 +28,7 @@
       		<!-- 묻고 답하기 시작 -->
       		<section id="contents" class="qnaBoard">
         		<!-- 현재위치 시작 -->
-        		<p class="location">모이길 &gt; 함께가요(모임) &gt; <strong>자유 게시판</strong></p> 
+        		<p class="location">모이길 &gt; 함께가요(모임) &gt; <strong>전체 게시판</strong></p> 
         		<!-- //현재위치 종료 -->
         		<h1>전체 게시판</h1>
         		
@@ -63,9 +63,11 @@
 							<td></td>
 							<td></td>
 							<td></td>
+							<td align="center">
 							<c:if test="${!empty sessionScope.user.id}">
-							<td align="center"><a href="insertBoard.jsp">새글 등록</a></td>
+							<a href="insertBoard.jsp">새글 등록</a>
 							</c:if>
+							</td>
 							<!-- 검색 시작 -->
 							<td>
 								<form action="getBoardList.do" method="post">
