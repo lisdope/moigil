@@ -277,8 +277,7 @@
 	width:15%;
 }
 .boardTable th {
-	background-color: #fc9b28;
-	background-image: linear-gradient(to bottom, #3788ff 0%,#0067ff 40%,#0067ff 60%, #0067ff 100%);
+	background-color: #5dc1ca;
 	color: #fff;
 }
 .boardTable th:first-child {

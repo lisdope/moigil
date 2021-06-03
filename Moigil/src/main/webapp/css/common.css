@@ -13,6 +13,8 @@ ul{
 #moigil{
 	font-weight: bold;
 	color: #ffffff;
+	font-family:'KyoboHand';
+	font-size: 50px;	
 }
 
 fieldset{
@@ -60,9 +62,16 @@ fieldset{
          url('font/webcafeIcon.svg#webcaferegular') format('svg');
 }
 
+@font-face {
+    font-family: 'KyoboHand';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/KyoboHand.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 /* 링크 스타일 */
 a:link{
-	color:#4f4f4f;
+	color:#fff;
 	text-decoration:none;
 }
 a:visited{
@@ -70,7 +79,7 @@ a:visited{
 	text-decoration:none;
 }
 a:hover, a:focus{
-	color:#ff0000;
+	color:#ff0;
 	text-decoration:none;
 }
 
@@ -78,9 +87,9 @@ a:hover, a:focus{
 body{
 	color:#000;
 	background-color:#fff;
-	font-size:0.75em;
-	line-height:1.2;
-	font-family:'nanum';	
+	font-size:1.1em;
+	line-height:1.1;
+	font-family:'Nanum';	
 }
  
 /* 건너뛰기 링크 */
@@ -100,7 +109,7 @@ body{
 
 /* 레이아웃 */
 #wrapper{
-	background-color:#e3fff2;
+	    background-color: #fff;
 	
 }
 #header, #contentsArea, #slogan, #footerInner{
@@ -118,7 +127,7 @@ body{
 }
 #navs {
     cursor: default;
-    background-color: #3aad56;
+    background-color: #00ced1;
     background-image: -moz-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.3)), url(images/bg01.png);
     background-image: -webkit-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.3)), url(images/bg01.png);
     background-image: -ms-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.3)), url(images/bg01.png);
@@ -212,7 +221,7 @@ body{
 	border-top:2px solid #fff0;
 	border-radius:0 0 0px 0px;
 	padding-left:225px;
-	height:45px;
+	height:80px;
 }
 .mainMenu li, .mainMenu a{
 	display:inline-block;
@@ -223,7 +232,6 @@ body{
 	letter-spacing:1px;
 	padding:15px 20px 14px;
 	color:#fff;
-	border-left:1px solid #fff;
 	text-shadow:1px 0px rgba(0, 0, 0, 0.2),-1px 0px rgba(0, 0, 0, 0.2),0 1px rgba(0, 0, 0, 0.2),0 -1px rgba(0, 0, 0, 0.2);
 }
 .mainMenu > li > a:hover, .mainMenu > li > a:focus{

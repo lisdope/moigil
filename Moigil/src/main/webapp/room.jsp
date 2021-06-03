@@ -149,8 +149,17 @@
 			}
 		});
 	}
-</script>
-<body>
+	function session(){
+	      alert("로그인을 해주세요");
+	      location.href ="/index.jsp";
+	   }
+	</script>
+	<body>
+	   <c:if test="${empty sessionScope.user.id}">
+	   <script>
+	   session();
+	   </script>
+	   </c:if>
 <!-- #wrapper 시작 -->
 	<div id="wrapper">
 	
