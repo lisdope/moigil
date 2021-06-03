@@ -1,55 +1,112 @@
 <%@page contentType="text/html; charset=UTF-8"%>
 <%@taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-    <meta charset="utf-8">
-    <title>당일모임 글정보</title>
-    
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+ <!-- Bootstrap -->
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+	crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/commons.css">
+<link rel="shortcut icon" href="images/common/webcafe.ico">
+<link rel="apple-touch-icon" href="images/common/webcafe.png">
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/sub.css">
+<script src="js/jQuery.js"></script>
+<script src="js/webcafe.js"></script>
+<title>모임 상세</title>
+<style type="text/css">
+ .Rating{
+ 	display: inline;}
+ .boardview > td{border:1px solid; width: 50px; font-size:12px; font-color:blue;padding:5px 5px; }
+ .boardview > th{border:1px solid; width: 50px; font-size:12px; font-color:blue;padding:5px 5px; }
+ p.logout{font-family: 'Noto Sans KR', sans-serif;}
+ 
+.size{
+    height:30px;
+    width:70px;
+}
+.reply{
+border : 0px solid;}
+</style>
 </head>
-<script>
-
-</script>
 <body>
-<div id="map" style="width:700px;height:350px;"></div>
-
+<!-- #wrapper 시작 -->
+	<div id="wrapper">
+	
+		<!-- #header 시작 -->
+		<jsp:include page="WEB-INF/header.jsp" />
+		<!-- //#header 종료 -->
+		<!-- #visual 시작 -->
+		<!-- //#visual 종료 -->
+		<!-- #contentsArea 시작 -->
+		<div id="contentsArea"> 
+		
+		<!--   콘텐츠 컬럼 시작 -->
+		
+		<section id="contents" class="qnaBoard">
+        		<!-- 현재위치 시작 -->
+        		<p class="location">모이길 &gt; 함께가요(모임) &gt; <strong>당일모임</strong></p> 
+        		<!-- //현재위치 종료 -->
+        		<h1>모임 게시판</h1>
+		
+		<center>
+				<div class="container">
+			<section id="boardview">
+				<table class="table table-bordered" border="1">
+				<tbody>
+				<div id="map" style="width:850px;height:350px;"></div>
+						<tr>
+						<th  class="table-primary">글번호</th>
+						<td >${Meeting.meetingNo }</td>
+						<th class="table-primary">지역</th>
+						<td>${Meeting.areaCode}</td>
+						<th class="table-primary">인원수</th>
+						<td >${Meeting.count} 명</td>
+						<th class="table-primary">글쓴이</th>
+						<td  align="left">${Meeting.id}</td>
+						</tr>
+					<tr>
+						<th class="table-primary">제목</th>
+						<td colspan="8" align="left">${Meeting.meetingTitle}</td>
+					</tr>
+					</tbody>
+					<tfoot>
+					<tr>
+						<th class="table-primary">내용</th>
+						<td colspan="2" align="left"><textarea rows="20" cols="80" readonly="readonly">${Meeting.meetingContents}</textarea>
+						</td>
+						<th class="table-primary">참여자</th>
+						<td colspan="6" align="left"><c:import url="/getJoinList.do">
+						</c:import></td>
+					</tr>
+					</tfoot>
+				</table>
+				</section>
+			<input type="hidden" id="mapX" name="mapX" value="${Meeting.mapX}">
+			<input type="hidden" id="mapY" name="mapY" value="${Meeting.mapY}">
+			<input type="hidden" id="startpointX" name="startpointX" value="${Meeting.startpointX}">
+			<input type="hidden" id="startpointY" name="startpointY" value="${Meeting.startpointY}">
+			<input type="hidden" id="endpointX" name="endpointX" value="${Meeting.endpointX}">
+			<input type="hidden" id="endpointY" name="endpointY" value="${Meeting.endpointY}">
+			
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=682946d5861fe4cad908d7d05104e4bc&libraries=services"></script>
 
-<div>
-		<form method="post" name="form">
-		<textarea id="mapX" name="mapX" cols="40" rows="10" style=display:none>${Meeting.mapX}</textarea>
-		<textarea id="mapY" name="mapY" cols="40" rows="10" style=display:none>${Meeting.mapY}</textarea>
-			<textarea id="startpointX" name="startpointX" cols="40" rows="10" style=display:none>${Meeting.startpointX}</textarea>
-			<textarea id="startpointY" name="startpointY" cols="40" rows="10" style=display:none>${Meeting.startpointY}</textarea>
-			<textarea id="endpointX" name="endpointX" cols="40" rows="10" style=display:none>${Meeting.endpointX}</textarea>
-			<textarea id="endpointY" name="endpointY" cols="40" rows="10" style=display:none>${Meeting.endpointY}</textarea>
-			<table border="1">
-								<tr>
-					<td>인원수
-						<input type="text" name="count" value="${Meeting.count}">
-					</td>
-					<td>지역
-						<input type="text" name=areaCode value="${Meeting.areaCode}">
-					</td>
-				</tr>
-					<tr>
-					<td bgcolor="orange" width="70">제목</td>
-					<td align="left"><input type="text" name="meetingTitle" value="${Meeting.meetingTitle}" /></td>
-				</tr>
-				<tr>
-					<td bgcolor="orange">내용</td>
-					<td align="left">${Meeting.meetingContents}</td>
-				</tr>
-			</table>
-		</form>
+
 		<c:if test="${(sessionScope.user.grade eq 'ADMIN') || (sessionScope.user.userCode eq Meeting.userCode)}">
 		 <a href="editMeeting.do?meetingNo=${Meeting.meetingNo}"><button class="btn btn-primary">글수정</button></a>&nbsp;&nbsp;&nbsp; 
-		</c:if>					
+		</c:if>	
+				<input class="btn btn-primary" type="button" onclick="location.href='getMeetingList.do'" value="목록으로">					
 		<c:if test="${(sessionScope.user.grade eq 'ADMIN') || (sessionScope.user.userCode eq Meeting.userCode)}">
 		<a href="deleteMeeting.do?meetingNo=${Meeting.meetingNo }"><button type="button" class="btn btn-primary">글삭제</button></a>&nbsp;&nbsp;&nbsp; 
 		</c:if>
-		<c:import url="/getJoinList.do">
-		</c:import>
+
 </div>
 </body>
 <script>

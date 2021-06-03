@@ -26,13 +26,13 @@ public class MeetingController {
 	@PostMapping("insertMeeting.do") // 글쓰기
 	public String insertMeeting(Meeting Meeting) {
 		DAO.save(Meeting);
-	  return "index.jsp";
+	  return "getMeetingList.do";
 	}
 	@RequestMapping("getMeeting.do") // 글보기
 	public String getMeeting(Model model,Meeting Meeting,@RequestParam(name="person",defaultValue = "0")Integer person) {
 		Meeting = DAO.findById(Meeting.getMeetingNo()).get();
 		Meeting.setCount(Meeting.getCount()+person);
-		DAO.save(Meeting); // 데이터베이스에 저장
+		DAO.save(Meeting); // 데이터베이스에 저장	
 		model.addAttribute("Meeting",Meeting);
 	  return "getMeeting.jsp";
 	}

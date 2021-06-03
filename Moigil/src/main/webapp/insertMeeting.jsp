@@ -19,9 +19,47 @@
 <body>
 <div id="wrapper">
 <jsp:include page="WEB-INF/header.jsp" />
-<div id="contentsArea"> 
-    <div class="container">
-        <div class="map_wrap">
+		<div id="contentsArea"> 
+		<section id="contents" class="qnaBoard">
+		
+		<form action="insertMeeting.do" method="post" name="form" id="form">
+		<input type="text" name="userCode" style="display: none" value="${user.userCode}"/>
+		<input type="text" name="id" style="display: none" value="${user.id}"/>
+			<input type="hidden" id="mapX" name="mapX" value="37.566826">
+			<input type="hidden" id="mapY" name="mapY" value="126.9786567">
+			<input type="hidden" id="startpointX" name="startpointX">
+			<input type="hidden" id="startpointY" name="startpointY">
+			<input type="hidden" id="endpointX" name="endpointX">
+			<input type="hidden" id="endpointY" name="endpointY">
+			<table class="table table-hover" border="0" cellpadding="0" cellspacing="0">
+				<tr>
+					<td class="table-primary" width="70">제목</td>
+					<td align="left"><input class="form-control" type="text" size="120" name="meetingTitle" /></td>
+				</tr>
+				<tr>
+					<td class="table-primary">지역</td>
+					<td align="left">
+					<select class="form-select" style="width: 100px" name="areaCode">
+						<option value="서울">서울</option>
+						<option value="경기도">경기도</option>
+					</select></td>
+				</tr>
+				<tr>
+					<td class="table-primary">인원수</td>
+					<td align="left">
+					<select class="form-select" style="width: 100px" name="count">
+						<option value="4">4명</option>
+						<option value="5">5명</option>	
+						<option value="6">6명</option>
+						<option value="7">7명</option>
+						<option value="8">8명</option>
+						<option value="9">9명</option>
+					</select></td>
+				</tr>
+				<tr>
+				<td class="table-primary">지도</td>
+				<td>
+				 <div class="map_wrap">
             <div id="menu_wrap" class="bg_white">
                 <div class="option">
                     <div>
@@ -38,7 +76,7 @@
                 <div id="pagination"></div>
             </div>
         </div>
-<div id="map" style="width:700px;height:350px;"></div>
+<div id="map" style="width:800px;height:350px;"></div>
 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=682946d5861fe4cad908d7d05104e4bc&libraries=services"></script>
 <script>
@@ -210,48 +248,25 @@ function displayMarker(place) {
     });
 }     
 </script>
-<div>
-		<form action="insertMeeting.do" method="post" name="form" id="form">
-		<input type="text" name="userCode" style="display: none" value="${user.userCode}"/>
-			<input type="hidden" id="mapX" name="mapX" value="37.566826">
-			<input type="hidden" id="mapY" name="mapY" value="126.9786567">
-			<input type="hidden" id="startpointX" name="startpointX">
-			<input type="hidden" id="startpointY" name="startpointY">
-			<input type="hidden" id="endpointX" name="endpointX">
-			<input type="hidden" id="endpointY" name="endpointY">
-			<table border="1">
-					<tr>
-					<td>인원수
-						<select name="count">
-						<option value="4">4명</option>
-						<option value="5">5명</option>	
-						<option value="6">6명</option>						
-					</select>
-					</td>
-					<td>지역
-						<select name="areaCode">
-						<option value="서울">서울</option>
-						<option value="경기">경기</option>	
-					</select>
-					</td>
-				</tr>
-					<tr>
-					<td bgcolor="orange" width="70">제목</td>
-					<td align="left"><input type="text" name="meetingTitle" /></td>
+				
+				</td>
 				</tr>
 				<tr>
-					<td bgcolor="orange">내용</td>
-					<td align="left"><textarea name="meetingContents" cols="40" rows="10"></textarea></td>
+					<td class="table-primary" bgcolor="orange">내용</td>
+					<td align="left"><textarea class="form-control" name="meetingContents" cols="120" rows="10"></textarea></td>
 				</tr>
 				<tr>
-					<td colspan="2" align="center"><input type="submit"
-						value=" 새글 등록 " /></td>
+				<td></td>
+					<td colspan="2" align="center">
+					<button type="submit" class ="btn btn-primary">새글등록</button>
+					<input class="btn btn-primary" type="button" onclick="history.back(-1);" value="뒤로">	
+					</td>
 				</tr>
 			</table>
 		</form>
-</div>
-</div>
-</div>
+		<hr>
+	</section>
+	</div>
 <jsp:include page="WEB-INF/footer.jsp" />
 </div>
 </body>

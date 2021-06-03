@@ -13,12 +13,16 @@
 
 </script>
 <body>
+		<c:if test="${(sessionScope.user) != null}">
+		<c:if test="${Meeting.count > 0}">
 		<form id="join" action="insertJoin.do" method="POST">
 		<input type="text" id="meetingNo" name="meetingNo" style=display:none value="${Meeting.meetingNo}" />
 		<input type="text" id="userCode" name="userCode" style=display:none value="${user.userCode}" />
 		<input type="text" id="id" name="id" style=display:none value="${user.id}" />
 		<input type="submit" value="참가하기">
 		</form>
+		</c:if>
+		</c:if>
 		<table>
 		<tr>
 		<th>참여자</th>
@@ -31,7 +35,7 @@
 		<form id="join" action="deleteJoin.do" method="POST">
 		<input type="text" id="meetingNo" name="meetingNo" style=display:none value="${Meeting.meetingNo}" />
 		<input type="text" id="no" name="no" style=display:none value="${join.no}" />
-		<input type="submit" value="참가취소">
+		<input type="submit" value="취소">
 		</form>
  		</c:if>
  		</td>
