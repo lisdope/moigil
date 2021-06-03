@@ -157,10 +157,10 @@
 		<form id="ajaxform" method="post" action="upload.do"
 			enctype="multipart/form-data">
 			<p>
-				<label for="tel">프로필</label> <input type="file"
-					style="width: 200px;" id="imageFile" name="imageFile"
-					onchange="upload()" /> <input type="hidden" id="imageFolder"
-					name="imageFolder" value="userImg">
+				<label for="tel">프로필</label> 
+				<input type="file" style="width: 200px;" id="imageFile" name="imageFile"
+					onchange="upload()" /> 
+				<input type="hidden" id="imageFolder" name="imageFolder" value="userImg">
 			</p>
 		</form>
 			
