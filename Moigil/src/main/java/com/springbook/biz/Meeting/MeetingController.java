@@ -16,9 +16,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.springbook.biz.board.Board;
-
-
 
 @Controller
 public class MeetingController {
@@ -32,8 +29,9 @@ public class MeetingController {
 	  return "index.jsp";
 	}
 	@RequestMapping("getMeeting.do") // 글보기
-	public String getMeeting(Model model,Meeting Meeting) {
+	public String getMeeting(Model model,Meeting Meeting,@RequestParam(name="person",defaultValue = "0")Integer person) {
 		Meeting = DAO.findById(Meeting.getMeetingNo()).get();
+		Meeting.setCount(Meeting.getCount()+person);
 		DAO.save(Meeting); // 데이터베이스에 저장
 		model.addAttribute("Meeting",Meeting);
 	  return "getMeeting.jsp";
@@ -58,7 +56,7 @@ public class MeetingController {
 		Meeting meeting = DAO.findById(no).get();
 		model.addAttribute("Meeting",meeting);
 	      return "updateMeeting.jsp";
-	  }
+	}
 
 
 	 

@@ -7,6 +7,9 @@
     <title>당일모임 글정보</title>
     
 </head>
+<script>
+
+</script>
 <body>
 <div id="map" style="width:700px;height:350px;"></div>
 
@@ -39,12 +42,14 @@
 				</tr>
 			</table>
 		</form>
-				<c:if test="${(sessionScope.user.grade eq 'ADMIN') || (sessionScope.user.userCode eq Meeting.userCode)}">
+		<c:if test="${(sessionScope.user.grade eq 'ADMIN') || (sessionScope.user.userCode eq Meeting.userCode)}">
 		 <a href="editMeeting.do?meetingNo=${Meeting.meetingNo}"><button class="btn btn-primary">글수정</button></a>&nbsp;&nbsp;&nbsp; 
 		</c:if>					
 		<c:if test="${(sessionScope.user.grade eq 'ADMIN') || (sessionScope.user.userCode eq Meeting.userCode)}">
 		<a href="deleteMeeting.do?meetingNo=${Meeting.meetingNo }"><button type="button" class="btn btn-primary">글삭제</button></a>&nbsp;&nbsp;&nbsp; 
 		</c:if>
+		<c:import url="/getJoinList.do">
+		</c:import>
 </div>
 </body>
 <script>
