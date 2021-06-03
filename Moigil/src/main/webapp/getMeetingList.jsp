@@ -40,6 +40,7 @@
 		              <th scope="col" class="bbsArea">지역</th>
 		              <th scope="col" class="bbsTitle">제목</th>
 		              <th scope="col" class="bbsCount">인원수</th>
+		              
 		            </tr>
 		          </thead>
 		          <tbody>
@@ -60,9 +61,9 @@
 						<tr>
 							<td></td>
 							<td></td>
-							<td></td>
+							<td align="center">
 							<c:if test="${!empty sessionScope.user.id}">
-							<td align="center"><a href="insertMeeting.jsp">새글 등록</a></td>
+							<a href="insertMeeting.jsp">새글 등록</a>
 							</c:if>
 							<!-- 검색 시작 -->
 							<td>

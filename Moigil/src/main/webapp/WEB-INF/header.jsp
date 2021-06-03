@@ -8,7 +8,7 @@
 </head>
 <body>
 <!-- 건너뛰기 링크 시작 -->
-	<header id="header">
+	<header id="navs">
 			<!-- 웹카페 로고 시작 -->
 			<h1 class="logo">
 				<a href="index.jsp"  id="moigil">모이길</a>
@@ -16,13 +16,13 @@
 			<!-- //웹카페 로고 종료 -->
 			<!-- 웹카페 안내 링크 시작 -->
 			<ul class="infoLink">
-				<li><a href="myPage.jsp">마이페이지</a></li>
-				<li><a href="updateUser.jsp">회원정보 수정</a></li>
-				<li><a href="logout.do">로그아웃</a></li>
+				<li><a href="myPage.jsp" style="font-weight: bold;">마이페이지</a></li>
+				<li><a href="updateUser.jsp" style="font-weight: bold;">회원정보 수정</a></li>
+				<li><a href="logout.do" style="font-weight: bold;">로그아웃</a></li>
 			</ul>
 			<!-- //웹카페 안내 링크 종료 -->
 			<!-- 메인 메뉴 시작 -->
-			<nav>
+			<nav >
 				<h1 class="hidden">메인 메뉴</h1>
 				<ul class="mainMenu">
 					<li><a href="#">공지사항</a>
@@ -51,9 +51,7 @@
 		<!-- //#header 종료 -->
 		<!-- #visual 시작 -->
 		<div id="visual">
-			<p>
-				모이길 &amp; 산책 서비스			
-			</p>
+			
 		</div>
 		
 </body>

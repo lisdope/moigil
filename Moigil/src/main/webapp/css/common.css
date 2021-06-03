@@ -100,12 +100,10 @@ body{
 
 /* 레이아웃 */
 #wrapper{
-	background-color:#fff;
-	background-image: url(images/Metasequoia.jpg), linear-gradient(to bottom, #c7c7c7 0%,#ffffff 70%,#ffffff 100%);
-	background-position:center top;
-	background-repeat:no-repeat;
+	background-color:#e3fff2;
+	
 }
-#header, #visual, #contentsArea, #slogan, #footerInner{
+#header, #contentsArea, #slogan, #footerInner{
 	width:940px;
 	margin:0 auto;
 	-moz-box-sizing:border-box;	
@@ -113,18 +111,33 @@ body{
 }
 #header{
 	height:110px;
-	background-color:#fff;
+	background-color:#63ad5c00;
 	border-radius:0 0 15px 15px;
 	padding:0 30px;
 	position:relative;
 }
+#navs {
+    cursor: default;
+    background-color: #3aad56;
+    background-image: -moz-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.3)), url(images/bg01.png);
+    background-image: -webkit-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.3)), url(images/bg01.png);
+    background-image: -ms-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.3)), url(images/bg01.png);
+    background-image: linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.3)), url(images/bg01.png);
+    padding: 0;
+}
+
+
 #visual{
-	height:120px;
+	height:500px;
 	position:relative;
+	background-image: url(images/Metasequoia.jpg), linear-gradient(to bottom, #c7c7c7 0%,#ffffff 70%,#ffffff 100%);
+	background-size: 1930px;
+	background-position:center top;
+	background-repeat:no-repeat;
 }
 #contentsArea{
 	overflow:hidden;
-	min-height:400px;
+	min-height:600px;
 	padding:30px 0 30px 30px;
 	background-color:#fff;
 	border-radius:15px 15px 0 0;
@@ -196,9 +209,8 @@ body{
 }
 /* 메인 메뉴 */
 .mainMenu{
-	border-top:2px solid #000;
+	border-top:2px solid #fff0;
 	border-radius:0 0 0px 0px;
-	background-image: linear-gradient(to bottom, #3788ff 0%,#0067ff 40%, #0067ff 60%,#0067ff 100%);
 	padding-left:225px;
 	height:45px;
 }
@@ -207,7 +219,7 @@ body{
 }
 .mainMenu > li > a{
 	font-family:'NanumEX';
-	font-size:14px;
+	font-size:15px;
 	letter-spacing:1px;
 	padding:15px 20px 14px;
 	color:#fff;
@@ -239,6 +251,9 @@ body{
 }
 .mainMenu ul a{
 	padding:8px 0 7px 15px;
+	color: #ffffff;
+    font-weight: bold;
+    font-size: 14px;
 }
 .mainMenu ul a:before{
 	font-family:webcafeIcon;
@@ -330,34 +345,8 @@ body{
 		opacity:0;
 	}
 }
-#visual:before, #visual:after{
-	position:absolute;
-	top:-20px;
-	left:0;
-	width:100%;
-	height:140px;
-	content:"";
-	-webkit-animation:flowerAni 2s;
-	-webkit-animation-direction:alternate;
-	-webkit-animation-iteration-count: infinite;
-	animation:flowerAni 2s;
-	animation-direction:alternate;
-	animation-iteration-count: infinite;
-	-webkit-animation-timing-function: ease-in-out;
-}
-#visual:before{
-	background-image:url(images/ani_flower_01.png),url(images/ani_flower_02.png);
-	background-repeat:no-repeat;
-	background-position:0 5px, 670px 0;
-	
-}
-#visual:after{
-	background-image:url(images/ani_flower_03.png),url(images/ani_flower_04.png);
-	background-repeat:no-repeat;
-	background-position:300px 35px, 800px 65px;
-	-webkit-animation-delay: 1s;
-	animation-delay: 1s;
-}
+
+
 /* 슬로건 */
 #slogan h1{
 	width:110px;
