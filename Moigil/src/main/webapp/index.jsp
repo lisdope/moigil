@@ -22,78 +22,79 @@
 </head>
 
 <body>
-	<!-- #wrapper ?�작 -->
+	<!-- #wrapper 시작 -->
 	<div id="wrapper">
 	
-		<!-- #header ?�작 -->
+		<!-- #header 시작 -->
 		<jsp:include page="WEB-INF/header.jsp" />
 		<!-- //#header 종료 -->
 		
 		<!-- //#visual 종료 -->
-		<!-- #contentsArea ?�작 -->
-		<div id="contentsArea"> 
+		<!-- #contentsArea 시작 -->
+
 		
+	
 
 		<div id="contentsArea" class="container"> 
-		<!-- 로그?? �? 배너, ?�어?�명 관?? 콘텐�? 컬럼 ?�작 -->
+		<!-- 로그인 및 배너, 용어설명 관련 콘텐츠 컬럼 시작 -->
 		
 		<div id="usefulArea">
 		
-			<!-- 로그?? ?�작 -->
+			<!-- 로그인 시작 -->
 			<section class="login">
-				<h1>로그??</h1>
+				<h1>로그인</h1>
 
 				<c:if test="${empty sessionScope.user.id}">
 					<form action="login.do" method="post">
 						<fieldset>
-							<legend>?�원 로그?? ??</legend>
+							<legend>회원 로그인 폼</legend>
 							<p>
-								<label for="userId">?�이??</label> <input type="text" name="id" required placeholder="?�이??">
+								<label for="userId">아이디</label> <input type="text" name="id" required placeholder="아이디">
 							</p>
 							<p>
-								<label for="userPw">비�?번호</label> <input type="password" name="pw" required placeholder="4?�이?? 8?�이??">
+								<label for="userPw">비밀번호</label> <input type="password" name="pw" required placeholder="4자이상 8자이하">
 							</p>
 							<p>
-								<button type="submit">로그??</button>
+								<button type="submit">로그인</button>
 							</p>
 						</fieldset>
 					</form>
 				</c:if>
 				<c:if test="${!empty sessionScope.user.id}">
-					<h1>[${user.id}]?? ?�영?�니??!</h1>
+					<h1>[${user.id}]님 환영합니다!</h1>
 				</c:if>
 				
 				<div class="memberLink">
 				<c:if test="${empty sessionScope.user.id}">
-					<a href="createUser.jsp" class="join">?�원가??</a>
-					<a href="getId.jsp" class="find">?�이??/비�?번호 찾기</a>
+					<a href="createUser.jsp" class="join">회원가입</a>
+					<a href="getId.jsp" class="find">아이디/비밀번호 찾기</a>
 					</c:if>
 				</div>
 			</section>
-			<!-- //로그?? 종료 -->
-			<!-- //로그?? �? 배너, ?�어?�명 관?? 콘텐�? 컬럼 종료 -->
+			<!-- //로그인 종료 -->
+			<!-- //로그인 및 배너, 용어설명 관련 콘텐츠 컬럼 종료 -->
 		</div>
-		<!-- 메인 ?�이지 ?�개 ?�작 -->
+		<!-- 메인 페이지 소개 시작 -->
 		<section id="infoArea" class="html5Intro">
-			<p class="location">Home &gt; 모이길에 ?�?? &gt; <strong>모이�? ?�개</strong></p> 
-			<h1>모이�? ?�개</h1>
-			<h2>모이길이?�?</h2>
-			<p>?�책, ?�산 ?�을 좋아?�는 ?�람?�을 ?�한 커�??�티 ?�일 ?�책 모임, 채팅 ?�을 ?�공?�며,</p>
+			<p class="location">Home &gt; 모이길에 대해 &gt; <strong>모이길 소개</strong></p> 
+			<h1>모이길 소개</h1>
+			<h2>모이길이란?</h2>
+			<p>산책, 등산 등을 좋아하는 사람들을 위한 커뮤니티 당일 산책 모임, 채팅 등을 제공하며,</p>
 			<br>
-        	<p>관?? ?�품?�을 공동구매�? ?? ?? ?�는 ?�핑�? ?? ?�탈 ?? ?�비?��? ?�공?�니??. 
-        	그리�? GPS?�치기반?�로 ?�책�? ?�동 ?�내 �? ?�시�? ?�치공유�? ?�리?�과 ?�전?�을 ?�공?�는 ?? ?�비?�입?�다. 
+        	<p>관련 제품들을 공동구매를 할 수 있는 쇼핑몰 등 토탈 웹 서비스를 제공합니다. 
+        	그리고 GPS위치기반으로 산책길 자동 안내 및 실시간 위치공유로 편리함과 안전함을 제공하는 앱 서비스입니다. 
         	</p> 
         	<br>
         	
-        	<h2>모이길의 콘텐�?</h2>
+        	<h2>모이길의 콘텐츠</h2>
         	
-			<!-- //HTML5 ?�개 종료 -->
+			<!-- //HTML5 소개 종료 -->
 			</section>
 		
 		
 		</div>
 		
-		<!-- #footer ?�작 -->
+		<!-- #footer 시작 -->
 			<jsp:include page="WEB-INF/footer.jsp" />
 		<!-- //#footer 종료 -->
 		
