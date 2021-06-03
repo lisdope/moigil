@@ -4,13 +4,9 @@
 <html>
 <head>
 <title>새글등록</title>
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
-	rel="stylesheet"
-	integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
-	crossorigin="anonymous">
 <link rel="shortcut icon" href="images/common/webcafe.ico">
 <link rel="apple-touch-icon" href="images/common/webcafe.png">
+<link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="css/common.css">
 <link rel="stylesheet" href="css/sub.css">
 <script src="js/jquery.js"></script>
@@ -22,7 +18,7 @@
 			<jsp:include page="WEB-INF/header.jsp" />
 		<!-- //#header 종료 -->
 		
-		<div id="contentsArea"> 
+		<div id="contentsArea" class="container"> 
 		<section id="contents" class="qnaBoard">
 		
 		<form action="insertBoard.do" method="post">

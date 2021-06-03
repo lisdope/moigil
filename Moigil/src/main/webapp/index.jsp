@@ -10,6 +10,7 @@
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/commons.css">
 <link rel="shortcut icon" href="images/common/webcafe.ico">
 <link rel="apple-touch-icon" href="images/common/webcafe.png">
+<link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="css/common.css">
 <link rel="stylesheet" href="css/main.css">
 <script src="js/jQuery.js"></script>
@@ -26,7 +27,7 @@
 		
 		<!-- //#visual 종료 -->
 		<!-- #contentsArea 시작 -->
-		<div id="contentsArea"> 
+		<div id="contentsArea" class="container"> 
 		<!-- 로그인 및 배너, 용어설명 관련 콘텐츠 컬럼 시작 -->
 		<div id="usefulArea">
 			<!-- 로그인 시작 -->

@@ -6,6 +6,7 @@
 
 <link rel="shortcut icon" href="images/common/webcafe.ico">
 <link rel="apple-touch-icon" href="images/common/webcafe.png">
+<link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="css/common.css">
 <link rel="stylesheet" href="css/sub.css">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -90,7 +91,7 @@
 <div id="wrapper">
 <jsp:include page="WEB-INF/header.jsp" />
 
-<div id="contentsArea"> 
+<div id="contentsArea" class="container"> 
       		<!-- #contents 시작 -->
       		<!-- 회원가입 시작 -->
       	<section id="contents" class="memberJoin">

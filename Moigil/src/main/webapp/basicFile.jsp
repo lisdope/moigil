@@ -14,6 +14,7 @@
 <link rel="shortcut icon" href="images/common/webcafe.ico">
 <link rel="apple-touch-icon" href="images/common/webcafe.png">
 <!-- 
+	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/common.css">
 	<link rel="stylesheet" href="css/main.css">
 	<link rel="stylesheet" href="css/sub.css">
@@ -34,7 +35,7 @@
 		<!-- //#visual 종료 -->
 		
 		<!-- #contentsArea 시작 -->
-		<div id="contentsArea"> <!-- 이걸 해줘야 페이지 중앙에 콘텐츠 공간이 생겨서 홈페이지 처럼됨 -->
+		<div id="contentsArea" class="container"> <!-- 이걸 해줘야 페이지 중앙에 콘텐츠 공간이 생겨서 홈페이지 처럼됨 -->
 		
 		<!--   콘텐츠 컬럼 시작 -->
 		
