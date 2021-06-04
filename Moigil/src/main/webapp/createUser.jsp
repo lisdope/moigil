@@ -6,7 +6,6 @@
 
 <link rel="shortcut icon" href="images/common/webcafe.ico">
 <link rel="apple-touch-icon" href="images/common/webcafe.png">
-<link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="css/common.css">
 <link rel="stylesheet" href="css/sub.css">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -91,7 +90,7 @@
 <div id="wrapper">
 <jsp:include page="WEB-INF/header.jsp" />
 
-<div id="contentsArea" class="container"> 
+<div id="contentsArea"> 
       		<!-- #contents 시작 -->
       		<!-- 회원가입 시작 -->
       	<section id="contents" class="memberJoin">
@@ -131,6 +130,8 @@
 				<p>
 					<label for="postNum">우편번호 </label><input type="text"  style="width:100px;" id="zipNo"  name="postNum" readonly/>
 					<input type="button" onClick="goPopup();" value="주소검색"/><br>
+				</p>
+				<p>
 					<label for="address">도로명주소</label><input type="text"  style="width:600px;" id="roadFullAddr"  name="address" readonly/>
 				</p>
 				
