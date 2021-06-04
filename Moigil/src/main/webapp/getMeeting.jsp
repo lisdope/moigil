@@ -80,7 +80,7 @@ border : 0px solid;}
 					<tfoot>
 					<tr>
 						<th class="table-primary">내용</th>
-						<td colspan="2" align="left"><textarea rows="20" cols="80" readonly="readonly">${Meeting.meetingContents}</textarea>
+						<td colspan="2" align="left"><textarea rows="20" cols="50" readonly="readonly">${Meeting.meetingContents}</textarea>
 						</td>
 						<th class="table-primary">참여자</th>
 						<td colspan="6" align="left"><c:import url="/getJoinList.do">

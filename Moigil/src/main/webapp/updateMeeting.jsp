@@ -22,9 +22,31 @@
 		<div id="contentsArea"> 
 		<section id="contents" class="qnaBoard">
 
-
+<table class="table table-hover" border="0" cellpadding="0" cellspacing="0">
+				<tr>
+				<td class="table-primary">지도</td>
+				<td>
+				<div class="map_wrap">
+            <div id="menu_wrap" class="bg_white">
+                <div class="option">
+                    <div>
+                        <form onsubmit="searchPlaces(); return false;">
+                            키워드 : <input type="text" value="서울" id="keyword" size="15">
+                            <button type="submit">검색하기</button>
+                        </form>
+                            <input type="button" value="시작지점" onclick="startpoint()">
+                             <input type="button" value="도착지점" onclick="endpoint()">
+                    </div>
+                </div>
+                <hr>
+                <ul id="placesList"></ul>
+                <div id="pagination"></div>
+            </div>
+        </div>
+<div id="map" style="width:800px;height:350px;"></div>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=682946d5861fe4cad908d7d05104e4bc&libraries=services"></script>
-
+</td>
+</tr>
 		<form action="insertMeeting.do" method="post" name="form" id="form">
 		<input type="text" name="meetingNo" style="display: none" value="${Meeting.meetingNo}"/>
 		<input type="text" name="userCode" style="display: none" value="${Meeting.userCode}"/>
@@ -35,7 +57,7 @@
 		<input type="hidden" id="endpointY" name="endpointY" value="${Meeting.endpointY}">
 		<input type="hidden" id="mapX" name="mapX" value="${Meeting.mapX}">
 		<input type="hidden" id="mapY" name="mapY" value="${Meeting.mapY}">
-						<table class="table table-hover" border="0" cellpadding="0" cellspacing="0">
+						
 				<tr>
 					<td class="table-primary" width="70">제목</td>
 					<td align="left"><input class="form-control" type="text" size="120" name="meetingTitle" value="${Meeting.meetingTitle}" /></td>
@@ -60,28 +82,6 @@
 						<option value="9">9명</option>
 					</select></td>
 				</tr>
-				<tr>
-				<td class="table-primary">지도</td>
-				<td>
-				<div class="map_wrap">
-            <div id="menu_wrap" class="bg_white">
-                <div class="option">
-                    <div>
-                        <form onsubmit="searchPlaces(); return false;">
-                            키워드 : <input type="text" value="서울" id="keyword" size="15">
-                            <button type="submit">검색하기</button>
-                        </form>
-                            <input type="button" value="시작지점" onclick="startpoint()">
-                             <input type="button" value="도착지점" onclick="endpoint()">
-                    </div>
-                </div>
-                <hr>
-                <ul id="placesList"></ul>
-                <div id="pagination"></div>
-            </div>
-        </div>
-<div id="map" style="width:800px;height:350px;"></div>
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=682946d5861fe4cad908d7d05104e4bc&libraries=services"></script>
 				<tr>
 					<td class="table-primary" bgcolor="orange">내용</td>
 					<td align="left"><textarea class="form-control" name="meetingContents" cols="120" rows="10">${Meeting.meetingContents}</textarea></td>

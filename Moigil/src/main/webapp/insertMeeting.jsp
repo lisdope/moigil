@@ -17,55 +17,22 @@
 <script src="js/webcafe.js"></script>
 </head>
 <body>
+
 <div id="wrapper">
 <jsp:include page="WEB-INF/header.jsp" />
 		<div id="contentsArea"> 
 		<section id="contents" class="qnaBoard">
-		
-		<form action="insertMeeting.do" method="post" name="form" id="form">
-		<input type="text" name="userCode" style="display: none" value="${user.userCode}"/>
-		<input type="text" name="id" style="display: none" value="${user.id}"/>
-			<input type="hidden" id="mapX" name="mapX" value="37.566826">
-			<input type="hidden" id="mapY" name="mapY" value="126.9786567">
-			<input type="hidden" id="startpointX" name="startpointX">
-			<input type="hidden" id="startpointY" name="startpointY">
-			<input type="hidden" id="endpointX" name="endpointX">
-			<input type="hidden" id="endpointY" name="endpointY">
-			<table class="table table-hover" border="0" cellpadding="0" cellspacing="0">
-				<tr>
-					<td class="table-primary" width="70">제목</td>
-					<td align="left"><input class="form-control" type="text" size="120" name="meetingTitle" /></td>
-				</tr>
-				<tr>
-					<td class="table-primary">지역</td>
-					<td align="left">
-					<select class="form-select" style="width: 100px" name="areaCode">
-						<option value="서울">서울</option>
-						<option value="경기도">경기도</option>
-					</select></td>
-				</tr>
-				<tr>
-					<td class="table-primary">인원수</td>
-					<td align="left">
-					<select class="form-select" style="width: 100px" name="count">
-						<option value="4">4명</option>
-						<option value="5">5명</option>	
-						<option value="6">6명</option>
-						<option value="7">7명</option>
-						<option value="8">8명</option>
-						<option value="9">9명</option>
-					</select></td>
-				</tr>
-				<tr>
+		<table class="table table-hover" border="0" cellpadding="0" cellspacing="0">                    
+                    <tr>
 				<td class="table-primary">지도</td>
 				<td>
 				 <div class="map_wrap">
             <div id="menu_wrap" class="bg_white">
                 <div class="option">
-                    <div>
-                        <form onsubmit="searchPlaces(); return false;">
+                		                    <div>
+                        <form id="seach" onsubmit="searchPlaces(); return false;">
                             키워드 : <input type="text" value="서울" id="keyword" size="15">
-                            <button type="submit">검색하기</button>
+                            <input type="submit" value="검색하기">
                         </form>
                             <input type="button" value="시작지점" onclick="startpoint()">
                              <input type="button" value="도착지점" onclick="endpoint()">
@@ -251,6 +218,41 @@ function displayMarker(place) {
 				
 				</td>
 				</tr>
+		<form action="insertMeeting.do" method="post" name="form" id="form">
+		<input type="text" name="userCode" style="display: none" value="${user.userCode}"/>
+		<input type="text" name="id" style="display: none" value="${user.id}"/>
+			<input type="hidden" id="mapX" name="mapX" value="37.566826">
+			<input type="hidden" id="mapY" name="mapY" value="126.9786567">
+			<input type="hidden" id="startpointX" name="startpointX">
+			<input type="hidden" id="startpointY" name="startpointY">
+			<input type="hidden" id="endpointX" name="endpointX">
+			<input type="hidden" id="endpointY" name="endpointY">
+			
+				<tr>
+					<td class="table-primary" width="70">제목</td>
+					<td align="left"><input class="form-control" type="text" size="120" name="meetingTitle" /></td>
+				</tr>
+				<tr>
+					<td class="table-primary">지역</td>
+					<td align="left">
+					<select class="form-select" style="width: 100px" name="areaCode">
+						<option value="서울">서울</option>
+						<option value="경기도">경기도</option>
+					</select></td>
+				</tr>
+				<tr>
+					<td class="table-primary">인원수</td>
+					<td align="left">
+					<select class="form-select" style="width: 100px" name="count">
+						<option value="4">4명</option>
+						<option value="5">5명</option>	
+						<option value="6">6명</option>
+						<option value="7">7명</option>
+						<option value="8">8명</option>
+						<option value="9">9명</option>
+					</select></td>
+				</tr>
+				
 				<tr>
 					<td class="table-primary" bgcolor="orange">내용</td>
 					<td align="left"><textarea class="form-control" name="meetingContents" cols="120" rows="10"></textarea></td>
