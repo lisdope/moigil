@@ -25,20 +25,21 @@
 }
 .login label{
 	display:inline-block;
-	width:48px;
+	width:70px;
+	margin-bottom: 5px;
 }
 .login input{
-	width:93px;
+	width:130px;
 	height:18px;
 	padding:1px 1px 1px 4px;
 	border:1px solid #ccc;
 }
 .login button{
 	position:absolute;
-	top:6px;
-	right:18px;
-	width:45px;
-	height:45px;
+	top: 4px;
+    right: 13px;
+    width: 50px;
+    height: 50px;
 	color:#fff;
 	font-size:10px;
 	font-weight:bold;

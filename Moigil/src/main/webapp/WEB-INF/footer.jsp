@@ -40,9 +40,9 @@
 				<!-- //사이트 이용안내 종료 -->
 				<!-- 웹카페 주소 시작 -->
 				<address>
-					<span>동탄 사우나 수건도둑 엄준식</span>                    
+					<span>산책은 모이길</span>                    
                     <span>· 전화: 112</span>
-					<span>· 엄준식의 정체: <a href="https://www.youtube.com/watch?v=3FuL_5tUpxw">엄준식의 정체</a></span>
+					<span>· 모이길 웹사이트 <a href="https://www.youtube.com/watch?v=3FuL_5tUpxw">모이길</a></span>
 				</address>
 				<!-- //웹카페 주소 종료 -->
 				<!-- 웹카페 저작권정보 시작 -->
