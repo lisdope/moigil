@@ -130,6 +130,8 @@
 				<p>
 					<label for="postNum">우편번호 </label><input type="text"  style="width:100px;" id="zipNo"  name="postNum" readonly/>
 					<input type="button" onClick="goPopup();" value="주소검색"/><br>
+				</p>
+				<p>
 					<label for="address">도로명주소</label><input type="text"  style="width:600px;" id="roadFullAddr"  name="address" readonly/>
 				</p>
 				
@@ -157,10 +159,10 @@
 		<form id="ajaxform" method="post" action="upload.do"
 			enctype="multipart/form-data">
 			<p>
-				<label for="tel">프로필</label> <input type="file"
-					style="width: 200px;" id="imageFile" name="imageFile"
-					onchange="upload()" /> <input type="hidden" id="imageFolder"
-					name="imageFolder" value="userImg">
+				<label for="tel">프로필</label> 
+				<input type="file" style="width: 200px;" id="imageFile" name="imageFile"
+					onchange="upload()" /> 
+				<input type="hidden" id="imageFolder" name="imageFolder" value="userImg">
 			</p>
 		</form>
 			

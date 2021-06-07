@@ -8,6 +8,7 @@
 <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 <link rel="shortcut icon" href="images/common/webcafe.ico">
 <link rel="apple-touch-icon" href="images/common/webcafe.png">
+<link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="css/common.css">
 <link rel="stylesheet" href="css/sub.css">
 <script src="js/jquery.js"></script>
@@ -23,7 +24,7 @@
 		<!-- //#header 종료 -->
 		
 		<!-- #contentsArea 시작 -->
-		<div id="contentsArea"> 
+		<div id="contentsArea" class="container"> 
       		<!-- #contents 시작 -->
       		<!-- 묻고 답하기 시작 -->
       		<section id="contents" class="qnaBoard">

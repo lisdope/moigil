@@ -67,7 +67,7 @@
 							</c:if>
 							<!-- 검색 시작 -->
 							<td>
-								<form action="getBoardList.do" method="post">
+								<form action="getMeetingList.do" method="post">
 									<select name="searchCondition">
 										<option value="TITLE">제목
 										<option value="CONTENT">내용

@@ -8,14 +8,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
  <!-- Bootstrap -->
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
-	rel="stylesheet"
-	integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
-	crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/commons.css">
 <link rel="shortcut icon" href="images/common/webcafe.ico">
 <link rel="apple-touch-icon" href="images/common/webcafe.png">
+<link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="css/common.css">
 <link rel="stylesheet" href="css/main.css">
 <link rel="stylesheet" href="css/sub.css">
@@ -68,11 +64,9 @@ function like(){
 		<!-- #header 시작 -->
 		<jsp:include page="WEB-INF/header.jsp" />
 		<!-- //#header 종료 -->
-		<!-- #visual 시작 -->
-		<!-- //#visual 종료 -->
 		
 		<!-- #contentsArea 시작 -->
-		<div id="contentsArea"> 
+		<div id="contentsArea" class="container"> 
 		
 		<!--   콘텐츠 컬럼 시작 -->
 		
@@ -83,8 +77,7 @@ function like(){
         		<h1>전체 게시판</h1>
 		
 		<center>
-		<div class="container">
-			<section id="boardview">
+			<section id="boardview" class="container">
 				<table class="table table-bordered" border="1">
 				<tbody>
 					<tr>
@@ -116,7 +109,7 @@ function like(){
 					</tfoot>
 				</table>
 				</section>
-		</div>
+		
 		<c:if test="${(sessionScope.user.grade eq 'ADMIN') || (sessionScope.user.userCode eq board.userCode)}">
 		 <a href="editBoard.do?boardNo=${board.boardNo}"><button class="btn btn-primary">글수정</button></a>&nbsp;&nbsp;&nbsp; 
 		</c:if>					

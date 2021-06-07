@@ -10,10 +10,15 @@
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/commons.css">
 <link rel="shortcut icon" href="images/common/webcafe.ico">
 <link rel="apple-touch-icon" href="images/common/webcafe.png">
+<link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="css/common.css">
 <link rel="stylesheet" href="css/main.css">
 <script src="js/jQuery.js"></script>
 <script src="js/webcafe.js"></script>
+  
+ 
+
+    
 </head>
 
 <body>
@@ -26,9 +31,15 @@
 		
 		<!-- //#visual 종료 -->
 		<!-- #contentsArea 시작 -->
-		<div id="contentsArea"> 
+
+		
+	
+
+		<div id="contentsArea" class="container"> 
 		<!-- 로그인 및 배너, 용어설명 관련 콘텐츠 컬럼 시작 -->
+		
 		<div id="usefulArea">
+		
 			<!-- 로그인 시작 -->
 			<section class="login">
 				<h1>로그인</h1>
@@ -54,9 +65,10 @@
 				</c:if>
 				
 				<div class="memberLink">
+				<c:if test="${empty sessionScope.user.id}">
 					<a href="createUser.jsp" class="join">회원가입</a>
 					<a href="getId.jsp" class="find">아이디/비밀번호 찾기</a>
-					
+					</c:if>
 				</div>
 			</section>
 			<!-- //로그인 종료 -->

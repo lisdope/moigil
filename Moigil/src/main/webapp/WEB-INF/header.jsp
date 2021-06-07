@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+ <%@taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,9 +17,11 @@
 			<!-- //웹카페 로고 종료 -->
 			<!-- 웹카페 안내 링크 시작 -->
 			<ul class="infoLink">
-				<li><a href="myPage.jsp" style="font-weight: bold;">마이페이지</a></li>
-				<li><a href="updateUser.jsp" style="font-weight: bold;">회원정보 수정</a></li>
-				<li><a href="logout.do" style="font-weight: bold;">로그아웃</a></li>
+			<c:if test="${!empty sessionScope.user.id}">
+				<li><a href="myPage.jsp" style="font-weight: bold; color:#fff; font-size: 12px;">마이페이지</a></li>
+				<li><a href="updateUser.jsp" style="font-weight: bold; color:#fff; font-size: 12px;">회원정보 수정</a></li>
+				<li><a href="logout.do" style="font-weight: bold; color:#fff; font-size: 12px;">로그아웃</a></li>
+			</c:if>
 			</ul>
 			<!-- //웹카페 안내 링크 종료 -->
 			<!-- 메인 메뉴 시작 -->
@@ -33,10 +36,11 @@
 							<li><a href="getBoardListArea.do?areaCode=서울">지역별</a></li>
 							<li><a href="#">반려동물과 함께</a></li>
 							<li><a href="getMeetingList.do">당일모임</a></li>
+							<li><a href="room.jsp">채팅방</a></li>
 						</ul></li>
-					<li><a href="getBoardGallery.jsp">갤러리</a>
+					<li><a href="getGalleryList.do">갤러리</a>
 						<ul class="webStandard">
-							<li><a href="#">지역별</a></li>
+							<li><a href="createGallery.jsp">새글등록</a></li>
 						</ul></li>
 					<li><a href="#">공동구매</a>
 						<ul class="commonbuy">

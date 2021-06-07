@@ -26,9 +26,9 @@ public class BoardController {
 	@PostMapping("insertBoard.do")
 	public String insertBoard(Board board,@RequestParam(name="areaCode",defaultValue = "0")String aNo) {
 		DAO.save(board);
-		if(aNo.equals("자유")) {
+		if(aNo.equals("자유")) {	
 			return "getBoardList.do";
-		}
+		}else 
 		return "getBoardListArea.do";
 		
 	}
@@ -40,12 +40,12 @@ public class BoardController {
 								@RequestParam(name="searchCondition",defaultValue = "0")String searchCondition,
 								@RequestParam(name="searchKeyword",defaultValue = "0")String searchKeyword){
 		
-		if (searchCondition.equals("TITLE") && searchKeyword != null) {
+		if (searchCondition.equals("TITLE")) {
 			Pageable pageable = PageRequest.of(pNo, 10,Sort.Direction.ASC,"boardNo");
 			Page<Board> page = DAO.findByBoardtitle(searchKeyword, pageable);
 			model.addAttribute("page", page);
 			return "getBoardList.jsp";
-		}else if (searchCondition.equals("CONTENT") && searchKeyword != null) {
+		}else if (searchCondition.equals("CONTENT")) {
 			Pageable pageable = PageRequest.of(pNo, 10,Sort.Direction.ASC,"boardNo");
 			Page<Board> page = DAO.findByBoardcontent(searchKeyword, pageable);
 			model.addAttribute("page", page);
@@ -59,11 +59,41 @@ public class BoardController {
 	
 	//글 리스트 불러오기 페이지단위로 부른다.
 		@RequestMapping("getBoardListArea.do")
-		public String getBoardlistArea(Model model,@RequestParam(name="PageNo",defaultValue = "0")Integer pNo ,@RequestParam(name="areaCode",defaultValue = "0")String aNo){
-			Pageable pageable = PageRequest.of(pNo, 10,Sort.Direction.ASC,"boardNo");
-			Page<Board> page = DAO.findAllByAreaCode(pageable, aNo);
-			model.addAttribute("page", page);
-			return "getBoardListArea.jsp";
+		public String getBoardlistArea(Model model,@RequestParam(name="PageNo",defaultValue = "0")Integer pNo ,
+										@RequestParam(name="areaCode",defaultValue = "seoul")String areaCode,
+										@RequestParam(name="searchCondition",defaultValue = "0")String searchCondition,
+										@RequestParam(name="searchKeyword",defaultValue = "0")String searchKeyword){
+			if (areaCode.equals("seoul")) {
+				if (searchCondition.equals("TITLE")) {				
+					Pageable pageable = PageRequest.of(pNo, 10,Sort.Direction.ASC,"boardNo");
+					Page<Board> page = DAO.findByBoardtitleSeoul(areaCode, searchKeyword, pageable);
+					model.addAttribute("page", page);
+					return "getBoardListArea.jsp";
+				}else if (searchCondition.equals("CONTENT")) {
+					Pageable pageable = PageRequest.of(pNo, 10,Sort.Direction.ASC,"boardNo");
+					Page<Board> page = DAO.findByBoardcontentSeoul(areaCode, searchKeyword ,pageable);
+					model.addAttribute("page", page);
+					return "getBoardListArea.jsp";
+				}
+			}else if (areaCode.equals("gyeonggi")) {
+				if (searchCondition.equals("TITLE")) {				
+					Pageable pageable = PageRequest.of(pNo, 10,Sort.Direction.ASC,"boardNo");
+					Page<Board> page = DAO.findByBoardtitleGyeonggi(areaCode, searchKeyword ,pageable);
+					model.addAttribute("page", page);
+					return "getBoardListArea.jsp";
+				}else if (searchCondition.equals("CONTENT")) {
+					Pageable pageable = PageRequest.of(pNo, 10,Sort.Direction.ASC,"boardNo");
+					Page<Board> page = DAO.findByBoardcontentGyeonggi(areaCode, searchKeyword ,pageable);
+					model.addAttribute("page", page);
+					return "getBoardListArea.jsp";
+				}
+				
+			} 				
+				Pageable pageable = PageRequest.of(pNo, 10,Sort.Direction.ASC,"boardNo");
+				Page<Board> page = DAO.findAllByAreaCode(pageable, areaCode);
+				model.addAttribute("page", page);
+				return "getBoardListArea.jsp";
+			
 		}
 	
 	// 글 보기

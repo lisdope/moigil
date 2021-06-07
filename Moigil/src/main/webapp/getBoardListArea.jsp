@@ -5,6 +5,7 @@
 <title>모이길 | 지역 게시판</title>
 <link rel="shortcut icon" href="images/common/webcafe.ico">
 <link rel="apple-touch-icon" href="images/common/webcafe.png">
+<link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="css/common.css">
 <link rel="stylesheet" href="css/sub.css">
 <script src="js/jquery.js"></script>
@@ -18,7 +19,7 @@
 		<!-- //#header 종료 -->
 		
 		<!-- #contentsArea 시작 -->
-		<div id="contentsArea"> 
+		<div id="contentsArea" class="container"> 
       		<!-- #contents 시작 -->
       		<!-- 묻고 답하기 시작 -->
       		<section id="contents" class="qnaBoard">

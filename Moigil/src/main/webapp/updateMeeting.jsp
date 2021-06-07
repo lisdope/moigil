@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>모임 글쓰기</title>
+    <title>모임 글수정</title>
     <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -19,9 +19,14 @@
 <body>
 <div id="wrapper">
 <jsp:include page="WEB-INF/header.jsp" />
-<div id="contentsArea"> 
-    <div class="container">
-        <div class="map_wrap">
+		<div id="contentsArea"> 
+		<section id="contents" class="qnaBoard">
+
+<table class="table table-hover" border="0" cellpadding="0" cellspacing="0">
+				<tr>
+				<td class="table-primary">지도</td>
+				<td>
+				<div class="map_wrap">
             <div id="menu_wrap" class="bg_white">
                 <div class="option">
                     <div>
@@ -38,49 +43,56 @@
                 <div id="pagination"></div>
             </div>
         </div>
-<div id="map" style="width:700px;height:350px;"></div>
-
+<div id="map" style="width:800px;height:350px;"></div>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=682946d5861fe4cad908d7d05104e4bc&libraries=services"></script>
-
-<div>
+</td>
+</tr>
 		<form action="insertMeeting.do" method="post" name="form" id="form">
 		<input type="text" name="meetingNo" style="display: none" value="${Meeting.meetingNo}"/>
 		<input type="text" name="userCode" style="display: none" value="${Meeting.userCode}"/>
-		<textarea id="mapX" name="mapX" cols="40" rows="10" style=display:none>${Meeting.mapX}</textarea>
-		<textarea id="mapY" name="mapY" cols="40" rows="10" style=display:none>${Meeting.mapY}</textarea>
-			<textarea id="startpointX" name="startpointX" cols="40" rows="10" style=display:none>${Meeting.startpointX}</textarea>
-			<textarea id="startpointY" name="startpointY" cols="40" rows="10" style=display:none>${Meeting.startpointY}</textarea>
-			<textarea id="endpointX" name="endpointX" cols="40" rows="10" style=display:none>${Meeting.endpointX}</textarea>
-			<textarea id="endpointY" name="endpointY" cols="40" rows="10" style=display:none>${Meeting.endpointY}</textarea>
-			<table border="1">
-					<tr>
-					<td>인원수
-						<select name="count">
+		<input type="text" name="id" style="display: none" value="${Meeting.id}"/>
+		<input type="hidden" id="startpointX" name="startpointX" value="${Meeting.startpointX}">
+		<input type="hidden" id="startpointY" name="startpointY" value="${Meeting.startpointY}">
+		<input type="hidden" id="endpointX" name="endpointX" value="${Meeting.endpointX}">
+		<input type="hidden" id="endpointY" name="endpointY" value="${Meeting.endpointY}">
+		<input type="hidden" id="mapX" name="mapX" value="${Meeting.mapX}">
+		<input type="hidden" id="mapY" name="mapY" value="${Meeting.mapY}">
+						
+				<tr>
+					<td class="table-primary" width="70">제목</td>
+					<td align="left"><input class="form-control" type="text" size="120" name="meetingTitle" value="${Meeting.meetingTitle}" /></td>
+				</tr>
+				<tr>
+					<td class="table-primary">지역</td>
+					<td align="left">
+					<select class="form-select" style="width: 100px" name="areaCode">
+						<option value="서울">서울</option>
+						<option value="경기도">경기도</option>
+					</select></td>
+				</tr>
+				<tr>
+					<td class="table-primary">인원수</td>
+					<td align="left">
+					<select class="form-select" style="width: 100px" name="count">
 						<option value="4">4명</option>
 						<option value="5">5명</option>	
-						<option value="6">6명</option>						
-					</select>
+						<option value="6">6명</option>
+						<option value="7">7명</option>
+						<option value="8">8명</option>
+						<option value="9">9명</option>
+					</select></td>
+				</tr>
+				<tr>
+					<td class="table-primary" bgcolor="orange">내용</td>
+					<td align="left"><textarea class="form-control" name="meetingContents" cols="120" rows="10">${Meeting.meetingContents}</textarea></td>
+				</tr>
+				<tr>
+				<td></td>
+					<td colspan="2" align="center">
+					<button type="submit" class ="btn btn-primary">수정하기</button>
+					<input class="btn btn-primary" type="button" onclick="history.back(-1);" value="뒤로">	
 					</td>
-				<tr>
-					<td>지역
-						<select name="areaCode">
-						<option value="서울">서울</option>
-						<option value="경기">경기</option>	
-					</select>
 				</tr>
-					<tr>
-					<td bgcolor="orange" width="70">제목</td>
-					<td align="left"><input type="text" name="meetingTitle" value="${Meeting.meetingTitle}" /></td>
-				</tr>
-				<tr>
-					<td bgcolor="orange">내용</td>
-					<td align="left"><textarea name="meetingContents" cols="40" rows="10">${Meeting.meetingContents}</textarea></td>
-				</tr>
-				<tr>
-				<td>
-			<input type="submit" value="수정하기">
-			</td>
-			</tr>
 			</table>
 		</form>
 </div>
