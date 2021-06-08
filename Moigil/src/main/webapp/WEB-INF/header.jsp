@@ -12,10 +12,9 @@
 	<header id="navs">
 			<!-- 웹카페 로고 시작 -->
 			<h1 class="logo">
-				<a href="index.jsp"  id="moigil">모이길</a>
+				<a href="index.jsp"  id="moigil"><!-- 모이길--><img src='../css/images/moigilCI.png'></a>
 			</h1>
-			<!-- //웹카페 로고 종료 -->
-			<!-- 웹카페 안내 링크 시작 -->
+		
 			<ul class="infoLink">
 			<c:if test="${!empty sessionScope.user.id}">
 				<li><a href="myPage.jsp" style="font-weight: bold; color:#fff; font-size: 12px;">마이페이지</a></li>
@@ -23,6 +22,7 @@
 				<li><a href="logout.do" style="font-weight: bold; color:#fff; font-size: 12px;">로그아웃</a></li>
 			</c:if>
 			</ul>
+			
 			<!-- //웹카페 안내 링크 종료 -->
 			<!-- 메인 메뉴 시작 -->
 			<nav >

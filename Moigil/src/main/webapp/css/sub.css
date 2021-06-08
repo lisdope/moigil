@@ -1,4 +1,4 @@
-/* 트위터 */
+/* �듃�쐞�꽣 */
 #twitter{
 	padding-top:15px;
 	position:relative;
@@ -48,7 +48,7 @@
 	text-align:right;
 	color:#787878;
 }
-/* 서브 페이지 공통 */
+/* �꽌釉� �럹�씠吏� 怨듯넻 */
 #contents{
 	position:relative;
 }
@@ -71,7 +71,7 @@
 	margin-bottom:20px;
 }
 
-/* HTML5 소개 */
+/* HTML5 �냼媛� */
 .html5Intro > h2{
 	font-size:16px;
 	color:#1698a7;
@@ -196,7 +196,7 @@
 	top:2px;
 	margin-right:5px;
 }
-/* 이미지 갤러리 */
+/* �씠誘몄� 媛ㅻ윭由� */
 .gallery ul{
 	overflow:hidden;
 	margin-top:30px
@@ -217,7 +217,7 @@
 .gallery img{
     border: 1px solid #ccc;
 }
-/* 페이징 */
+/* �럹�씠吏� */
 .paging {
 	margin-top: 20px;
 	text-align: center;
@@ -248,7 +248,7 @@
 	border-bottom:1px solid #ff3c00;
 	color:#ff3c00;
 }
-/* 묻고 답하기 */
+/* 臾산퀬 �떟�븯湲� */
 .allPost{
 	text-align:right;
 	margin:35px 0 10px;
@@ -310,7 +310,7 @@
 	margin-left:5px;
 	color:#f48002;
 }
-/* 회원가입 */
+/* �쉶�썝媛��엯 */
 .formSign{
 	margin:30px 0 10px;
 	text-align:right;
@@ -332,6 +332,7 @@
 }
 #joinForm{
 	border-top: 2px solid #ccc;
+	font-size:12px;
 }
 #joinForm p{
 	position:relative;
@@ -344,8 +345,12 @@
 	padding:13px 20px;
 	margin-right:10px;
 	font-weight:bold;
-	color:#666;
-	background: #fffcef;
+/*	color:#666;*/
+	font-size:13px;
+	color:#fffcef;
+	/*background: #fffcef;*/
+	background:#004040;
+	
 }
 #joinForm input{
 	margin:10px 0;
@@ -411,6 +416,9 @@ a.idCheck, a.findZipcode{
 	letter-spacing:1px;	
 }
 .btnOk{
+	background: linear-gradient(to bottom, rgba(98,98,98,1) 0%,rgba(98,98,98,1) 50%,rgba(81,81,81,1) 51%,rgba(81,81,81,1) 100%,rgba(0,0,0,1) 100%,rgba(255,255,255,1) 100%);
+}
+.btncreate{
 	background: linear-gradient(to bottom, rgba(98,98,98,1) 0%,rgba(98,98,98,1) 50%,rgba(81,81,81,1) 51%,rgba(81,81,81,1) 100%,rgba(0,0,0,1) 100%,rgba(255,255,255,1) 100%);
 }
 .btnOk:before{

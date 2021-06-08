@@ -4,11 +4,19 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/commons.css">
+<link rel="shortcut icon" href="images/common/webcafe.ico">
+<link rel="apple-touch-icon" href="images/common/webcafe.png">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/sub.css">
+<script src="js/jQuery.js"></script>
+<script src="js/webcafe.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script src="/js/jquery.form.js"></script>
 <script type="text/javascript">
-
-
 
 function upload() { 
 	
@@ -36,37 +44,45 @@ function upload() {
 <title>file upload</title>
 </head>
 <body>
-	
-	<h2>gallery 파일업로드</h2>
-	<form action="galleryUpload.do" name="userInfo" id="joinForm" method="post" >
-			<fieldset>
+	<!-- #wrapper 시작 -->
+		<div id="wrapper">
+		<!-- #header 시작 -->
+			<jsp:include page="WEB-INF/header.jsp" />
+		<!-- //#header 종료 -->
+		
+		<!-- #contentsArea 시작 -->
+		<div id="contentsArea" class="container"> 
+		  <!-- #contents 시작 -->
+		  <!-- 이미지 갤러리 시작 -->
+		  <section id="contents">
+			  <!-- 현재위치 시작 -->
+			  <p class="location">Home &gt; 자료실 &gt; <strong>이미지 자료실</strong></p> 
+			  <!-- //현재위치 종료 -->            
+		      <h1>이미지 갤러리</h1> 
+				<form action="galleryUpload.do" name="userInfo" id="joinForm" method="post" >
+					<fieldset>
 				<legend>갤러리 입력 폼</legend>
 				<p>
+					<label for="galleryTitle">글제목</label><input type="text" style="width: 700px;" name="galleryTitle" id="galleryTitle" />
 				<p>
-					<label for="galleryTitle">글제목</label><input type="text" style="width: 200px;" name="galleryTitle" id="galleryTitle" />
 				<p>
+					<label for="galleryContents">글내용<br><br><br></label><input type="text" style="width: 700px; height:50px" name="galleryContents" id="galleryContents" />
 				<p>
-					<label for="galleryContents">글내용</label><input type="text" style="width: 200px;" name="galleryContents" id="galleryContents" />
-				<p>
-				
-				<p>
-					<label for="filenames">이미지 파일명</label><input type="hidden" style="width: 200px;" name="filenames" id="filenames" />
-				<p>
-				
-				<h2>lee 파일업로드 이미지가 미리보기로 보여지는 곳 </h2>
-				<!-- 갤러리 이미지가 미리보기로 보여지는 곳 -->	
+					
 				<div class="form-group">
 					<p>
-						<label for="filenames" class="filenames"><b>이미지 파일명</b></label> <img id="pic"
-																							   style="margin-left: 15px;" height="180px" width="150px"
-																							   src="${context}/backgroundImage/defaultpic.png"><br />
-																							
-					<!-- 																		
+						<label for="filenames" class="filenames">미리보기       
+						<br><br><br><br><br><br><br><br><br><br><br>
+						
+						</label> <img id="pic"
+					    style="margin-left: 15px;" height="180px" width="150px"
+						src="${context}/backgroundImage/defaultpic.png"><br />
+						<input type="hidden" style="width: 200px;" name="filenames" id="filenames" />
+				<!-- 																		
 					<div class="col-md-6">
 						<input  id="filenames" name="filenames"	required="required">
 					</div>
-					 -->
-					
+				 -->		
 				</div>
 				<input type="hidden" id="flag" name="flag" value="false"><br>
 
@@ -77,21 +93,22 @@ function upload() {
 		<form id="ajaxform" method="post" action="imageUpload.do"
 			enctype="multipart/form-data">
 			<p>                                 
-				<label for="tel">프로필</label> 
+				<label for="tel">이미지 파일 업로드</label> <br>
 				                  <!-- imageFile => usercontroller로 보내지는 파라미터 값으로 name을 맞춰준다.  -->
-				<input type="file" style="width: 200px;" id="imageFile" name="imageFile" onchange="upload()" />  
+				<input type="file" style="width: 200px; height:22px;" id="imageFile" name="imageFile" onchange="upload()" />  
 				<input type="hidden" id="galleryImg" name="galleryImg" value="galleryImg">
 			</p>
 		</form>
 		
 		
 		<div class="btnJoinArea">
-						<button type="submit" class="btnOk">글 등록</button>
+						<button type="submit" class="btncreate">글 등록</button>
 						<button type="button" class="btnCancel">취소</button>
 		</div>
 	
 	
 
 		</fieldset>
+		      		</section>
 </body>
 </html>
