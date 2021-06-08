@@ -102,8 +102,8 @@ function upload() {
 		
 		
 		<div class="btnJoinArea">
-						<button type="submit" class="btncreate">글 등록</button>
-						<button type="button" class="btnCancel">취소</button>
+						<button type="submit" class="btn btn-primary">글 등록</button>
+						<button type="button" class="btn btn-primary">취소</button>
 		</div>
 	
 	

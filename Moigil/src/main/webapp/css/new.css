@@ -5,9 +5,11 @@ $blue: #94C2ED;
 #E38968: #E38968;
 $gray: #92959E;*/
 
+
 body {
-	margin:0;
-	padding:0;
+  display: grid;
+  background: linear-gradient(to bottom left, #79C7C5 40%, #F9FBFF 100%);
+  font-family: 'Lato', sans-serif;
 }
 
 .container {
@@ -200,4 +202,6 @@ body {
 	clear: both;
 	height: 0;
 }
+
+
 

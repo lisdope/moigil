@@ -6,6 +6,7 @@
 <html>
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://fonts.googleapis.com/css?family=Lato:400,700"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
  <!-- Bootstrap -->
@@ -20,87 +21,11 @@
 <link rel="stylesheet" href="css/common.css">
 <link rel="stylesheet" href="css/main.css">
 <link rel="stylesheet" href="css/sub.css">
+<link rel="stylesheet" href="css/new2.css">
 <script src="js/jQuery.js"></script>
 <script src="js/webcafe.js"></script>
 <title>채팅방</title>
-	<style>
-		*{
-			margin:0;
-			padding:0;
-		}
-		#chat{
-		margin: 0 auto;
- 		width: 600px;
- 		background:#F9FBFF;
-		border-radius: 5px;
-		}
-		
-		#chat2{
-		margin: 0 auto;
- 		width: 500px;
- 		background:#F9FBFF;
-		border-radius: 5px;
-		}
-		
-		
-		#chatinput {
-    	border-radius: 3px;
-    	border: none;
-    	padding: 14px;
-    	color: black;
-    	background: #6A6C75;
-    	width: 90%;
-    	font-size: 14px;
-  }
-		.container{
-			width: 500px;
-			margin: 0 auto;
-			padding: 25px
-		}
-		
-		.container {
- 	 	 margin: 0 auto;
- 		 width: 650px;
- 		 background: #444753;
- 	 	 background: linear-gradient(to bottom left, #0f5132 40%, #F9FBFF 100%);
-  		border-radius: 10px 10px 10px 10px;
-}		
-		
 	
-		.container h1{
-			font-family:"Nanum";
-			font-size:15px;
-			font-weight:bold;
-			text-align: left;
-			padding: 5px 5px 5px 15px;
-			color: #0f5132;
-			border-left: 3px solid #0f5132;
-			margin-bottom: 20px;
-		}
-		.chating{
-		/*	background-color: #C5DDEB;*/
-			background-color: #F9FBFF;
-			font: 14px/20px
-			width: 500px;
-			height: 500px;
-			overflow: auto;
-			border-radius: 10px 10px 10px 10px;
-		}
-		.chating .me{
-			color: #0f5132;
-			text-align: right;
-			font-weight:bold;
-		}
-		.chating .others{
-			color: #FFE400;
-			text-align: left;
-		}
-		input{
-			width: 330px;
-			height: 25px;
-		}
-		
-	</style>
 </head>
 
 <script type="text/javascript">
@@ -160,6 +85,7 @@
 		$('#chatting').val("");
 	}
 </script>
+
 <body>
 <!-- #wrapper 시작 -->
 	<div id="wrapper">
@@ -169,6 +95,72 @@
 		<!-- //#header 종료 -->
 		<!-- #visual 시작 -->
 		<!-- //#visual 종료 -->
+		
+<div class="container">
+  <div class="chatbox">
+    <div class="top-bar">
+      <div class="avatar"><p>V</p></div>
+      <div class="name">Voldemort</div>
+      <div class="icons">
+        <i class="fas fa-phone"></i>
+        <i class="fas fa-video"></i>
+      </div>
+      <div class="menu">
+        <div class="dots"></div>
+      </div>
+    </div>
+    <div class="middle">
+      <div class="voldemort">
+        <div class="incoming">
+          <div class="bubble">Hey, Father's Day is coming up..</div>
+          <div class="bubble">What are you getting.. Oh, oops sorry dude.</div>
+        </div>
+        <div class="outgoing">
+          <div class="bubble lower">Nah, it's cool.</div>
+          <div class="bubble">Well you should get your Dad a cologne. Here smell it. Oh wait! ...</div>
+        </div>
+        <div class="typing">
+          <div class="bubble">
+            <div class="ellipsis one"></div>
+            <div class="ellipsis two"></div>
+            <div class="ellipsis three"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bottom-bar">
+      <div class="chat">
+        <input type="text" placeholder="Type a message..." />
+        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+      </div>
+    </div>
+  </div>
+  <div class="messages"></div>
+  <div class="profile">
+    <div class="avatar"><p>H</p></div>
+    <div class="name2">Harry<p class="email">Harry@potter.com</p></div>
+  </div>
+  <ul class="people">
+    <li class="person focus">
+      <span class="title">Voldemort </span>
+      <span class="time">2:50pm</span><br>
+      <span class="preview">What are you getting... Oh, oops...</span>
+    </li>
+     <li class="person">
+      <span class="title">Ron</span>
+      <span class="time">2:25pm</span><br>
+      <span class="preview">Meet me at Hogsmeade and bring...</span>
+    </li>
+    <li class="person">
+      <span class="title">Hermione</span>
+      <span class="time">2:12pm</span><br>
+      <span class="preview">Have you and Ron done your hom...</span>
+    </li>
+  </ul>
+</div>
+</div>
+
+		===============================================================
 		
 		<!-- #contentsArea 시작 -->
 		<div id="contentsArea"> 
@@ -185,18 +177,21 @@
 		
 	 <div class="chat-message clearfix">
 	  
-        <div id="chat2" class="container">
+        <div id="chat" class="container">
 			<table class="inputTable">
 				<tr>
-					<th>메시지</th>
-					<th><input id="chatting" row="10" placeholder="보내실 메시지를 입력하세요."></th>
-					<th><button onclick="send()" id="sendBtn">보내기</button></th>
+					<!-- <th>메시지</th>-->
+<!-- 					<th><input id="chatting" row="10" placeholder="보내실 메시지를 입력하세요."></th>-->
+					
+					<td align="left"><textarea class="form-control" name="boardContents" cols="140" rows="5" placeholder="보내실 메시지를 입력하세요."></textarea></td>
+							
+					<th><button onclick="send()" id="sendBtn" style="height:140px">보내기</button></th>
 				</tr>
 			</table>
 		</div>
 		</div>
 	</div>
-	</div></div>
+	</div>
 	<jsp:include page="WEB-INF/footer.jsp" />
 	</div>
 </body>

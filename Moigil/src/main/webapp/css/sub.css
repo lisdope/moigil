@@ -1,4 +1,4 @@
-/* �듃�쐞�꽣 */
+/* ������������������ */
 #twitter{
 	padding-top:15px;
 	position:relative;
@@ -48,7 +48,7 @@
 	text-align:right;
 	color:#787878;
 }
-/* �꽌釉� �럹�씠吏� 怨듯넻 */
+/* ������������ ������������������ ��������� */
 #contents{
 	position:relative;
 }
@@ -58,20 +58,20 @@
 	right: 30px;
 }
 .location strong {
-	color: #51a41e;
+	color: #0f5132;
 }
 #contents > h1{
 	font-size:18px;
 	font-family:nanumEX;
-	color: #3cbb1c;
+	color: #0f5132;
 	text-shadow:1px 1px 0px rgba(0,0,0,0.2);
-	border-bottom: 2px solid #3cbb1c;
+	border-bottom: 2px solid #0f5132;
 	padding-top: 15px;
 	padding-bottom: 15px;
 	margin-bottom:20px;
 }
 
-/* HTML5 �냼媛� */
+/* HTML5 ������������ */
 .html5Intro > h2{
 	font-size:16px;
 	color:#1698a7;
@@ -196,7 +196,7 @@
 	top:2px;
 	margin-right:5px;
 }
-/* �씠誘몄� 媛ㅻ윭由� */
+/* ��������������� ��������������� */
 .gallery ul{
 	overflow:hidden;
 	margin-top:30px
@@ -217,7 +217,7 @@
 .gallery img{
     border: 1px solid #ccc;
 }
-/* �럹�씠吏� */
+/* ������������������ */
 .paging {
 	margin-top: 20px;
 	text-align: center;
@@ -248,7 +248,7 @@
 	border-bottom:1px solid #ff3c00;
 	color:#ff3c00;
 }
-/* 臾산퀬 �떟�븯湲� */
+/* ��������� ������������������ */
 .allPost{
 	text-align:right;
 	margin:35px 0 10px;
@@ -310,7 +310,7 @@
 	margin-left:5px;
 	color:#f48002;
 }
-/* �쉶�썝媛��엯 */
+/* ������������������������ */
 .formSign{
 	margin:30px 0 10px;
 	text-align:right;
@@ -347,9 +347,9 @@
 	font-weight:bold;
 /*	color:#666;*/
 	font-size:13px;
-	color:#fffcef;
+	color:black;
 	/*background: #fffcef;*/
-	background:#004040;
+	background:#cfe2ff;
 	
 }
 #joinForm input{
