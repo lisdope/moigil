@@ -23,17 +23,16 @@
 		<div id="contentsArea"> 
 		<section id="contents" class="qnaBoard">
 		<table class="table table-hover" border="0" cellpadding="0" cellspacing="0">                    
-                    <tr>
-				<td class="table-primary">지도</td>
-				<td>
+                <tr>
+				<th class="table-primary">지도
+				<td colspan="4">
 				 <div class="map_wrap">
             <div id="menu_wrap" class="bg_white">
                 <div class="option">
                 		                    <div>
                         <form id="seach" onsubmit="searchPlaces(); return false;">
                             키워드 : <input type="text" value="서울" id="keyword" size="15">
-                            <input type="submit" value="검색하기">
-                        </form>
+                            <input type="submit" value="검색하기"></form>
                             <input type="button" value="시작지점" onclick="startpoint()">
                              <input type="button" value="도착지점" onclick="endpoint()">
                     </div>
@@ -229,20 +228,20 @@ function displayMarker(place) {
 			<input type="hidden" id="endpointY" name="endpointY">
 			
 				<tr>
-					<td class="table-primary" width="70">제목</td>
-					<td align="left"><input class="form-control" type="text" size="120" name="meetingTitle" /></td>
+					<th class="table-primary" width="70" >제목</th>
+					<td align="left" colspan="4"><input class="form-control" type="text" size="120" name="meetingTitle" /></td>
 				</tr>
 				<tr>
-					<td class="table-primary">지역</td>
-					<td align="left">
+				
+					<th class="table-primary">지역</th>
+					<td align="left" colspan="1">
 					<select class="form-select" style="width: 100px" name="areaCode">
 						<option value="서울">서울</option>
 						<option value="경기도">경기도</option>
 					</select></td>
-				</tr>
-				<tr>
-					<td class="table-primary">인원수</td>
-					<td align="left">
+					
+					<th class="table-primary">인원수</th>
+					<td align="left" colspan="2">
 					<select class="form-select" style="width: 100px" name="count">
 						<option value="4">4명</option>
 						<option value="5">5명</option>	
@@ -254,12 +253,12 @@ function displayMarker(place) {
 				</tr>
 				
 				<tr>
-					<td class="table-primary" bgcolor="orange">내용</td>
-					<td align="left"><textarea class="form-control" name="meetingContents" cols="120" rows="10"></textarea></td>
+					<th class="table-primary" bgcolor="orange">내용</th>
+					<td colspan="4" align="left"><textarea class="form-control" name="meetingContents" cols="120" rows="10"></textarea></td>
 				</tr>
 				<tr>
 				<td></td>
-					<td colspan="2" align="center">
+					<td colspan="4" align="center">
 					<button type="submit" class ="btn btn-primary">새글등록</button>
 					<input class="btn btn-primary" type="button" onclick="history.back(-1);" value="뒤로">	
 					</td>
