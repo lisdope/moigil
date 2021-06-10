@@ -21,9 +21,6 @@
 <footer id="footer">
 			<!-- #footerInner 시작 -->
 			<div id="footerInner">
-				<!-- 푸터 로고 시작 -->
-				<a class="footerLogo"><img src="images/footer_logo.png" alt="WebCafe"></a>
-				<!-- //푸터 로고 종료 -->
 				<!-- 사이트 이용안내 시작 -->
 				<section class="guide">
 					<h1 class="hidden">사이트 이용안내</h1>
