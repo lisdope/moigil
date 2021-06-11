@@ -68,6 +68,10 @@
 				<c:if test="${empty sessionScope.user.id}">
 					<a href="createUser.jsp" class="join">회원가입</a>
 					<a href="getId.jsp" class="find">아이디/비밀번호 찾기</a>
+					<img src="../images/naver_login.png" width="100px" />
+					<img src="../images/kakao_login.png" width="100px" />
+					<img src="../images/google.png" width="100px" />
+					<img src="../images/face_login.png" width="100px" />
 					</c:if>
 				</div>
 			</section>
