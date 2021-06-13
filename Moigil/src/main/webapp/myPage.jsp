@@ -125,14 +125,7 @@
 <div id="wrapper">
 <jsp:include page="WEB-INF/header.jsp" />
 <div id="contentsArea"> 
-    <nav class="gnb">
-      <a href="index.jsp" class="cover mouse-effect">
-        <img src="css/icon/home.png" />
-      </a>
-      <a href="getBoardList.jsp" class="issue mouse-effect">
-        <img src="css/icon/browser.png" />
-      </a>
-    </nav>
+
     <div id="contentsArea"> 
       		<!-- #contents 시작 -->
       		<!-- 회원가입 시작 -->
@@ -148,7 +141,7 @@
         <div class="badge">${user.id}</div>
       </div>
 
-      <div class="mail mouse-effect stagger-item">
+      <div class="mail mouse-effect stagger-item" style="position: relative; display: block;">
         <a href="${user.email}">${user.email}</a>
       </div>
     </section>
@@ -186,8 +179,12 @@
         <div class="right"><img src="css/icon/arrow.png" /></div>
       </li>
 	
-    </ul>
+    </ul><br><br>
     </div>
+		
 	</div>
+    	<!-- #footer 시작 -->
+			<jsp:include page="WEB-INF/footer.jsp" />
+		<!-- //#footer 종료 -->
 </body>
 </html>

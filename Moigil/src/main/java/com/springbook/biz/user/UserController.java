@@ -71,8 +71,9 @@ public class UserController {
 	
 	
 	@RequestMapping("deleteUser.do") // 계정??��
-	  public String deleteUser(User user) {
+	  public String deleteUser(User user, HttpSession session) {
 		DAO.deleteById(user.getUserCode());
+		session.invalidate();
 	      return "index.jsp";
 	  }
 	
