@@ -8,6 +8,7 @@
 <link rel="apple-touch-icon" href="images/common/webcafe.png">
 <link rel="stylesheet" href="css/common.css">
 <link rel="stylesheet" href="css/sub.css">
+<link rel="stylesheet" href="css/bootstrap.min.css">
 </head>
 <body>
 	<form action="getPw.do" method="post">
