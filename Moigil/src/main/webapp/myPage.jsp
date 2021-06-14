@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,8 +19,18 @@
 <script src="js/jquery.js"></script>
 <script src="js/webcafe.js"></script>
 <script src="/js/main.js"></script>
+<script type="text/javascript">
+
+function fn_delete(){ // javascript
+	var userCode = '${user.userCode}';
+
+	if(confirm("ì •ë§ë¡œ íƒˆí‡´í•˜ì‹œê² ìŠµë‹ˆê¹Œ?")){
+		location.href = "deleteUser.do?userCode=" + userCode;
+	}
+}
+</script>
 <style>
-/* Çì´õ */
+/* í—¤ë” */
 section {
 	text-align: center;
 	margin-top: 75px;
@@ -84,7 +94,7 @@ section .mail {
     margin: 9px 360px
 }
 
-/* ¸®½ºÆ® */
+/* ë¦¬ìŠ¤íŠ¸ */
 .list {
 	margin-top: 48px;
 }
@@ -154,15 +164,15 @@ section .mail {
 		<div id="contentsArea">
 
 			<div id="contentsArea">
-				<!-- #contents ½ÃÀÛ -->
-				<!-- È¸¿ø°¡ÀÔ ½ÃÀÛ -->
+				<!-- #contents ì‹œì‘ -->
+				<!-- íšŒì›ê°€ì… ì‹œì‘ -->
 				<section id="contents" class="memberJoin">
-					<!-- ÇöÀçÀ§Ä¡ ½ÃÀÛ -->
+					<!-- í˜„ì¬ìœ„ì¹˜ ì‹œì‘ -->
 					<p class="location">
-						Home &gt; <strong>¸¶ÀÌÆäÀÌÁö</strong>
+						Home &gt; <strong>ë§ˆì´í˜ì´ì§€</strong>
 					</p>
-					<!-- //ÇöÀçÀ§Ä¡ Á¾·á -->
-					<h1>¸¶ÀÌÆäÀÌÁö</h1>
+					<!-- //í˜„ì¬ìœ„ì¹˜ ì¢…ë£Œ -->
+					<h1>ë§ˆì´í˜ì´ì§€</h1>
 				</section>
 				<section>
 					<div class="thumb-wrapper stagger-item">
@@ -191,7 +201,7 @@ section .mail {
 						<div class="left">
 							<img src="css/icon/settings.png" /> <a class="index"
 								href="updateUser.jsp"><button type="button"
-									class="btn btn-primary btn-sm">Á¤º¸¼öÁ¤</button></a>
+									class="btn btn-primary btn-sm">ì •ë³´ìˆ˜ì •</button></a>
 						</div>
 						<div class="right">
 							<img src="css/icon/arrow.png" />
@@ -201,7 +211,7 @@ section .mail {
 					<li class="item mouse-effect stagger-item">
 						<div class="left">
 							<img src="css/icon/basket.png" />
-							<div class="name">±¸¸Å»çÇ×</div>
+							<div class="name">êµ¬ë§¤ì‚¬í•­</div>
 						</div>
 						<div class="right">
 							<img src="css/icon/arrow.png" />
@@ -210,9 +220,8 @@ section .mail {
 
 					<li class="item mouse-effect stagger-item">
 						<div class="left">
-							<img src="css/icon/trash.png" /> <a
-								href="deleteUser.do?userCode=${user.userCode}"><button
-									type="button" class="btn btn-danger btn-sm">È¸¿øÅ»Åğ</button></a>
+							<img src="css/icon/trash.png" />
+							<button type="button" class="btn btn-danger btn-sm" onclick="fn_delete()">íšŒì›íƒˆí‡´</button></a>
 						</div>
 						<div class="right">
 							<img src="css/icon/arrow.png" />
@@ -225,8 +234,8 @@ section .mail {
 			</div>
 
 		</div>
-		<!-- #footer ½ÃÀÛ -->
+		<!-- #footer ì‹œì‘ -->
 		<jsp:include page="WEB-INF/footer.jsp" />
-		<!-- //#footer Á¾·á -->
+		<!-- //#footer ì¢…ë£Œ -->
 </body>
 </html>

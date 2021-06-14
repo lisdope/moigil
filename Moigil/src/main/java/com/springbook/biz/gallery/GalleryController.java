@@ -53,7 +53,7 @@ public class GalleryController {
 	@RequestMapping("galleryUpload.do") // 로그?�웃
 	  public String logout(Gallery gallery) {
 		galleryRepository.save(gallery);
-	    return "getGalleryList.do";
+	    return "redirect:getGalleryList.do";
 	  }
 	
 	

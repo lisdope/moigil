@@ -71,7 +71,7 @@
 							<td></td>
 							<td align="center">
 							<c:if test="${!empty sessionScope.user.id}">
-							<a href="insertBoard.jsp">새글 등록</a>
+							<a href="insertBoard_Area.jsp">새글 등록</a>
 							</c:if>
 							</td>
 							<!-- 검색 시작 -->

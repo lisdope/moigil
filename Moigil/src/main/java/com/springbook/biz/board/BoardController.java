@@ -36,9 +36,19 @@ public class BoardController {
 	public String insertBoard(Board board,@RequestParam(name="areaCode",defaultValue = "0")String aNo) {
 		DAO.save(board);
 		if(aNo.equals("자유")) {
-			return "getBoardList.do";
+			return "redirect:getBoardList.do";
 		}
-		return "getBoardList.do";
+		return "redirect:getBoardList.do";
+		
+	}
+	//지역별게시판 글 쓰기 
+	@PostMapping("insertBoard_Area.do")
+	public String insertBoard_Area(Board board,@RequestParam(name="areaCode",defaultValue = "0")String aNo) {
+		DAO.save(board);
+		if(aNo.equals("자유")) {
+			return "redirect:getBoardListArea.do";
+		}
+		return "redirect:getBoardListArea.do";
 		
 	}
 	
@@ -88,7 +98,7 @@ public class BoardController {
     @RequestMapping("deleteBoard.do")
     public String deleteBoard(Board board) {
     	DAO.deleteById(board.getBoardNo());
-    	return "getBoardList.do";
+    	return "redirect:getBoardList.do";
     }
     // 글수정
 	@RequestMapping("editBoard.do") 

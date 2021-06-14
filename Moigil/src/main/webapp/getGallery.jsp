@@ -11,6 +11,11 @@
 <link rel="stylesheet" href="css/common.css">
 <link rel="stylesheet" href="css/main.css">
 <link rel="stylesheet" href="css/sub.css">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+	crossorigin="anonymous">
 <style type="text/css">
 #header, #contentsArea, #slogan, #footerInner {
     width: 1151px;
@@ -25,6 +30,23 @@
     background-color: #fff;
     border-radius: 15px 15px 0 0;
 
+}
+.location {
+    position: absolute;
+    top: 18px;
+    right: -106px;
+}
+
+#contents > h1 {
+    font-size: 18px;
+    font-family: nanumEX;
+    color: #0f5132;
+    text-shadow: 1px 1px 0px rgb(0 0 0 / 20%);
+    border-bottom: 2px solid #0f5132;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+    width: 1000px;
 }
 </style>
 <script src="js/jQuery.js"></script>
@@ -76,39 +98,38 @@ function upload() {
         		<h1>이미지 게시판 </h1>
 		
 	<center>	
-	<div class="container" style="margin-left: -39px;">
+	<div class="container" style="margin-left: 50px;">
 			<section id="boardview">
-				<table class="table table-striped " border="1">
-				<tbody>
-					<tr class="table-info">
-						<th colspan="2" class="table-condensed">제목</th>
+				<table class="table table-hover " border="1">
+				
+					<tr >
+						<th class="table-primary" ><p><label for="filenames" class="filenames">제목</label></p></th>
 						<td colspan="2" align="left">${gallery.galleryTitle }</td>
 						
 					</tr>
-					<tr class="table-info">
-						<th colspan="2" class="table-condensed">번호</th>
+					<tr >
+						<th class="table-primary"><p><label for="filenames" class="filenames">번호</label></p></th>
 						<td colspan="2" align="left">${gallery.galleryNo }</td>
 						
 					</tr>
-					</tbody>
-					<tfoot>
+					
 					<tr>
-						<th class="table-info">내용</th>
-						<td colspan="3" align="left"><textarea rows="3" cols="120" readonly="readonly">${gallery.galleryContents}</textarea>
-						</td>
+						<th class="table-primary"><p><label for="filenames" class="filenames">내용</label></p></th>
+						<td colspan="3" align="left">${gallery.galleryContents}</td>
 					</tr>
-					</tfoot>
+			<tr>
+				<th class="table-primary"><p><label for="filenames" class="filenames">사진</label></p></th>	
+			<td colspan="3" align="left"><img id="pic" style="position: relative; margin-left: 15px;" height="200px" width="300px" src="/galleryImg/${gallery.filenames}" onerror="this.style.display='none'" alt='' />
+				</td>
+			</tr>	
 				</table>
-				<div>
-			<img id="pic" style="position: relative; margin-left: 15px;" height="180px" width="150px" src="/galleryImg/${gallery.filenames}" onerror="this.style.display='none'" alt='' /><br/>
-			</div>
 				</section>
 		</div>
 		<div class="container2" style="margin-left: 235px; position: relative;">
-		<a href="editGallery.do?galleryNo=${gallery.galleryNo}"><button type="button" class="btn btn-primary btn-sm">글수정</button></a>&nbsp;&nbsp;&nbsp; 
-		<a href="deleteGallery.do?galleryNo=${gallery.galleryNo}"><button type="button" class="btn btn-primary btn-sm">글삭제</button></a>&nbsp;&nbsp;&nbsp; 
-		<a href="createGallery.jsp"><button type="button" class="btn btn-primary btn-sm">글등록</button></a>&nbsp;&nbsp;&nbsp; 
-		<a href="getGalleryList.do"><button type="button" class="btn btn-primary btn-sm">글목록</button></a>&nbsp;&nbsp;&nbsp; 
+		<a href="editGallery.do?galleryNo=${gallery.galleryNo}"><button type="button" class="btn btn-primary ">글수정</button></a>&nbsp;&nbsp;&nbsp; 
+		<a href="deleteGallery.do?galleryNo=${gallery.galleryNo}"><button type="button" class="btn btn-primary ">글삭제</button></a>&nbsp;&nbsp;&nbsp; 
+		<a href="createGallery.jsp"><button type="button" class="btn btn-primary ">글등록</button></a>&nbsp;&nbsp;&nbsp; 
+		<a href="getGalleryList.do"><button type="button" class="btn btn-primary ">글목록</button></a>&nbsp;&nbsp;&nbsp; 
 		<br><br>
 		
 		</div>
