@@ -80,7 +80,7 @@ border : 0px solid;}
 		
 		<section id="contents" class="qnaBoard">
         		<!-- 현재위치 시작 -->
-        		<p class="location">모이길 &gt; 함께가요(모임) &gt; <strong>자유 게시판</strong></p> 
+        		<p class="location">모이길 &gt; 함께가요(모임) &gt; <strong>전체 게시판</strong></p> 
         		<!-- //현재위치 종료 -->
         		<h1>전체 게시판</h1>
 		
@@ -140,7 +140,7 @@ border : 0px solid;}
 		<button type="submit" class="btn btn-success btn-sm" style="font-size:12px">좋아요 <i class="fa fa-thumbs-o-up"></i></button>
 		</form>&nbsp;&nbsp;
 		
-		<form class="Rating" action="MarkRatingHate.do"  method="POST">
+		<form class="Rating" id="mark" action="MarkRatingHate.do"  method="POST">
 		<input type="text" name="boardNo"  style="display: none" value="${board.boardNo}" />
 		<input type="text" name="userCode"  style="display: none" value="${user.userCode}" />
 		<button type="submit" class="btn btn-danger btn-sm" style="font-size:12px">싫어요 <i class="fa fa-thumbs-o-down"></i></button>

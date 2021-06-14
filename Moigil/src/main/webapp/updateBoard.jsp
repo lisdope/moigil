@@ -1,11 +1,24 @@
 <%@page contentType="text/html; charset=UTF-8"%>
+<%@taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+ <!-- Bootstrap -->
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+	crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/commons.css">
+<link rel="shortcut icon" href="images/common/webcafe.ico">
+<link rel="apple-touch-icon" href="images/common/webcafe.png">
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/sub.css">
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script src="/js/jquery.form.js"></script>
 <script type="text/javascript">
@@ -64,9 +77,22 @@ body{
 <title>글 상세</title>
 </head>
 <body>
-<div class="container">
+<!-- #wrapper 시작 -->
+	<div id="wrapper">
+	
+		<!-- #header 시작 -->
+		<jsp:include page="WEB-INF/header.jsp" />
+		<!-- //#header 종료 -->
+		<!-- #visual 시작 -->
+		<!-- //#visual 종료 -->
+		
+		<!-- #contentsArea 시작 -->
+		<div id="contentsArea"> 
+		
+		<!--   콘텐츠 컬럼 시작 -->
 	<center>
 		<hr>
+		<div>
 		<form class="form-inline" action="insertBoard.do" method="post">
 			<input type="hidden" name="boardNo" value="${board.boardNo}">
 			<input type="hidden" name="userCode" value="${board.userCode}">
@@ -76,29 +102,33 @@ body{
 			<input type="hidden" name="boardRatingLike" value="${board.boardRatingLike}">  
 				<p align="left"><b> 게시글 번호 :</b> ${board.boardNo} </p>
 				<br>
-			<div class="form-group">
-					<label for="exampleInputName2">제목 </label>
-					<input type="text" name="boardTitle" value="${board.boardTitle}" class="form-control" style="width: 500px">
-			</div>
-			<br>
-			<select class="form-select" style="width: 100px" name="areaCode">
+				<table class="table table-hover" border="0" cellpadding="0" cellspacing="0">
+				<tr>
+					<td class="table-primary" width="70">제목</td>
+					<td align="left"><input class="form-control" type="text" size="120" name="boardTitle" value="${board.boardTitle}"/></td>
+				</tr>
+				<tr>
+					<td class="table-primary" bgcolor="orange">지역</td>
+					<td align="left">
+					<select class="form-select" style="width: 100px" name="areaCode">
 						<option value="전체">전체</option>
 						<option value="서울">서울</option>
 						<option value="경기도">경기도</option>
-					</select>
-			<br>
-			<div class="form-group">
-					<label for="exampleInputName2">내용</label>
-					<textarea class="form-control" name="boardContents" rows="5" cols="30" 
-						style="width: 500px; height: 300px">${board.boardContents}</textarea>
+					</select></td>
+				</tr>
+				<tr>
+					<td class="table-primary" bgcolor="orange">내용</td>
+					<td align="left"><textarea class="form-control" name="boardContents" cols="120" rows="10" >${board.boardContents}</textarea></td>
+				</tr>
+			</table>
 			</div>
 			<div>
 			<img id="pic" style="margin-left: 15px;" height="180px" width="150px" src="/boardImg/${board.boardImage}" onerror="this.style.display='none'" alt='' /><br/>
 			</div>
 			<br>
 			<br>
-			<input class="btn btn-default" type="submit" value="수정">
-			<input class="btn btn-default" type="button" onclick="history.back(-1);" value="취소">
+			<input class="btn btn-primary" type="submit" value="수정">
+			<input class="btn btn-primary" type="button" onclick="history.back(-1);" value="취소">
 			<div class="form-group">
 					<p>
 						<label for="image" class="image"><b>사진</b></label> <img id="pic"
@@ -129,7 +159,15 @@ body{
 		</form>
 	</center>
 	</div>
+	</div>
 	<hr>
+	</div>
+		<!-- #footer 시작 -->
+			<jsp:include page="WEB-INF/footer.jsp" />
+		<!-- //#footer 종료 -->
+		
+	</div>
+	<!-- //#wrapper 종료 -->
 </body>
 </html>
 	

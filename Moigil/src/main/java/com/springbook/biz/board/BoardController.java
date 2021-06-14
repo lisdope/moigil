@@ -38,7 +38,7 @@ public class BoardController {
 		if(aNo.equals("자유")) {
 			return "getBoardList.do";
 		}
-		return "getBoardListArea.do";
+		return "getBoardList.do";
 		
 	}
 	
