@@ -38,6 +38,34 @@ function like(){
 	    } // 통신이 성공했을때 보여줄 내용, ()에는 데이터를 보낸 곳의 리턴값이 들어온다.
 	});
 }
+
+function insertComment(){
+	
+	var userCode = $("#userCode").val();
+	var id = $("#id").val();
+	var boardNo = $("#boardNo").val();
+	var userReply = $("#userReply").val();
+	
+	var comment = {
+			"userCode" : userCode,
+			"id" : id ,
+			"boardNo" : boardNo ,
+			"userReply" : userReply ,
+	};
+
+	param["boardNo"] = paramBoardNo;
+	$.ajax({
+	    async : true, // true면 비동기방식을 사용하겠다는 의미. 
+	    type : 'POST', // post방식으로 보낼 건데,
+	    data: comment, // memberId라는 데이터를 보낼 것이다.
+	    url: "insertReply.do", // 컨트롤러의 /idCheck를 탈 것이다.
+	    success:function(result){
+	    	alert("댓글이 등록되었습니다.")
+	    	console.log(result)
+	    } // 통신이 성공했을때 보여줄 내용, ()에는 데이터를 보낸 곳의 리턴값이 들어온다.
+	});
+}
+
 </script>
 <style type="text/css">
 
@@ -151,10 +179,10 @@ border : 0px solid;}
 <div class="container">	
 <c:if test="${!empty sessionScope.user.id}">
 	<form action="insertReply.do" method="post">
-		<input type="text" name="userCode" style="display: none"  value="${user.userCode}"/>
-		<input type="text" name="id" style="display: none"  value="${user.id}"/>
-		<input type="text"  name="boardNo" style="display: none"  value="${board.boardNo}"/>
-		<input type="text" class="form-control" name="userReply" placeholder="댓글을 입력해주세요"/>
+		<input type="text" id="userCode" name="userCode" style="display: none"  value="${user.userCode}"/>
+		<input type="text" id="id" name="id" style="display: none"  value="${user.id}"/>
+		<input type="text" id="boardNo" name="boardNo" style="display: none"  value="${board.boardNo}"/>
+		<input type="text" id="userReply" class="form-control" name="userReply" placeholder="댓글을 입력해주세요"/>
 				<p align="right"><button type="submit" style="margin: 7px;" type="button" class="btn btn-primary btn-sm"> 댓글 등록</button></p>
 		</form>
 </c:if>
