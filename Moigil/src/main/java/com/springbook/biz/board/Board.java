@@ -41,6 +41,7 @@ public class Board {
 //	@ColumnDefault("0") // 방법1 널값 default 적용
 	private Integer boardHits; // 조회수
 	private Integer boardRatingLike; // 좋아요
+	private String boardImage;//게시판 이미지
 	
 	@PrePersist // 방법 2 방법1 널값 default 적용 (insert 되기전 실행됨)
 	public void prePersist() {

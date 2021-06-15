@@ -4,10 +4,56 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/commons.css">
+<link rel="shortcut icon" href="images/common/webcafe.ico">
+<link rel="apple-touch-icon" href="images/common/webcafe.png">W
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/sub.css">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+	crossorigin="anonymous">
+<style type="text/css">
+#header, #contentsArea, #slogan, #footerInner {
+    width: 1151px;
+    margin: 0 auto;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+#contentsArea {
+    overflow: hidden;
+    min-height: 600px;
+    padding: 30px 0 30px 30px;
+    background-color: #fff;
+    border-radius: 15px 15px 0 0;
+
+}
+.location {
+    position: absolute;
+    top: 18px;
+    right: -106px;
+}
+
+#contents > h1 {
+    font-size: 18px;
+    font-family: nanumEX;
+    color: #0f5132;
+    text-shadow: 1px 1px 0px rgb(0 0 0 / 20%);
+    border-bottom: 2px solid #0f5132;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+    width: 1000px;
+}
+</style>
+<script src="js/jQuery.js"></script>
+<script src="js/webcafe.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script src="/js/jquery.form.js"></script>
 <script type="text/javascript">
-
 
 
 function upload() { 
@@ -36,41 +82,64 @@ function upload() {
 <title>getGallery</title>
 </head>
 <body>
-	<div class="container">
+	<div id="wrapper">
+	
+		<!-- #header 시작 -->
+		<jsp:include page="WEB-INF/header.jsp" />
+		<!-- //#header 종료 -->
+				<div id="contentsArea"> 
+		
+		<!--   콘텐츠 컬럼 시작 -->
+		
+		<section id="contents" class="qnaBoard">
+        		<!-- 현재위치 시작 -->
+        		<p class="location">모이길 &gt; 함께가요(모임) &gt; <strong>이미지 게시판</strong></p> 
+        		<!-- //현재위치 종료 -->
+        		<h1>이미지 게시판 </h1>
+		
+	<center>	
+	<div class="container" style="margin-left: 50px;">
 			<section id="boardview">
-				<table class="table table-bordered" border="1">
-				<tbody>
-					<tr>
-						<th class="table-primary">제목</th>
-						<td colspan="11" align="left">${gallery.galleryTitle }</td>
+				<table class="table table-hover " border="1">
+				
+					<tr >
+						<th class="table-primary" ><p><label for="filenames" class="filenames">제목</label></p></th>
+						<td colspan="2" align="left">${gallery.galleryTitle }</td>
 						
 					</tr>
-					<tr>
-						<th class="table-primary">번호</th>
-						<td  align="left">${gallery.galleryNo }</td>
+					<tr >
+						<th class="table-primary"><p><label for="filenames" class="filenames">번호</label></p></th>
+						<td colspan="2" align="left">${gallery.galleryNo }</td>
 						
 					</tr>
-					</tbody>
-					<tfoot>
+					
 					<tr>
-						<th class="table-primary">내용</th>
-						<td colspan="11" align="left"><textarea rows="20" cols="130" readonly="readonly">${gallery.galleryContents}</textarea>
-						</td>
+						<th class="table-primary"><p><label for="filenames" class="filenames">내용</label></p></th>
+						<td colspan="3" align="left">${gallery.galleryContents}</td>
 					</tr>
-					</tfoot>
+			<tr>
+				<th class="table-primary"><p><label for="filenames" class="filenames">사진</label></p></th>	
+			<td colspan="3" align="left"><img id="pic" style="position: relative; margin-left: 15px;" height="200px" width="300px" src="/galleryImg/${gallery.filenames}" onerror="this.style.display='none'" alt='' />
+				</td>
+			</tr>	
 				</table>
-				<div>
-			<img id="pic" style="margin-left: 15px;" height="180px" width="150px" src="/galleryImg/${gallery.filenames}" onerror="this.style.display='none'" alt='' /><br/>
-			</div>
 				</section>
 		</div>
-		
-		<a class="btn btn-primary" href="editGallery.do?galleryNo=${gallery.galleryNo}">글수정</a>&nbsp;&nbsp;&nbsp; 
-		<a href="deleteGallery.do?galleryNo=${gallery.galleryNo}"><button type="button" class="btn btn-primary">글삭제</button></a>&nbsp;&nbsp;&nbsp; 
-		<a href="createGallery.jsp"><button type="button" class="btn btn-primary">글등록</button></a>&nbsp;&nbsp;&nbsp; 
-		<a href="getGalleryList.do"><button type="button" class="btn btn-primary">글목록</button></a>&nbsp;&nbsp;&nbsp; 
+		<div class="container2" style="margin-left: 235px; position: relative;">
+		<a href="editGallery.do?galleryNo=${gallery.galleryNo}"><button type="button" class="btn btn-primary ">글수정</button></a>&nbsp;&nbsp;&nbsp; 
+		<a href="deleteGallery.do?galleryNo=${gallery.galleryNo}"><button type="button" class="btn btn-primary ">글삭제</button></a>&nbsp;&nbsp;&nbsp; 
+		<a href="createGallery.jsp"><button type="button" class="btn btn-primary ">글등록</button></a>&nbsp;&nbsp;&nbsp; 
+		<a href="getGalleryList.do"><button type="button" class="btn btn-primary ">글목록</button></a>&nbsp;&nbsp;&nbsp; 
 		<br><br>
 		
-		</fieldset>
+		</div>
+		
+		</section>
+	</center>	
+		</div>
+	</div>
+			<!-- #footer 시작 -->
+			<jsp:include page="WEB-INF/footer.jsp" />
+		<!-- //#footer 종료 -->
 </body>
 </html>

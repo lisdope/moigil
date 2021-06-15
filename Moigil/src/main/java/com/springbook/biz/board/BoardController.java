@@ -3,6 +3,11 @@ package com.springbook.biz.board;
 
 
 
+import java.io.File;
+import java.io.IOException;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -12,7 +17,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 
 
@@ -26,10 +35,20 @@ public class BoardController {
 	@PostMapping("insertBoard.do")
 	public String insertBoard(Board board,@RequestParam(name="areaCode",defaultValue = "0")String aNo) {
 		DAO.save(board);
-		if(aNo.equals("자유")) {	
-			return "getBoardList.do";
-		}else 
-		return "getBoardListArea.do";
+		if(aNo.equals("자유")) {
+			return "redirect:getBoardList.do";
+		}
+		return "redirect:getBoardList.do";
+		
+	}
+	//지역별게시판 글 쓰기 
+	@PostMapping("insertBoard_Area.do")
+	public String insertBoard_Area(Board board,@RequestParam(name="areaCode",defaultValue = "0")String aNo) {
+		DAO.save(board);
+		if(aNo.equals("자유")) {
+			return "redirect:getBoardListArea.do";
+		}
+		return "redirect:getBoardListArea.do";
 		
 	}
 	
@@ -40,12 +59,12 @@ public class BoardController {
 								@RequestParam(name="searchCondition",defaultValue = "0")String searchCondition,
 								@RequestParam(name="searchKeyword",defaultValue = "0")String searchKeyword){
 		
-		if (searchCondition.equals("TITLE")) {
+		if (searchCondition.equals("TITLE") && searchKeyword != null) {
 			Pageable pageable = PageRequest.of(pNo, 10,Sort.Direction.ASC,"boardNo");
 			Page<Board> page = DAO.findByBoardtitle(searchKeyword, pageable);
 			model.addAttribute("page", page);
 			return "getBoardList.jsp";
-		}else if (searchCondition.equals("CONTENT")) {
+		}else if (searchCondition.equals("CONTENT") && searchKeyword != null) {
 			Pageable pageable = PageRequest.of(pNo, 10,Sort.Direction.ASC,"boardNo");
 			Page<Board> page = DAO.findByBoardcontent(searchKeyword, pageable);
 			model.addAttribute("page", page);
@@ -59,41 +78,11 @@ public class BoardController {
 	
 	//글 리스트 불러오기 페이지단위로 부른다.
 		@RequestMapping("getBoardListArea.do")
-		public String getBoardlistArea(Model model,@RequestParam(name="PageNo",defaultValue = "0")Integer pNo ,
-										@RequestParam(name="areaCode",defaultValue = "seoul")String areaCode,
-										@RequestParam(name="searchCondition",defaultValue = "0")String searchCondition,
-										@RequestParam(name="searchKeyword",defaultValue = "0")String searchKeyword){
-			if (areaCode.equals("seoul")) {
-				if (searchCondition.equals("TITLE")) {				
-					Pageable pageable = PageRequest.of(pNo, 10,Sort.Direction.ASC,"boardNo");
-					Page<Board> page = DAO.findByBoardtitleSeoul(areaCode, searchKeyword, pageable);
-					model.addAttribute("page", page);
-					return "getBoardListArea.jsp";
-				}else if (searchCondition.equals("CONTENT")) {
-					Pageable pageable = PageRequest.of(pNo, 10,Sort.Direction.ASC,"boardNo");
-					Page<Board> page = DAO.findByBoardcontentSeoul(areaCode, searchKeyword ,pageable);
-					model.addAttribute("page", page);
-					return "getBoardListArea.jsp";
-				}
-			}else if (areaCode.equals("gyeonggi")) {
-				if (searchCondition.equals("TITLE")) {				
-					Pageable pageable = PageRequest.of(pNo, 10,Sort.Direction.ASC,"boardNo");
-					Page<Board> page = DAO.findByBoardtitleGyeonggi(areaCode, searchKeyword ,pageable);
-					model.addAttribute("page", page);
-					return "getBoardListArea.jsp";
-				}else if (searchCondition.equals("CONTENT")) {
-					Pageable pageable = PageRequest.of(pNo, 10,Sort.Direction.ASC,"boardNo");
-					Page<Board> page = DAO.findByBoardcontentGyeonggi(areaCode, searchKeyword ,pageable);
-					model.addAttribute("page", page);
-					return "getBoardListArea.jsp";
-				}
-				
-			} 				
-				Pageable pageable = PageRequest.of(pNo, 10,Sort.Direction.ASC,"boardNo");
-				Page<Board> page = DAO.findAllByAreaCode(pageable, areaCode);
-				model.addAttribute("page", page);
-				return "getBoardListArea.jsp";
-			
+		public String getBoardlistArea(Model model,@RequestParam(name="PageNo",defaultValue = "0")Integer pNo ,@RequestParam(name="areaCode",defaultValue = "0")String aNo){
+			Pageable pageable = PageRequest.of(pNo, 10,Sort.Direction.ASC,"boardNo");
+			Page<Board> page = DAO.findAllByAreaCode(pageable, aNo);
+			model.addAttribute("page", page);
+			return "getBoardListArea.jsp";
 		}
 	
 	// 글 보기
@@ -109,7 +98,7 @@ public class BoardController {
     @RequestMapping("deleteBoard.do")
     public String deleteBoard(Board board) {
     	DAO.deleteById(board.getBoardNo());
-    	return "getBoardList.do";
+    	return "redirect:getBoardList.do";
     }
     // 글수정
 	@RequestMapping("editBoard.do") 
@@ -145,6 +134,21 @@ public class BoardController {
 		return "getReplyList.do";// 종착지에서 뷰를 보여줘야하는데, 또 이상한 호출을 해가지고 무한루프가 형성됨
 	}
 	 
-	
+	 //자유게시판 이미지 넣기
+		@RequestMapping(value="uploadBoard.do", method=RequestMethod.POST) 
+		@ResponseBody
+		public String saveFile(HttpServletRequest request) throws IOException {
+			String imageFolder = request.getParameter("imageFolder");
+			String imgFolder ="\\" + imageFolder + "\\"; //저장할 경로
+			String realFolder = request.getRealPath("/") + imgFolder; //web-inf바로전 까지 저장할 경로
+			MultipartHttpServletRequest multipartRequest =  (MultipartHttpServletRequest)request;
+			MultipartFile file = multipartRequest.getFile("imageFile"); //단일 파일 업로드
+			String filename = file.getOriginalFilename();
+
+			File ufile = new File(realFolder + file.getOriginalFilename());
+			file.transferTo((ufile));
+
+			return filename; 
+		}
 	
 }

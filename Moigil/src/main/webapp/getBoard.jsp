@@ -8,32 +8,21 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
  <!-- Bootstrap -->
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+	crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/commons.css">
 <link rel="shortcut icon" href="images/common/webcafe.ico">
 <link rel="apple-touch-icon" href="images/common/webcafe.png">
-<link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="css/common.css">
 <link rel="stylesheet" href="css/main.css">
 <link rel="stylesheet" href="css/sub.css">
 <script src="js/jQuery.js"></script>
 <script src="js/webcafe.js"></script>
-<title>글 상세</title>
-<style type="text/css">
- .Rating{
- 	display: inline;}
- .boardview > td{border:1px solid; width: 50px; font-size:12px; font-color:blue;padding:5px 5px; }
- .boardview > th{border:1px solid; width: 50px; font-size:12px; font-color:blue;padding:5px 5px; }
- p.logout{font-family: 'Noto Sans KR', sans-serif;}
- 
-.size{
-    height:30px;
-    width:70px;
-}
-.reply{
-border : 0px solid;}
-</style>
-</head>
-
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="/js/jquery.form.js"></script>
 <script type="text/javascript">
 function fn_createRating(paramBoardNo){
 	location.href = "${context}/work/board/updateBoardRating.do?boardNo=" + paramBoardNo;
@@ -56,6 +45,23 @@ function like(){
 }
 </script>
 
+<title>글 상세</title>
+<style type="text/css">
+ .Rating{
+ 	display: inline;}
+ .boardview > td{border:1px solid; width: 50px; font-size:12px; font-color:blue;padding:5px 5px; }
+ .boardview > th{border:1px solid; width: 50px; font-size:12px; font-color:blue;padding:5px 5px; }
+ p.logout{font-family: 'Noto Sans KR', sans-serif;}
+ 
+.size{
+    height:30px;
+    width:70px;
+}
+.reply{
+border : 0px solid;}
+</style>
+</head>
+
 <body>
 	
 	<!-- #wrapper 시작 -->
@@ -64,20 +70,23 @@ function like(){
 		<!-- #header 시작 -->
 		<jsp:include page="WEB-INF/header.jsp" />
 		<!-- //#header 종료 -->
+		<!-- #visual 시작 -->
+		<!-- //#visual 종료 -->
 		
 		<!-- #contentsArea 시작 -->
-		<div id="contentsArea" class="container"> 
+		<div id="contentsArea"> 
 		
 		<!--   콘텐츠 컬럼 시작 -->
 		
 		<section id="contents" class="qnaBoard">
         		<!-- 현재위치 시작 -->
-        		<p class="location">모이길 &gt; 함께가요(모임) &gt; <strong>자유 게시판</strong></p> 
+        		<p class="location">모이길 &gt; 함께가요(모임) &gt; <strong>전체 게시판</strong></p> 
         		<!-- //현재위치 종료 -->
         		<h1>전체 게시판</h1>
 		
 		<center>
-			<section id="boardview" class="container">
+		<div class="container">
+			<section id="boardview">
 				<table class="table table-bordered" border="1">
 				<tbody>
 					<tr>
@@ -103,13 +112,16 @@ function like(){
 					<tfoot>
 					<tr>
 						<th class="table-primary">내용</th>
-						<td colspan="11" align="left"><textarea rows="20" cols="95" readonly="readonly">${board.boardContents}</textarea>
+						<td colspan="11" align="left"><textarea rows="20" cols="130" readonly="readonly">${board.boardContents}</textarea>
 						</td>
 					</tr>
 					</tfoot>
 				</table>
+				<div>
+			<img id="pic" style="margin-left: 15px;" height="180px" width="150px" src="/boardImg/${board.boardImage}" onerror="this.style.display='none'" alt='' /><br/>
+			</div>
 				</section>
-		
+		</div>
 		<c:if test="${(sessionScope.user.grade eq 'ADMIN') || (sessionScope.user.userCode eq board.userCode)}">
 		 <a href="editBoard.do?boardNo=${board.boardNo}"><button class="btn btn-primary">글수정</button></a>&nbsp;&nbsp;&nbsp; 
 		</c:if>					
@@ -128,7 +140,7 @@ function like(){
 		<button type="submit" class="btn btn-success btn-sm" style="font-size:12px">좋아요 <i class="fa fa-thumbs-o-up"></i></button>
 		</form>&nbsp;&nbsp;
 		
-		<form class="Rating" action="MarkRatingHate.do"  method="POST">
+		<form class="Rating" id="mark" action="MarkRatingHate.do"  method="POST">
 		<input type="text" name="boardNo"  style="display: none" value="${board.boardNo}" />
 		<input type="text" name="userCode"  style="display: none" value="${user.userCode}" />
 		<button type="submit" class="btn btn-danger btn-sm" style="font-size:12px">싫어요 <i class="fa fa-thumbs-o-down"></i></button>

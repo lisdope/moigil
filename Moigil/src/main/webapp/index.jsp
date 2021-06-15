@@ -15,7 +15,44 @@
 <link rel="stylesheet" href="css/main.css">
 <script src="js/jQuery.js"></script>
 <script src="js/webcafe.js"></script>
-  
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#pw").keydown(function (key){
+		if(key.keyCode == 13){
+			ajaxLoginCheck();
+		}
+
+	});
+});
+
+function ajaxLoginCheck(){
+	var id = $("#id").val();
+	var pw = $("#pw").val();
+
+	var param = {};
+
+	param["id"] = id;
+	param["pw"] = pw;
+
+	$.ajax({
+		url:"/ajaxLoginCheck.do",
+		contentType:"application/json",
+		dataType:"json",
+		data:param,
+		success:function(result){
+			if(result['loginYn'] == 'success'){
+				alert("로그인에 성공하였습니다.");
+				$("#loginFrm").submit();
+			}else{
+				alert('로그인에 실패하셨습니다.');
+				$("#id").val('');
+				$("#pw").val('');
+			}
+		}
+	});
+}
+
+</script>  
  
 
     
@@ -45,17 +82,17 @@
 				<h1>로그인</h1>
 
 				<c:if test="${empty sessionScope.user.id}">
-					<form action="login.do" method="post">
+					<form action="login.do" method="post" role="form" id="loginFrm">
 						<fieldset>
 							<legend>회원 로그인 폼</legend>
 							<p>
-								<label for="userId">아이디</label> <input type="text" name="id" required placeholder="아이디">
+								<label for="userId">아이디</label> <input type="text" id="id" name="id" required placeholder="아이디">
 							</p>
 							<p>
-								<label for="userPw">비밀번호</label> <input type="password" name="pw" required placeholder="4자이상 8자이하">
+								<label for="userPw">비밀번호</label> <input type="password" id="pw" name="pw" required placeholder="4자이상 8자이하">
 							</p>
 							<p>
-								<button type="submit">로그인</button>
+								<button type="submit" onclick="ajaxLoginCheck();">로그인</button>
 							</p>
 						</fieldset>
 					</form>

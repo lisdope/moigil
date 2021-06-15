@@ -2,6 +2,8 @@ package com.springbook.biz.user;
 
 
 
+import java.util.HashMap;
+
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
@@ -30,6 +32,9 @@ public interface UserRepository extends CrudRepository<User, Integer>{
       
       @Query("SELECT u FROM User u WHERE u.id = :id ") // 로그인
       User findUser(@Param("id")String id);
+
+      @Query("SELECT u FROM User u WHERE u.id = :id and u.pw = :pw")
+  	  public boolean logincheck(String id, String pw);
 
       
       

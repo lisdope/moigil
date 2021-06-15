@@ -2,6 +2,8 @@ package com.springbook.biz.user;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
@@ -71,8 +74,9 @@ public class UserController {
 	
 	
 	@RequestMapping("deleteUser.do") // 계정??��
-	  public String deleteUser(User user) {
+	  public String deleteUser(User user, HttpSession session) {
 		DAO.deleteById(user.getUserCode());
+		session.invalidate();
 	      return "index.jsp";
 	  }
 	
@@ -148,6 +152,26 @@ public class UserController {
 		DAO.save(user);
 		session.setAttribute("user",user);
 		return "index.jsp";
+	}
+	
+	@RequestMapping(value="ajaxLoginCheck.do",method=RequestMethod.GET)
+	@ResponseBody
+	public Map<String, String> ajaxLogincheck(HttpSession session,
+												User user
+											, @RequestParam(value="id", required=false) String id
+											, @RequestParam(value="pw", required=false) String pw){
+		Map<String, String> loginYnMap = new HashMap<String, String>();
+		
+		 User login = DAO.findUser(user.getId(), user.getPw());
+	      session.setAttribute("user", login);
+	      if(login != null) {
+	    	  System.out.println(login);
+			loginYnMap.put("loginYn", "success");
+		}else{
+			loginYnMap.put("loginYn", "fail");
+		}
+		return loginYnMap;
+		     
 	}
 
 }

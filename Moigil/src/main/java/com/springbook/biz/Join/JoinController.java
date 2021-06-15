@@ -38,9 +38,9 @@ public class JoinController {
 		if(joinchk != null) {
 		}else { //null이라면
 			DAO.save(join);
-			return "getMeeting.do?person=-1";
+			return "redirect:getMeeting.do?person=-1";
 		}
-		return "getMeeting.do";
+		return "redirect:getMeeting.do";
 	}
 
 	

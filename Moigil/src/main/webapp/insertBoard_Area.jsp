@@ -1,27 +1,28 @@
 <%@page contentType="text/html; charset=UTF-8"%>
-<%@taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
- <!-- Bootstrap -->
+
+<title>새글등록</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
 	rel="stylesheet"
 	integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
 	crossorigin="anonymous">
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/commons.css">
 <link rel="shortcut icon" href="images/common/webcafe.ico">
 <link rel="apple-touch-icon" href="images/common/webcafe.png">
+<link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="css/common.css">
-<link rel="stylesheet" href="css/main.css">
 <link rel="stylesheet" href="css/sub.css">
+<script src="js/jquery.js"></script>
+<script src="js/webcafe.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="js/jquery.js"></script>
+<script src="js/webcafe.js"></script>
 <script src="/js/jquery.form.js"></script>
 <script type="text/javascript">
+
 var imageFolder; // Usercontroller로 보낼 변수의 이름
 // imageFolder가   Usercontroller에 있는   "upload.do"매핑쪽으로 
 // 파라미터값으로 보내지게 된다. 
@@ -63,49 +64,22 @@ alert(error);
 });
 }
 </script>
-<style>
-body{
-	margin-top: 10%;
-}
-</style>
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
-	rel="stylesheet"
-	integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
-	crossorigin="anonymous">
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>글 상세</title>
 </head>
 <body>
-<!-- #wrapper 시작 -->
-	<div id="wrapper">
-	
+<div id="wrapper">
 		<!-- #header 시작 -->
-		<jsp:include page="WEB-INF/header.jsp" />
+			<jsp:include page="WEB-INF/header.jsp" />
 		<!-- //#header 종료 -->
-		<!-- #visual 시작 -->
-		<!-- //#visual 종료 -->
 		
-		<!-- #contentsArea 시작 -->
-		<div id="contentsArea"> 
+		<div id="contentsArea" class="container"> 
+		<section id="contents" class="qnaBoard">
 		
-		<!--   콘텐츠 컬럼 시작 -->
-	<center>
-		<hr>
-		<div>
-		<form class="form-inline" action="insertBoard.do" method="post">
-			<input type="hidden" name="boardNo" value="${board.boardNo}">
-			<input type="hidden" name="userCode" value="${board.userCode}">
-			<input type="hidden" name="grade" value="${board.grade}">
-			<input type="hidden" name="boardDate" value="${board.boardDate}">
-			<input type="hidden" name="boardHits" value="${board.boardHits}">
-			<input type="hidden" name="boardRatingLike" value="${board.boardRatingLike}">  
-				<p align="left"><b> 게시글 번호 :</b> ${board.boardNo} </p>
-				<br>
-				<table class="table table-hover" border="0" cellpadding="0" cellspacing="0">
+		<form action="insertBoard_Area.do" method="post">
+		<input type="text" name="userCode" style="display: none" value="${user.userCode}"/>
+			<table class="table table-hover" border="0" cellpadding="0" cellspacing="0">
 				<tr>
 					<td class="table-primary" width="70">제목</td>
-					<td align="left"><input class="form-control" type="text" size="120" name="boardTitle" value="${board.boardTitle}"/></td>
+					<td align="left"><input class="form-control" type="text" size="120" name="boardTitle" /></td>
 				</tr>
 				<tr>
 					<td class="table-primary" bgcolor="orange">지역</td>
@@ -118,56 +92,50 @@ body{
 				</tr>
 				<tr>
 					<td class="table-primary" bgcolor="orange">내용</td>
-					<td align="left"><textarea class="form-control" name="boardContents" cols="120" rows="10" >${board.boardContents}</textarea></td>
+					<td align="left"><textarea class="form-control" name="boardContents" cols="120" rows="10"></textarea></td>
+				</tr>
+				<tr>
+				<td class="table-primary"></td>
+					<td colspan="2" align="center">
+					<button type="submit" class ="btn btn-primary">새글등록</button>
+					<input class="btn btn-primary" type="button" onclick="history.back(-1);" value="뒤로">	
+					</td>
 				</tr>
 			</table>
-			</div>
-			<div>
-			<img id="pic" style="margin-left: 15px;" height="180px" width="150px" src="/boardImg/${board.boardImage}" onerror="this.style.display='none'" alt='' /><br/>
-			</div>
-			<br>
-			<br>
-			<input class="btn btn-primary" type="submit" value="수정">
-			<input class="btn btn-primary" type="button" onclick="history.back(-1);" value="취소">
-			<div class="form-group">
+		<!-- 프로필 이미지가 미리보기로 보여지는 곳 -->	
+				<div class="form-group">
 					<p>
 						<label for="image" class="image"><b>사진</b></label> <img id="pic"
 							style="margin-left: 15px;" height="180px" width="150px"
 							src="${context}/backgroundImage/defaultpic.png"><br />
 					<div class="col-md-6">
 						<input type="hidden" id="boardImage" name="boardImage"
-							required="required" value="${board.boardImage}" >
+							required="required">
 					</div>
 				</div>
+				<input type="hidden" id="flag" name="flag" value="false"><br>
 		</form>
 		<!-- upload()함수가 먼저 실행면서 upload.do가 실행되는듯하다.-->
 		<!-- form 태그의 id속성값으로 ajaxform을 설정하여 전송할 데이터를 묶어준고 action속성으로 upload.do를 설정하여 사진,프로필 이미지를 저장하게 된다. -->		
 		<form id="ajaxform" method="post" action="uploadBoard.do"
 			enctype="multipart/form-data">
-			<input type="hidden" name="boardNo" value="${board.boardNo}">
-			<input type="hidden" name="userCode" value="${board.userCode}">
-			<input type="hidden" name="grade" value="${board.grade}">
-			<input type="hidden" name="boardDate" value="${board.boardDate}">
-			<input type="hidden" name="boardHits" value="${board.boardHits}">
-			<input type="hidden" name="boardRatingLike" value="${board.boardRatingLike}">
 			<p>                                 
 				<label for="tel">사진</label> 
 				                  <!-- imageFile => usercontroller로 보내지는 파라미터 값으로 name을 맞춰준다.  -->
-				<input type="file" style="width: 200px;" id="imageFile" name="imageFile" onchange="upload()"   />  
+				<input type="file" style="width: 200px;" id="imageFile" name="imageFile" onchange="upload()" />  
 				<input type="hidden" id="imageFolder" name="imageFolder" value="boardImg">
 			</p>
 		</form>
-	</center>
-	</div>
-	</div>
-	<hr>
+		
+		<hr>
+		
+	
+	</section>
 	</div>
 		<!-- #footer 시작 -->
 			<jsp:include page="WEB-INF/footer.jsp" />
 		<!-- //#footer 종료 -->
-		
 	</div>
 	<!-- //#wrapper 종료 -->
 </body>
 </html>
-	
