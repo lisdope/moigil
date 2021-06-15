@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/commons.css">
 <link rel="shortcut icon" href="images/common/webcafe.ico">
-<link rel="apple-touch-icon" href="images/common/webcafe.png">W
+<link rel="apple-touch-icon" href="images/common/webcafe.png">
 <link rel="stylesheet" href="css/common.css">
 <link rel="stylesheet" href="css/main.css">
 <link rel="stylesheet" href="css/sub.css">
@@ -47,6 +47,15 @@
     padding-bottom: 15px;
     margin-bottom: 20px;
     width: 1000px;
+}
+#visual {
+    height: 500px;
+    position: relative;
+    background-image: url(/images/Metasequoia.jpg), linear-gradient(to bottom, #c7c7c7 0%,#ffffff 70%,#ffffff 100%);
+    background-size: 1930px;
+    background-position: center top;
+    background-repeat: no-repeat;
+    margin-top: -16px;
 }
 </style>
 <script src="js/jQuery.js"></script>
