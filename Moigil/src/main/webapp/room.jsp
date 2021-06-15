@@ -8,12 +8,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
- <!-- Bootstrap -->
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
-	rel="stylesheet"
-	integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
-	crossorigin="anonymous">
+<link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/commons.css">
 <link rel="shortcut icon" href="images/common/webcafe.ico">
 <link rel="apple-touch-icon" href="images/common/webcafe.png">
@@ -22,6 +17,9 @@
 <link rel="stylesheet" href="css/sub.css">
 <script src="js/jQuery.js"></script>
 <script src="js/webcafe.js"></script>
+ <style type="text/css">
+html { overflow-y:scroll; }
+</style>
 <title>채팅방 목록</title>
 	<style>
 		*{

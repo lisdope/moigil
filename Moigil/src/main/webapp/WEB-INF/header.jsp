@@ -34,13 +34,11 @@
 						<ul class="aboutCss">
 							<li><a href="getBoardList.do">전체게시판</a></li>
 							<li><a href="getBoardListArea.do?areaCode=서울">지역별</a></li>
-							<li><a href="#">반려동물과 함께</a></li>
 							<li><a href="getMeetingList.do">당일모임</a></li>
 							<li><a href="room.jsp">채팅방</a></li>
 						</ul></li>
 					<li><a href="getGalleryList.do">갤러리</a>
 						<ul class="webStandard">
-							<li><a href="createGallery.jsp">새글등록</a></li>
 						</ul></li>
 					<li><a href="#">공동구매</a>
 						<ul class="commonbuy">

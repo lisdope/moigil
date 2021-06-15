@@ -20,6 +20,9 @@
 <link rel="stylesheet" href="css/sub.css">
 <script src="js/jQuery.js"></script>
 <script src="js/webcafe.js"></script>
+<style type="text/css">
+html { overflow-y:scroll; }
+</style>
 <title>모임 상세</title>
 <style type="text/css">
  .Rating{

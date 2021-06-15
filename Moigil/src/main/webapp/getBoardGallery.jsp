@@ -12,6 +12,9 @@
 <link rel="stylesheet" href="css/sub.css">
 <script src="js/jquery.js"></script>
 <script src="js/webcafe.js"></script>
+ <style type="text/css">
+html { overflow-y:scroll; }
+</style>
 </head>
 <body>
 	<!-- #wrapper 시작 -->
