@@ -6,8 +6,7 @@
 <head>
 <title>Main Page</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/commons.css">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 <link rel="shortcut icon" href="images/common/webcafe.ico">
 <link rel="apple-touch-icon" href="images/common/webcafe.png">
 <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -53,7 +52,9 @@ function ajaxLoginCheck(){
 }
 
 </script>  
- 
+<style type="text/css">
+html { overflow-y:scroll; }
+</style>
 
     
 </head>

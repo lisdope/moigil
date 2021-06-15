@@ -8,7 +8,10 @@
 	content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 <link rel="shortcut icon" href="images/common/webcafe.ico">
 <link rel="apple-touch-icon" href="images/common/webcafe.png">
+<<<<<<< HEAD
+=======
 <link rel="stylesheet" href="css/bootstrap.min.css">
+>>>>>>> e2033968d79276a81990bd7dd8ed9df188f1877b
 <link rel="stylesheet" href="css/common.css">
 <link rel="stylesheet" href="css/main.css">
 <link rel="stylesheet" href="css/sub.css">
@@ -18,6 +21,15 @@
 html {
 	overflow-y: scroll;
 }
+#visual {
+    height: 500px;
+    position: relative;
+    background-image: url(/images/Metasequoia.jpg), linear-gradient(to bottom, #c7c7c7 0%,#ffffff 70%,#ffffff 100%);
+    background-size: 1930px;
+    background-position: center top;
+    background-repeat: no-repeat;
+    margin-top: -16px;
+}
 </style>
 <script type="text/javascript">
 	function upload() {
@@ -25,14 +37,14 @@ html {
 		$("#ajaxform").ajaxSubmit({
 			type : "POST",
 			dataType : 'text',
-			url : $("#ajaxform").attr("action"), //?�송?? ?�이지 ==> ?�기?? upload.do�? 보내?�건가?
-			data : $("#ajaxform").serialize(), // ?�이?�의 ?�송 방식?? 쿼리?�트�? ?�식?? ?�이?�로 변?�해 반환?�다.
-			success : function(data) { // ?�이?? ?�송?? ?�공?? ?? ?�행?�는 부�?
+			url : $("#ajaxform").attr("action"), //전송할 페이지 ==> 여기서 upload.do로 보내는건가?
+			data : $("#ajaxform").serialize(), // 데이터의 전송 방식을 쿼리스트링 형식의 데이터로 변환해 반환한다.
+			success : function(data) { // 데이터 전송에 성공한 후 실행되는 부분
 				data2 = data.replace(/"/gi, "");
 				// ??? 
-				var imageUrl = "${context}/galleryImg/" + data2; // ?��?지경로�? ?��?경로�? ?�정?�여 가?�오?? 방식
-				$("#pic").attr("src", imageUrl); // 미리보기�? ?�정?�는 부�? => id?�성값으�? pic?? ?�소?? src?�성?? imageUrl?? ?�?�시?�다. => ?�원?? ?�로?�한 ?�진?? 경로�? ?�정?�다	 
-				$("#filenames").val(data2); // userImage?? 값을 data2�? ?�정?�다.
+				var imageUrl = "${context}/galleryImg/" + data2; // 이미지경로를 절대경로로 설정하여 가져오는 방식
+				$("#pic").attr("src", imageUrl); // 미리보기를 설정하는 부분 => id속성값으로 pic인 요소의 src속성에 imageUrl을 대입시킨다. => 회원이 업로드한 사진의 경로로 설정한다	 
+				$("#filenames").val(data2); // userImage에 값을 data2로 설정한다.
 			},
 			error : function(xhr, status, error) {
 				alert(error);
@@ -45,19 +57,19 @@ html {
 <body>
 	<div id="wrapper">
 
-		<!-- #header ?�작 -->
+		<!-- #header 시작 -->
 		<jsp:include page="WEB-INF/header.jsp" />
 		<!-- //#header 종료 -->
 		<div id="contentsArea" class="container">
 
-			<!--   콘텐�? 컬럼 ?�작 -->
+			<!--   콘텐츠 컬럼 시작 -->
 			<section id="contents" class="qnaBoard">
-				<!-- ?�재?�치 ?�작 -->
+				<!-- 현재위치 시작 -->
 				<p class="location">
-					모이�? &gt; ?�께가??(모임) &gt; <strong>?��?지 게시??</strong>
+					모이길 &gt; 함께가요(모임) &gt; <strong>이미지 게시판</strong>
 				</p>
-				<!-- //?�재?�치 종료 -->
-				<h1>?��?지 게시??</h1>
+				<!-- //현재위치 종료 -->
+				<h1>이미지 게시판</h1>
 
 
 		<div class="container">
@@ -67,7 +79,7 @@ html {
 
 							<tr>
 								<th class="table-primary"><p>
-										<label for="filenames" class="filenames">?�목</label>
+										<label for="filenames" class="filenames">제목</label>
 									</p></th>
 								<td colspan="2" align="left">${gallery.galleryTitle }</td>
 
@@ -82,13 +94,13 @@ html {
 
 							<tr>
 								<th class="table-primary"><p>
-										<label for="filenames" class="filenames">?�용</label>
+										<label for="filenames" class="filenames">내용</label>
 									</p></th>
 								<td colspan="3" align="left">${gallery.galleryContents}</td>
 							</tr>
 							<tr>
 								<th class="table-primary"><p>
-										<label for="filenames" class="filenames">?�진</label>
+										<label for="filenames" class="filenames">사진</label>
 									</p></th>
 								<td colspan="3" align="left"><img id="pic"
 									style="position: relative; margin-left: 15px;" height="200px"
@@ -102,10 +114,10 @@ html {
 				<div class="container2" align="center">
 					
 					<a href="editGallery.do?galleryNo=${gallery.galleryNo}">
-					<button type="button" class="btn btn-primary ">글?�정</button></a>&nbsp;&nbsp;&nbsp;
+					<button type="button" class="btn btn-primary ">글수정</button></a>&nbsp;&nbsp;&nbsp;
 					<a href="deleteGallery.do?galleryNo=${gallery.galleryNo}">
-					<button type="button" class="btn btn-primary ">글??��</button></a>&nbsp;&nbsp;&nbsp;
-					<a href="createGallery.jsp"><button type="button" class="btn btn-primary ">글?�록</button></a>&nbsp;&nbsp;&nbsp; 
+					<button type="button" class="btn btn-primary ">글삭제</button></a>&nbsp;&nbsp;&nbsp;
+					<a href="createGallery.jsp"><button type="button" class="btn btn-primary ">글등록</button></a>&nbsp;&nbsp;&nbsp; 
 					<a href="getGalleryList.do"><button type="button" class="btn btn-primary ">글목록</button></a>&nbsp;&nbsp;&nbsp; 
 					<br>
 
@@ -114,7 +126,7 @@ html {
 			
 		</div>
 	</div>
-	<!-- #footer ?�작 -->
+	<!-- #footer 시작 -->
 	<jsp:include page="WEB-INF/footer.jsp" />
 	<!-- //#footer 종료 -->
 </body>

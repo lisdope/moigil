@@ -8,11 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
  <!-- Bootstrap -->
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
-	rel="stylesheet"
-	integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
-	crossorigin="anonymous">
+<link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/commons.css">
 <link rel="shortcut icon" href="images/common/webcafe.ico">
 <link rel="apple-touch-icon" href="images/common/webcafe.png">
@@ -74,11 +70,10 @@ alert(error);
     margin-top: -16px;
 }
 </style>
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
-	rel="stylesheet"
-	integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
-	crossorigin="anonymous">
+<style type="text/css">
+html { overflow-y:scroll; }
+</style>
+<link rel="stylesheet" href="css/bootstrap.min.css">
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>글 상세</title>
 </head>

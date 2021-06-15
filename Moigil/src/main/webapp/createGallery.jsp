@@ -5,7 +5,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/commons.css">
 <link rel="shortcut icon" href="images/common/webcafe.ico">
 <link rel="apple-touch-icon" href="images/common/webcafe.png">
 <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -14,8 +13,10 @@
 <link rel="stylesheet" href="css/sub.css">
 <script src="js/jQuery.js"></script>
 <script src="js/webcafe.js"></script>
-<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script src="/js/jquery.form.js"></script>
+ <style type="text/css">
+html { overflow-y:scroll; }
+</style>
 <script type="text/javascript">
 
 function upload() { 
@@ -60,7 +61,7 @@ function upload() {
 			  <!-- //현재위치 종료 -->            
 		      <h1>이미지 갤러리</h1> 
 				<form action="galleryUpload.do" name="userInfo" id="joinForm" method="post" >
-					<fieldset>
+				<fieldset>
 				<legend>갤러리 입력 폼</legend>
 				<p>
 					<label for="galleryTitle">글제목</label><input type="text" style="width: 700px;" name="galleryTitle" id="galleryTitle" />
@@ -103,12 +104,15 @@ function upload() {
 		
 		<div class="btnJoinArea">
 						<button type="submit" class="btn btn-primary">글 등록</button>
-						<button type="button" class="btn btn-primary">취소</button>
+						<button type="button" class="btn btn-primary" onclick="history.back(-1);">취소</button>
 		</div>
-	
-	
-
 		</fieldset>
-		      		</section>
+		   </section>
+		   </div>
+		   	<!-- #footer 시작 -->
+			<jsp:include page="WEB-INF/footer.jsp" />
+		<!-- //#footer 종료 -->
+		   </div>
+		
 </body>
 </html>

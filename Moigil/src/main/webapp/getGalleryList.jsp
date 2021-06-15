@@ -6,27 +6,17 @@
 <html >
 <head>
 <title>이미지 자료실 | 모이길</title>
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 <link rel="shortcut icon" href="images/common/webcafe.ico">
 <link rel="apple-touch-icon" href="images/common/webcafe.png">
+<link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="css/common.css">
 <link rel="stylesheet" href="css/sub.css">
 <script src="js/jquery.js"></script>
 <script src="js/webcafe.js"></script>
 <style type="text/css">
 
-p#new{
- text-align:right;
-}
- 
- a#new{
- text-align:right;
- color:rgb(0 0 0);
- font-weight:bold;
- 
- }
- 
 
- 
 #col1 {
     position: absolute;
     left: 5px;
@@ -63,7 +53,7 @@ p#new{
 			  <p class="location">Home &gt; 자료실 &gt; <strong>이미지 자료실</strong></p> 
 			  <!-- //현재위치 종료 -->            
 		      <h1>이미지 갤러리</h1> 
-		      <p id="new"><a id="new" href="createGallery.jsp">새글 등록</a></p>
+		     
 		      <c:forEach items="${page.content}" var="gallery" varStatus="status" step="1" begin="0">
 		        <ul>
 		          <li>
@@ -87,7 +77,10 @@ p#new{
 		    <!-- //이미지 갤러리 종료 -->
 		    <!-- //#contents 종료 -->	
 	  </div>
-	 <div>				
+	 <div>	
+	 <center>
+	  <a id="new" href="createGallery.jsp"><button class="btn btn-primary">새글 등록</button></a>	
+	 </center>	
 	  </div>
 	  <!-- #contentsArea 종료 --> 
   		<!-- #footer 시작 -->

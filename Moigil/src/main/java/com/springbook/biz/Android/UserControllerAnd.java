@@ -1,4 +1,4 @@
-package com.springbook.biz.user;
+package com.springbook.biz.Android;
 
 import java.util.Optional;
 
@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+
+import com.springbook.biz.user.User;
 
 
 @Controller
