@@ -63,9 +63,15 @@ alert(error);
 });
 }
 </script>
-<style>
-body{
-	margin-top: 10%;
+<style type="text/css">
+#visual {
+    height: 500px;
+    position: relative;
+    background-image: url(/images/Metasequoia.jpg), linear-gradient(to bottom, #c7c7c7 0%,#ffffff 70%,#ffffff 100%);
+    background-size: 1930px;
+    background-position: center top;
+    background-repeat: no-repeat;
+    margin-top: -16px;
 }
 </style>
 <link
