@@ -7,7 +7,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
+@SessionAttributes("ReplyList")
 @Controller
 public class ReplyController {
 	@Autowired
@@ -17,13 +19,16 @@ public class ReplyController {
 	public String getReplyList(@RequestParam("boardNo")Integer no,Model model) {
 		ArrayList<Reply>reply = DAO.ReplylistDesc(no);
 		model.addAttribute("ReplyList",reply);
+		System.out.println(model);
 		return "getBoard.jsp";
 	}
 	
 	@RequestMapping("insertReply.do")
 	public String insertBoard(Reply reply) {
 		DAO.save(reply);
-	  return "Board.do";
+
+		System.out.println("insertReply.do 의 : " + reply.getBoardNo());
+	  return "redirect:Board.do?boardNo=" + reply.getBoardNo();
 	}
 	
 	@RequestMapping("deleteReply.do")

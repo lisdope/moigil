@@ -20,11 +20,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 
-
+@SessionAttributes("board")
 @Controller
 public class BoardController {
 	
@@ -129,9 +130,11 @@ public class BoardController {
 	// 조회수 안오르는 보드
 	@RequestMapping("Board.do") 
 	public String board(Model model,Board board) {
+		System.out.println("Board.do (전)의 : " + board.getBoardNo());
 		board = DAO.findById(board.getBoardNo()).get();
 		model.addAttribute("board",board);
-		return "getReplyList.do";// 종착지에서 뷰를 보여줘야하는데, 또 이상한 호출을 해가지고 무한루프가 형성됨
+		System.out.println("Board.do (후)의 : " + board.getBoardNo());
+		return "getReplyList.do?boardNo=" + board.getBoardNo();
 	}
 	 
 	 //자유게시판 이미지 넣기

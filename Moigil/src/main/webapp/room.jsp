@@ -78,9 +78,6 @@ html { overflow-y:scroll; }
 			padding: 3px;
 			margin: 3px;
 		}
-		.inputTable th{
-			padding: 5px;
-		}
 		.inputTable input{
 			width: 330px;
 			height: 25px;
