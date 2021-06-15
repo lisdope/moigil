@@ -129,7 +129,7 @@ section .mail {
 }
 
 .list .item .right img {
-	padding-right: 14px;
+	padding-right: 20px;
 }
 
 #contents>h1 {
