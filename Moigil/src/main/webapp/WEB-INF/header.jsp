@@ -34,7 +34,8 @@
 						<ul class="aboutCss">
 							<li><a href="getBoardList.do">전체게시판</a></li>
 							<li><a href="getBoardListArea.do?areaCode=서울">지역별</a></li>
-							<li><a href="getMeetingList.do">당일모임</a></li>
+							<li><a href="getMeetingList.do">모임게시판</a></li>
+							<li><a href="http://localhost:3000/">익명게시판</a></li>
 							<li><a href="room.jsp">채팅방</a></li>
 						</ul></li>
 					<li><a href="getGalleryList.do">갤러리</a>
