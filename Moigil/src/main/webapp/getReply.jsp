@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,18 +19,19 @@
 			<input name="replyDate" type="hidden" value="${reply.replyDate}" />
 			<input name="id" type="hidden" value="${reply.id}"/>
 			<input name="userReplyNo" type="hidden" value="${reply.userReplyNo}" />
-			<table class="table table-bordered" border="1" cellpadding="0" cellspacing="0">
+			<table class="table table-bordered" border="1">
 				<tr bgcolor="#dfefff">
-					<td>´ñ±Û ¹øÈ£</td>
+					<td>ëŒ“ê¸€ ë²ˆí˜¸</td>
 					<td align="left">${reply.userReplyNo}</td>
 				<tr>
 				<tr>
-					<td bgcolor="orange">³»¿ë</td>
+					<td bgcolor="orange">ë‚´ìš©</td>
 					<td align="left"><textarea name="userReply" cols="40" rows="10">${reply.userReply }</textarea></td>
 				</tr>
 				<tr bgcolor="#dfefff">
-					<td colspan="2" align="center"><input type="submit"
-						value="±Û ¼öÁ¤" /></td>
+					<td colspan="2" align="center"><input class="btn btn-primary"  type="submit" value="ê¸€ ìˆ˜ì •" />
+					<input class="btn btn-primary" type="button" onclick="history.back(-1);" value="ì·¨ì†Œ">
+						</td>
 				</tr>
 				
 			</table>
