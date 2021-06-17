@@ -12,8 +12,32 @@
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="css/common.css">
 <link rel="stylesheet" href="css/main.css">
+<style>
+	*{margin: 0;padding: 0;}
+	body{font-size: 12px;}
+	input{vertical-align: middle;}
+	#notice_wrap{
+		width: 300px;
+		position: absolute;
+		left: 700px;
+		top: 300px;
+		box-shadow:0 0 8px #000;
+	}
+	.closeWrap{
+		background-color: #000;
+		color:#fff;
+		text-align: right;
+		padding:5px 10px;
+	}
+	.closeWrap button{
+		margin-left: 20px;
+		cursor:pointer;
+	}
+</style>
 <script src="js/jQuery.js"></script>
 <script src="js/webcafe.js"></script>
+<script src="js/jquery1.js"></script>
+<script src="js/jquery.cookie.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
 	$("#pw").keydown(function (key){
@@ -51,6 +75,25 @@ function ajaxLoginCheck(){
 	});
 }
 
+
+
+$(function() {
+	if($.cookie("popup") == "none") {
+			$("#notice_wrap").hide();
+	}
+
+	var $expChk = $("#expiresChk");
+	$(".closeBtn").on("click", closePop);
+	
+	function closePop() {
+		if($expChk.is(":checked")) {
+			$.cookie("popup","none",{expires:3, path:"/"});
+		}
+		$("#notice_wrap").fadeOut("fast");
+	}    
+});
+
+
 </script>  
 <style type="text/css">
 html { overflow-y:scroll; }
@@ -61,6 +104,24 @@ html { overflow-y:scroll; }
 
 <body>
 	<!-- #wrapper 시작 -->
+<script type="text/javascript">
+	//screen.width : 현재 운영체제의 너비
+//screen.height : 현재 운영체제의 높이
+w = 640; //팝업창의 너비
+h = 510; //팝업창의 높이
+
+//중앙위치 구해오기
+LeftPosition=(screen.width-w)/2;
+TopPosition=(screen.height-h)/2;
+
+//팝업 호출
+function popup_open() {
+window.open(
+팝업url,
+"팝업창이름",
+"width="+w+",height="+h+",top="+TopPosition+",left="+LeftPosition+", scrollbars=no");
+}
+</script>
 	<div id="wrapper">
 	
 		<!-- #header 시작 -->
@@ -70,6 +131,14 @@ html { overflow-y:scroll; }
 		<!-- //#visual 종료 -->
 		<!-- #contentsArea 시작 -->
 
+	<div id="notice_wrap">
+		<img src="images/popup.jpg" alt="공지사항">
+		<p class="closeWrap">
+			<input type="checkbox" name="expiresChk" id="expiresChk">
+			<label for="expiresChk">3일 동안 이 창 열지않기</label>
+			<button class="closeBtn">닫기</button>
+	</p>
+	</div>  
 		
 	
 
