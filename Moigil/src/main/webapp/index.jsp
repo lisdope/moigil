@@ -22,6 +22,7 @@
 		left: 900px;
 		top: 300px;
 		box-shadow:0 0 8px #000;
+		cursor:move
 	}
 	.closeWrap{
 		background-color: #000;
@@ -32,13 +33,20 @@
 	.closeWrap button{
 		margin-left: 20px;
 		cursor:pointer;
+	}	
+	.layer_popup{
+		position: absolute;left: 50px; top: 50px;
+		cursor:move;
+		
 	}
 </style>
 <script src="js/jQuery.js"></script>
 <script src="js/webcafe.js"></script>
 <script src="js/jquery1.js"></script>
 <script src="js/jquery.cookie.js"></script>
+<script src="js/jquery-ui-1.10.4.custom.min.js"></script>
 <script type="text/javascript">
+
 $(document).ready(function(){
 	$("#pw").keydown(function (key){
 		if(key.keyCode == 13){
@@ -93,6 +101,9 @@ $(function() {
 	}    
 });
 
+$(function() {
+	$(".layer_popup").draggable();
+});
 
 </script>  
 <style type="text/css">
@@ -115,7 +126,7 @@ html { overflow-y:scroll; }
 		<!-- //#visual 종료 -->
 		<!-- #contentsArea 시작 -->
 
-	<div id="notice_wrap">
+	<div id="notice_wrap" class="layer_popup">
 		<img src="images/popup.jpg" alt="공지사항">
 		<p class="closeWrap">
 			<input type="checkbox" name="expiresChk" id="expiresChk">
