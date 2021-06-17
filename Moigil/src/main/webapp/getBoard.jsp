@@ -140,7 +140,7 @@ border : 0px solid;}
 					<tfoot>
 					<tr>
 						<th class="table-primary">내용</th>
-						<td colspan="11" align="left"><textarea rows="20" cols="130" readonly="readonly">${board.boardContents}</textarea>
+						<td colspan="11" align="left"><textarea rows="20" cols="110" readonly="readonly">${board.boardContents}</textarea>
 						</td>
 					</tr>
 					</tfoot>

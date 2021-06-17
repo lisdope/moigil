@@ -12,7 +12,8 @@
 	<header id="navs">
 			<!-- 웹카페 로고 시작 -->
 			<h1 class="logo">
-				<a href="index.jsp"  id="moigil"><!-- 모이길--><img src='../css/images/moigilCI.png'></a>
+				<a href="index.jsp"  id="moigil"><!-- 모이길--><img src='../css/images/moigilCI.png' 
+				style="margin-top: 19px; margin-left: -27px;"></a>
 			</h1>
 		
 			<ul class="infoLink">
