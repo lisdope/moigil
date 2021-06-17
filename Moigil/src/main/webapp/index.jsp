@@ -19,7 +19,7 @@
 	#notice_wrap{
 		width: 300px;
 		position: absolute;
-		left: 700px;
+		left: 900px;
 		top: 300px;
 		box-shadow:0 0 8px #000;
 	}
@@ -104,23 +104,7 @@ html { overflow-y:scroll; }
 
 <body>
 	<!-- #wrapper 시작 -->
-<script type="text/javascript">
-	//screen.width : 현재 운영체제의 너비
-//screen.height : 현재 운영체제의 높이
-w = 640; //팝업창의 너비
-h = 510; //팝업창의 높이
 
-//중앙위치 구해오기
-LeftPosition=(screen.width-w)/2;
-TopPosition=(screen.height-h)/2;
-
-//팝업 호출
-function popup_open() {
-window.open(
-팝업url,
-"팝업창이름",
-"width="+w+",height="+h+",top="+TopPosition+",left="+LeftPosition+", scrollbars=no");
-}
 </script>
 	<div id="wrapper">
 	
